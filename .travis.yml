@@ -1,5 +1,14 @@
 language: node_js
- node_js: node
- cache:
-   directories:
-     - node_modules
+node_js: node
+cache:
+  directories:
+  - node_modules
+env:
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: Na8QocLOOjgohiTqktTrMtvxoGdLCyN2260p6FV1G3HwTt16xtl0HQoFIXW/yQoaVgZ3W9g6dVoCOW67loPyevDfxbhlybosUqwlB0irs8N6MI2HhcgW5fWJ6OW3gsLACPb9S+DWaENSelCUBSRCqE5UfajOmtRKDhS+p8hACLRBGe7nyyWXRrHbHCDDOHMKEi0dCKoBj6rF4lDG72Fo51S52llof10j8fRcUbl7iuGSla+9rsHHfN4pNJm9NNf8zaSGiClK2Es1m5FyALAoAMg5UudIuq1XK/NlA+WZ6ZIGKv1ONHVwzMNUitlaZNGXDbiW5+NAV3muSim89VGhgRXqr6W2hX0Ln+I/l7GQpBPOL23AoSQZecJDYaShR1HYT6OiNBDFDfqcR7fum/bRvpb0ylIJTtKmnsUkhCAotboz3oG+PeSblt/BmQp7obrv4eyR59mNIj1DY7mcOd1DDpfWl7zcAf5yER/jRZz+tGrTY2+P7KMWUl/epxqw1ZjHsOcjEAAoNcDSoB18d2AqOvgTo99n/zIXIGXiVzCODjnxrUT/oROnoGH4pw6qu+6fLag6V0bnAxqHSYaS1VY7QF4GdSTVPFW/zK/uAUz8yA6ZRCTfX4x3zcpCRRao5SLlK1VsRDTLt4m2EYbDNjxmQlXYj4sdqZI667+ZjV1pzfo=
+  app: powerful-brook-49143
+  on:
+    repo: MarkYapp/deltio-client
