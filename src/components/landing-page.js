@@ -4,7 +4,6 @@ import "./landing-page.css";
 export default function LandingPage() {
   return (
     <div>
-      <nav role="navigation">Nav</nav>
       <header role="banner">
         <h1>Welcome to Deltio</h1>
         <h3>Create and share beautiful digital postcards.</h3>

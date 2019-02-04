@@ -7,24 +7,24 @@ export default function SignupModal() {
       <div className="login-modal">
         <h2>Log in</h2>
         <form className="login-form">
-          <label name="username">Username</label>
-          <input for="username" type="text" />
-          <label name="password">Password</label>
-          <input for="password" />
+          <label htmlFor="username">Username</label>
+          <input id="username" type="text" />
+          <label htmlFor="password">Password</label>
+          <input id="password" />
           <button type="submit">Or, sign up</button>
         </form>
       </div>
       <div>
         <h2>Sign up</h2>
         <form className="signup-form">
-          <label name="name">Name</label>
-          <input for="name" type="text" />
-          <label name="email">Email</label>
-          <input for="email" type="email" />
-          <label name="username">Username</label>
-          <input for="username" type="text" />
-          <label name="password">Password</label>
-          <input for="password" />
+          <label htmlFor="name">Name</label>
+          <input id="name" type="text" />
+          <label htmlFor="email">Email</label>
+          <input id="email" type="email" />
+          <label htmlFor="username">Username</label>
+          <input id="username" type="text" />
+          <label htmlFor="password">Password</label>
+          <input id="password" />
           {/* <!-- is button the correct type? --> */}
           <button type="submit">Submit</button>
         </form>

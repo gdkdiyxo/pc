@@ -14,23 +14,11 @@ h1 {
   padding-top: 10%;
 }
 
-nav {
-  height: 60px;
-  position: fixed;
-  display: block;
-  top: 0;
-  width: 100%;
-  padding: 10px 0;
-  z-index: 100;
-  background-color: grey;
-}
-
 .hero {
   height: 500px;
   padding: 10% 0 10% 0;
 }
 
-nav,
 h1,
 h3,
 section,
