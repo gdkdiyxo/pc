@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  /*   margin: 2em; */
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+  height: 20%;
+  padding-top: 10%;
+}
+
+nav {
+  height: 60px;
+  position: fixed;
+  display: block;
+  top: 0;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 100;
+  background-color: grey;
+}
+
+.hero {
+  height: 500px;
+  padding: 10% 0 10% 0;
+}
+
+nav,
+h1,
+h3,
+section,
+footer {
+  display: block;
+  text-align: center;
+}
+
+section {
+  height: 100px;
+  padding: 10% 0 10% 0;
+}
+
+section:nth-child(even) {
+  background-color: grey;
+}
+
+footer {
+  background-color: grey;
+}
