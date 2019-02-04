@@ -1,6 +1,6 @@
 import React from "react";
 
-import { unsplashAuth } from "..env";
+import { unsplashAuth } from ".../env";
 export default class DesignWindow extends React.Component {
   loadImage() {
     const page = 1;
