@@ -1,4 +1,4 @@
-.signup-modal {
+.login-modal {
   width: 400px;
   border: 2px solid black;
   border-radius: 5px;
@@ -6,6 +6,6 @@
   margin: 10% auto;
 }
 
-.signup-modal input {
+.login-modal input {
   display: block;
 }

@@ -1,38 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  text-align: center;
-}
-
-h1 {
-  font-style: italic;
-  color: #373fff;
-}
-
-nav {
-  height: 60px;
-  position: fixed;
-  display: block;
-  top: 0;
-  width: 100%;
-  padding: 10px 0;
-  z-index: 100;
-  background-color: grey;
-}
-
-.search-form-wrapper {
+.search-form-wrapper,
+.message-form-wrapper,
+.recipient-form-wrapper {
   width: 70%;
   border: 1px solid black;
   margin: 90px auto 20px;
-}
-
-.message-form-wrapper {
-  width: 70%;
-  border: 1px solid black;
-  margin: 10px auto 10px;
 }
 
 .message-form-wrapper textarea {
@@ -63,8 +34,4 @@ nav {
   position: absolute;
   left: 0;
   bottom: 0;
-}
-
-footer {
-  background-color: grey;
 }

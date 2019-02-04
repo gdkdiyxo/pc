@@ -1,10 +1,25 @@
 nav {
   height: 60px;
   position: fixed;
-  display: block;
+  /* display: block; */
   top: 0;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px;
   z-index: 100;
   background-color: grey;
+}
+
+.nav-logo,
+.login-button,
+.signup-button {
+  display: inline;
+}
+
+.nav-logo {
+  float: left;
+}
+
+.login-button,
+.signup-button {
+  float: right;
 }
