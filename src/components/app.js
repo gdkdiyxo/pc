@@ -1,8 +1,14 @@
 import React from "react";
 import LandingPage from "./landing-page";
+import SignupModal from "./signup-modal";
 
 export default class App extends React.Component {
   render() {
-    return <LandingPage />;
+    return (
+      <div>
+        <LandingPage />
+        <SignupModal />
+      </div>
+    );
   }
 }
