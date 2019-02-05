@@ -13,7 +13,9 @@ export default class DesignWindow extends React.Component {
     const page = 1;
     const per_page = 1;
     const query = "cats";
-    let url = `https://api.unsplash.com/search/photos?client_id=${unsplashAuth}&page=${page}&per_page=${per_page}&query=${query}`;
+    const unsplashAuth =
+      "Client-ID 72f712e5e78353fa3a7bb238edf115fdb80e04120f85d42b48f85ffb5e849cca";
+    let url = `https://api.unsplash.com/search/photos?page=${page}&per_page=${per_page}&query=${query}`;
     console.log(url);
     fetch(`${url}`, {
       headers: {
