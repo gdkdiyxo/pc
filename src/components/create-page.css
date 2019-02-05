@@ -1,37 +1,12 @@
 .search-form-wrapper,
 .message-form-wrapper,
 .recipient-form-wrapper {
-  width: 70%;
+  width: 50%;
   border: 1px solid black;
   margin: 90px auto 20px;
 }
 
 .message-form-wrapper textarea {
-  width: 70%;
-}
-
-.design-container {
-  width: 70%;
-  height: 60vh;
-  margin-top: 15px;
-  border: 2px solid black;
-  background-color: grey;
-  margin: auto;
-  display: block;
-  position: relative;
-}
-
-.design p {
-  margin-top: 20%;
-}
-
-.flip-image-button {
-  height: 40px;
-  float: right;
-}
-
-.photo-credit {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  width: 50%;
+  margin-bottom: 20px;
 }

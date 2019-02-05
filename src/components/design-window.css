@@ -1,0 +1,84 @@
+/* Flip controls */
+.design-container {
+  width: 50%;
+  height: 60vh;
+  padding: 0;
+  margin: auto;
+  position: relative;
+  background-color: transparent;
+  perspective: 2000px;
+}
+
+.design-container-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.9s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.design-container:hover .design-container-inner {
+  transform: rotateY(180deg);
+}
+
+.postcard-image-container,
+.postcard-message-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.postcard-image-container {
+  background-color: #bbb;
+  color: black;
+  z-index: 2;
+}
+
+.postcard-message-container {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Image styling */
+.postcard-image-container img {
+  height: 60vh;
+  width: 100%;
+  /* position: absolute; */
+}
+
+.last-image-btn,
+.next-image-btn {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  z-index: 100;
+}
+
+.last-image-btn {
+  left: 0;
+}
+
+.next-image-btn {
+  right: 0;
+}
+
+.flip-image-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.design-container p {
+  margin-top: 20%;
+}
+.photo-credit {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}

@@ -1,12 +1,13 @@
 import React from "react";
+import "./design-window.css";
 
-// import { unsplashAuth } from "./secrets";
 export default class DesignWindow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       image: []
     };
+    this.designContainer = React.createRef();
   }
   loadImage(e) {
     e.preventDefault();
@@ -32,26 +33,55 @@ export default class DesignWindow extends React.Component {
     // });
   }
 
+  flipImage(e) {
+    e.preventDefault();
+    // this.designContainer(addClass("small"));
+  }
+
   render() {
     return (
-      <section className="design-container">
-        <div className="design">
-          <img src={this.state.image} alt="this is the alt text" />
+      <section className="design-container" ref={this.designContainer}>
+        <div className="design-container-inner" ref={this.designContainerInner}>
+          <div className="postcard-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU0MzUwfQ"
+              alt="Cats in a basket"
+            />
+
+            <button
+              type="submit"
+              className="last-image-btn"
+              onClick={e => this.loadNextImage(e)}
+            >
+              <i className="fas fa-7x fa-angle-left" />
+            </button>
+
+            <button
+              type="submit"
+              className="next-image-btn"
+              onClick={e => this.loadNextImage(e)}
+            >
+              <i className="fas fa-7x fa-angle-right" />
+            </button>
+
+            <button
+              type="submit"
+              className="flip-image-btn"
+              onClick={e => this.flipImage(e)}
+            >
+              <i className="fas fa-7x fa-sync" />
+            </button>
+
+            <p className="photo-credit">
+              Compliments of www.unsplash.com
+              <br />
+              Photo credit: <a href="www.unsplash.com">[photographer]</a>
+            </p>
+          </div>
+          <div className="postcard-message-container">
+            <h3>Hello</h3>
+          </div>
         </div>
-        <div className="design-controls">
-          <button
-            type="submit"
-            className="flip-image-button"
-            onClick={e => this.loadImage(e)}
-          >
-            flip
-          </button>
-        </div>
-        <p className="photo-credit">
-          Compliments of www.unsplash.com
-          <br />
-          Photo credit: <a href="www.unsplash.com">[photographer]</a>
-        </p>
       </section>
     );
   }

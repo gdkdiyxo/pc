@@ -18,7 +18,9 @@ footer {
   text-align: center;
 }
 
-section {
+.userguide-1,
+.userguide-2,
+.userguide-3 {
   height: 100px;
   padding: 10% 0 10% 0;
   width: 300px;
