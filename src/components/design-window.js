@@ -1,6 +1,6 @@
 import React from "react";
 
-import { unsplashAuth } from "./secrets";
+// import { unsplashAuth } from "./secrets";
 export default class DesignWindow extends React.Component {
   constructor(props) {
     super(props);
