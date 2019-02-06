@@ -1,7 +1,7 @@
-import React from "react";
-import "./login-modal.css";
+import React from 'react';
+import './login-page.css';
 
-export default function LoginModal() {
+export default function LoginPage() {
   return (
     <div className="login-modal">
       <h2>Log in</h2>

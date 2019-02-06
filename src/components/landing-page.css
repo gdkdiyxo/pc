@@ -11,27 +11,24 @@ h1 {
 }
 
 h1,
-h3,
-section,
-footer {
+h3 {
   display: block;
   text-align: center;
 }
 
-.userguide-1,
-.userguide-2,
-.userguide-3 {
-  height: 100px;
-  padding: 10% 0 10% 0;
-  width: 300px;
+.instruction-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.instruction {
+  text-align: center;
+  height: 200px;
+  padding: 10px;
+  width: 250px;
   margin: 10px auto;
   border: 1px solid grey;
-}
-
-section:nth-child(even) {
-  background-color: grey;
-}
-
-footer {
-  background-color: grey;
 }

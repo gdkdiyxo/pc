@@ -1,18 +1,7 @@
-import React from "react";
-import "./landing-page.css";
-
-import SignupModal from "./signup-modal";
-import LoginModal from "./login-modal";
+import React from 'react';
+import './landing-page.css';
 
 export default class LandingPage extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  goToDemo(event) {
-    event.preventDefault();
-    this.props.history.push("/create");
-  }
   render() {
     return (
       <div>
@@ -21,22 +10,20 @@ export default class LandingPage extends React.Component {
           <h3>Create and share beautiful digital postcards.</h3>
         </header>
 
-        <section className="userguide-1">
-          Choose from thousands of beautiful, professional images
+        <section className="instruction-wrapper">
+          <div className="instruction">
+            <i className="far fa-5x fa-image" />
+            <p>Choose from thousands of professional images, or upload one of your own.</p>
+          </div>
+          <div className="instruction">
+            <i className="fas fa-5x fa-pen-fancy" />
+            <p>Flip the postcard and write your message on the back.</p>
+          </div>
+          <div className="instruction">
+            <i className="fas fa-5x fa-at" />
+            <p>Add a list of recipient emails, and send it off!</p>
+          </div>
         </section>
-        <section className="userguide-2">
-          Flip the postcard and write your message on the back.
-        </section>
-        <section className="userguide-3">
-          Add a list of recipients, and send it off!
-        </section>
-        <SignupModal />
-        <LoginModal />
-        <h3>
-          <form onSubmit={e => this.goToDemo(e)}>
-            <button>Click here to use the demo</button>
-          </form>
-        </h3>
       </div>
     );
   }

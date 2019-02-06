@@ -9,17 +9,18 @@ nav {
   background-color: grey;
 }
 
-.nav-logo,
-.login-button,
-.signup-button {
-  display: inline;
-}
-
 .nav-logo {
-  float: left;
+  display: inline-block;
+  /* float: left; */
 }
 
-.login-button,
-.signup-button {
+/* .login-btn,
+.signup-btn,
+.account-btn,
+.logout-btn {
+  display: inline-block;
+  /* float: right; */
+
+.nav-btns {
   float: right;
 }

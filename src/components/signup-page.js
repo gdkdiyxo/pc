@@ -1,7 +1,7 @@
-import React from "react";
-import "./signup-modal.css";
+import React from 'react';
+import './signup-page.css';
 
-export default function SignupModal() {
+export default function SignupPage() {
   return (
     <div className="signup-modal">
       <h2>Sign up</h2>
