@@ -1,12 +1,13 @@
 /* Flip controls */
 .design-container {
-  width: 50%;
+  width: 70%;
   height: 60vh;
   padding: 0;
   margin: auto;
   position: relative;
   background-color: transparent;
   perspective: 2000px;
+  margin-bottom: 20px;
 }
 
 .design-container-inner {
@@ -18,7 +19,8 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.design-container:active .design-container-inner {
+/* .design-container:hover */
+.design-container .design-container-inner {
   transform: rotateY(180deg);
 }
 
@@ -34,13 +36,6 @@
   background-color: #bbb;
   color: black;
   z-index: 2;
-}
-
-.postcard-message-container {
-  background-color: #2980b9;
-  color: white;
-  transform: rotateY(180deg);
-  z-index: 1;
 }
 
 /* Image styling */
@@ -71,14 +66,4 @@
   position: absolute;
   right: 0;
   bottom: 0;
-}
-
-.design-container p {
-  margin-top: 20%;
-}
-.photo-credit {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 100;
 }

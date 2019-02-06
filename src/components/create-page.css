@@ -1,14 +1,19 @@
 .search-form-wrapper,
 .message-form-wrapper,
 .recipient-form-wrapper {
-  width: 50%;
+  width: 70%;
   border: 1px solid black;
-  margin: 90px auto 20px;
+  padding: 10px;
+  margin: 0 auto 10px;
 }
 
 .message-form-wrapper textarea {
-  width: 50%;
-  margin-bottom: 20px;
+  width: 70%;
+}
+
+.photo-credit {
+  margin-left: 15%;
+  bottom: 0;
 }
 
 .footer {

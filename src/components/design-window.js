@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PostcardMessage from './postcard-message';
 import './design-window.css';
 
 export default class DesignWindow extends React.Component {
@@ -60,16 +60,8 @@ export default class DesignWindow extends React.Component {
             <button type="submit" className="flip-image-btn" onClick={e => this.flipImage(e)}>
               <i className="fas fa-7x fa-sync" />
             </button>
-
-            <p className="photo-credit">
-              Compliments of www.unsplash.com
-              <br />
-              Photo credit: <a href="www.unsplash.com">[photographer]</a>
-            </p>
           </div>
-          <div className="postcard-message-container">
-            <h3>Hello</h3>
-          </div>
+          <PostcardMessage />
         </div>
       </section>
     );

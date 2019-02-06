@@ -1,0 +1,26 @@
+.postcard-message-container {
+  padding: 25px;
+  background-color: #ececec;
+  border: 1px solid grey;
+  transform: rotateY(180deg);
+  z-index: 100;
+  display: flex;
+}
+
+.message {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.4em;
+  padding-right: 15px;
+  border-right: 2.5px dotted rgb(80, 80, 80);
+  flex: 3;
+}
+
+.address {
+  margin-top: 100px;
+  padding-left: 25px;
+  flex: 2;
+}
+
+.address p {
+  margin: 2px;
+}

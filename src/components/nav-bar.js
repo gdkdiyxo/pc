@@ -1,7 +1,7 @@
 import React from 'react';
 import './nav-bar.css';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 export default class NavBar extends React.Component {
   goToDemo(event) {
@@ -13,14 +13,18 @@ export default class NavBar extends React.Component {
     return (
       <Router>
         <nav role="navigation">
-          <h3 className="nav-logo">Deltio</h3>
+          <p className="nav-logo">Deltio</p>
           <div className="nav-btns">
-            <button onClick={e => this.goToDemo(e)}>
+            <button>
               <Link to="/login">Log in</Link>
             </button>
-            <button className="signup-btn">Sign up</button>
-            <button className="account-btn">Account</button>
-            <button className="logout-btn">Log out</button>
+            <button className="signup-btn">
+              <Link to="/signup">Sign up</Link>
+            </button>
+            <button className="account-btn">{/* <Link to="/login">Account</Link> */}Account</button>
+            <button className="logout-btn">
+              <Link to="/">Log out</Link>
+            </button>
           </div>
         </nav>
       </Router>
