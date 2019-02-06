@@ -18,7 +18,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.design-container:hover .design-container-inner {
+.design-container:active .design-container-inner {
   transform: rotateY(180deg);
 }
 

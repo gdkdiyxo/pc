@@ -1,11 +1,12 @@
 import React from 'react';
+import Footer from './footer';
 import './landing-page.css';
 
 export default class LandingPage extends React.Component {
   render() {
     return (
       <div>
-        <header role="banner">
+        <header role="banner" className="landing-page-header">
           <h1>Welcome to Deltio</h1>
           <h3>Create and share beautiful digital postcards.</h3>
         </header>
@@ -24,6 +25,7 @@ export default class LandingPage extends React.Component {
             <p>Add a list of recipient emails, and send it off!</p>
           </div>
         </section>
+        <Footer />
       </div>
     );
   }

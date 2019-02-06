@@ -1,5 +1,6 @@
-import React from "react";
-import "./design-window.css";
+import React from 'react';
+
+import './design-window.css';
 
 export default class DesignWindow extends React.Component {
   constructor(props) {
@@ -13,16 +14,16 @@ export default class DesignWindow extends React.Component {
     e.preventDefault();
     const page = 1;
     const per_page = 1;
-    const query = "cats";
+    const query = 'cats';
     const unsplashAuth =
-      "Client-ID 72f712e5e78353fa3a7bb238edf115fdb80e04120f85d42b48f85ffb5e849cca";
+      'Client-ID 72f712e5e78353fa3a7bb238edf115fdb80e04120f85d42b48f85ffb5e849cca';
     let url = `https://api.unsplash.com/search/photos?page=${page}&per_page=${per_page}&query=${query}`;
     console.log(url);
     fetch(`${url}`, {
       headers: {
-        method: "GET",
-        "Content-Type": "application/JSON",
-        "Accept-Version": "v1",
+        method: 'GET',
+        'Content-Type': 'application/JSON',
+        'Accept-Version': 'v1',
         Authorization: `${unsplashAuth}`
       }
     })
@@ -48,27 +49,15 @@ export default class DesignWindow extends React.Component {
               alt="Cats in a basket"
             />
 
-            <button
-              type="submit"
-              className="last-image-btn"
-              onClick={e => this.loadNextImage(e)}
-            >
+            <button type="submit" className="last-image-btn" onClick={e => this.loadNextImage(e)}>
               <i className="fas fa-7x fa-angle-left" />
             </button>
 
-            <button
-              type="submit"
-              className="next-image-btn"
-              onClick={e => this.loadNextImage(e)}
-            >
+            <button type="submit" className="next-image-btn" onClick={e => this.loadNextImage(e)}>
               <i className="fas fa-7x fa-angle-right" />
             </button>
 
-            <button
-              type="submit"
-              className="flip-image-btn"
-              onClick={e => this.flipImage(e)}
-            >
+            <button type="submit" className="flip-image-btn" onClick={e => this.flipImage(e)}>
               <i className="fas fa-7x fa-sync" />
             </button>
 

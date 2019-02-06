@@ -1,7 +1,7 @@
-import React from "react";
-import "./create-page.css";
+import React from 'react';
+import './create-page.css';
 
-import DesignWindow from "./design-window";
+import DesignWindow from './design-window';
 
 export default function CreatePage() {
   return (
@@ -26,15 +26,14 @@ export default function CreatePage() {
           <h3>3) Address your postcard!</h3>
           <form>
             <label htmlFor="recipient-list">Send your postcard!</label>
-            <input
-              id="recipient-list"
-              type="email"
-              defaultValue="add emails here"
-            />
+            <input id="recipient-list" type="email" defaultValue="add emails here" />
             <button type="submit">Send</button>
           </form>
         </div>
       </main>
+      <div className="footer">
+        <p>Created by Mark Yapp</p>
+      </div>
     </div>
   );
 }

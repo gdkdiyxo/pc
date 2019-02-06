@@ -5,7 +5,6 @@ import LandingPage from './landing-page';
 import SignupPage from './signup-page';
 import LoginPage from './login-page';
 import CreatePage from './create-page';
-import Footer from './footer';
 
 export default class App extends React.Component {
   render() {
@@ -17,7 +16,6 @@ export default class App extends React.Component {
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/create" component={CreatePage} />
-          <Footer />
         </div>
       </Router>
     );
