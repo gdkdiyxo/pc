@@ -1,9 +1,9 @@
 import React from 'react';
-import CardImage from './card-image';
-import CardMessage from './card-message';
-import './design-window.css';
+import CardFront from './card-front';
+import CardBack from './card-back';
+import './card-container.css';
 
-export default class DesignWindow extends React.Component {
+export default class CardContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,8 +44,8 @@ export default class DesignWindow extends React.Component {
     return (
       <section className="design-container" ref={this.designContainer}>
         <div className="design-container-inner" ref={this.designContainerInner}>
-          <CardImage />
-          <CardMessage />
+          <CardFront />
+          <CardBack />
         </div>
       </section>
     );

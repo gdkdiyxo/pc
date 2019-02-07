@@ -9,7 +9,8 @@ export const addMessage = message => ({
   message
 });
 
-export const SEND_CARD = 'SEND_CARD';
-export const sendCard = () => ({
-  type: SEND_CARD
+export const ADD_RECIPIENTS = 'ADD_RECIPIENTS';
+export const addRecipients = recipients => ({
+  type: ADD_RECIPIENTS,
+  recipients
 });

@@ -1,8 +1,8 @@
 import React from 'react';
-import './card-image.css';
+import './card-front.css';
 import { connect } from 'react-redux';
 
-export class CardImage extends React.Component {
+export class CardFront extends React.Component {
   render() {
     return (
       <div className="card-image-container">
@@ -31,4 +31,4 @@ const mapStateToProps = state => ({
   image: state.image
 });
 
-export default connect(mapStateToProps)(CardImage);
+export default connect(mapStateToProps)(CardFront);

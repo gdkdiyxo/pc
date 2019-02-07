@@ -3,7 +3,8 @@ import React from 'react';
 import './create-page.css';
 
 import MessageForm from './message-form';
-import DesignWindow from './design-window';
+import CardContainer from './card-container';
+import RecipientForm from './recipient-form';
 
 export default function CreatePage() {
   return (
@@ -18,19 +19,11 @@ export default function CreatePage() {
         </form>
       </div>
       <MessageForm />
-      <DesignWindow />
+      <CardContainer />
       <p className="photo-credit">
         Compliments of www.unsplash.com Photo credit: <a href="www.unsplash.com">[photographer]</a>
       </p>
-      <div className="recipient-form-wrapper">
-        <h3>3) Address your postcard!</h3>
-        <form>
-          <label htmlFor="recipient-list">Send your postcard!</label>
-          <input id="recipient-list" type="email" defaultValue="add emails here" />
-          <button type="submit">Send</button>
-        </form>
-      </div>
-
+      <RecipientForm />
       <div className="footer">
         <p>Created by Mark Yapp</p>
       </div>

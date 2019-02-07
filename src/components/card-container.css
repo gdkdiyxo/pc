@@ -20,6 +20,6 @@
 }
 
 /* .design-container:hover */
-.design-container:hover .design-container-inner {
+.design-container .design-container-inner {
   transform: rotateY(180deg);
 }

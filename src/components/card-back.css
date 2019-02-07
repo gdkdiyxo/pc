@@ -16,6 +16,8 @@
 }
 
 .message {
+  word-break: break-word;
+  word-wrap: break-word;
   font-family: 'Indie Flower', cursive;
   font-size: 1.4em;
   padding-right: 15px;
