@@ -1,6 +1,8 @@
 import React from 'react';
+
 import './create-page.css';
 
+import MessageForm from './message-form';
 import DesignWindow from './design-window';
 
 export default function CreatePage() {
@@ -15,11 +17,7 @@ export default function CreatePage() {
           <button>Or, upload one of your images</button>
         </form>
       </div>
-
-      <div className="message-form-wrapper">
-        <h3>2) Add your message!</h3>
-        <textarea defaultValue="Drop somebody a line!" />
-      </div>
+      <MessageForm />
       <DesignWindow />
       <p className="photo-credit">
         Compliments of www.unsplash.com Photo credit: <a href="www.unsplash.com">[photographer]</a>

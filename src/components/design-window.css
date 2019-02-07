@@ -20,50 +20,6 @@
 }
 
 /* .design-container:hover */
-.design-container .design-container-inner {
+.design-container:hover .design-container-inner {
   transform: rotateY(180deg);
-}
-
-.postcard-image-container,
-.postcard-message-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.postcard-image-container {
-  background-color: #bbb;
-  color: black;
-  z-index: 2;
-}
-
-/* Image styling */
-.postcard-image-container img {
-  height: 60vh;
-  width: 100%;
-  /* position: absolute; */
-}
-
-.last-image-btn,
-.next-image-btn {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  z-index: 100;
-}
-
-.last-image-btn {
-  left: 0;
-}
-
-.next-image-btn {
-  right: 0;
-}
-
-.flip-image-btn {
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }

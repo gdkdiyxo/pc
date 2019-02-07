@@ -1,5 +1,6 @@
 import React from 'react';
-import PostcardMessage from './postcard-message';
+import CardImage from './card-image';
+import CardMessage from './card-message';
 import './design-window.css';
 
 export default class DesignWindow extends React.Component {
@@ -43,25 +44,8 @@ export default class DesignWindow extends React.Component {
     return (
       <section className="design-container" ref={this.designContainer}>
         <div className="design-container-inner" ref={this.designContainerInner}>
-          <div className="postcard-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU0MzUwfQ"
-              alt="Cats in a basket"
-            />
-
-            <button type="submit" className="last-image-btn" onClick={e => this.loadNextImage(e)}>
-              <i className="fas fa-7x fa-angle-left" />
-            </button>
-
-            <button type="submit" className="next-image-btn" onClick={e => this.loadNextImage(e)}>
-              <i className="fas fa-7x fa-angle-right" />
-            </button>
-
-            <button type="submit" className="flip-image-btn" onClick={e => this.flipImage(e)}>
-              <i className="fas fa-7x fa-sync" />
-            </button>
-          </div>
-          <PostcardMessage />
+          <CardImage />
+          <CardMessage />
         </div>
       </section>
     );

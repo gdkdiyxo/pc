@@ -1,14 +1,9 @@
 .search-form-wrapper,
-.message-form-wrapper,
 .recipient-form-wrapper {
   width: 70%;
   border: 1px solid black;
   padding: 10px;
   margin: 0 auto 10px;
-}
-
-.message-form-wrapper textarea {
-  width: 70%;
 }
 
 .photo-credit {
