@@ -14,3 +14,13 @@ export const addRecipient = recipient => ({
   type: ADD_RECIPIENT,
   recipient
 });
+
+export const FEEL_RECIPIENT_FORM = 'FEEL_RECIPIENT_FORM';
+export const feelRecipientForm = () => ({
+  type: FEEL_RECIPIENT_FORM
+});
+
+export const CLEAR_RECIPIENTS = 'CLEAR_RECIPIENTS';
+export const clearRecipients = () => ({
+  type: CLEAR_RECIPIENTS
+});

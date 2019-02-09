@@ -1,20 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addRecipient } from '../actions';
+import { clearRecipients, addRecipient, feelRecipientForm } from '../actions';
 import './recipient-form.css';
 
 export class RecipientForm extends React.Component {
-  constructor(props) {
-    super(props);
+  clearRecipients() {
+    console.log(this.props.recipientFormTouched);
+    if (this.props.recipientFormTouched === false) {
+      this.props.dispatch(feelRecipientForm());
+      this.props.dispatch(clearRecipients());
+    }
   }
 
   addRecipient(e) {
     e.preventDefault();
     const email = this.emailInput.value;
-    console.log(email);
     this.props.dispatch(addRecipient(email));
-    console.log(this.props.recipients);
   }
 
   render() {
@@ -28,6 +30,7 @@ export class RecipientForm extends React.Component {
             type="email"
             placeholder="add emails here"
             ref={input => (this.emailInput = input)}
+            onChange={e => this.clearRecipients(e)}
           />
           <button type="submit">Add</button>
         </form>
@@ -37,6 +40,7 @@ export class RecipientForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  recipientFormTouched: state.recipientFormTouched,
   recipients: state.recipients
 });
 export default connect(mapStateToProps)(RecipientForm);

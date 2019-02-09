@@ -6,11 +6,6 @@ import { flipCard, addMessage } from '../actions';
 import './message-form.css';
 
 export class MessageForm extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.onChange = this.onChange.bind(this);
-  }
-
   flipCard;
   onChange(text) {
     if (!this.props.isCardFlipped) {
