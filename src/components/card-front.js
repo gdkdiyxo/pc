@@ -8,7 +8,7 @@ export class CardFront extends React.Component {
       <div className="card-image-container">
         <img src={this.props.image.src} alt={this.props.image.alt} />
 
-        <button type="submit" className="last-image-btn" onClick={e => this.loadNextImage(e)}>
+        {/* <button type="submit" className="last-image-btn" onClick={e => this.loadNextImage(e)}>
           <i className="fas fa-7x fa-angle-left" />
         </button>
 
@@ -18,7 +18,7 @@ export class CardFront extends React.Component {
 
         <button type="submit" className="flip-image-btn" onClick={e => this.flipImage(e)}>
           <i className="fas fa-7x fa-sync" />
-        </button>
+        </button> */}
       </div>
     );
   }

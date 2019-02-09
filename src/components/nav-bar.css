@@ -1,7 +1,6 @@
 nav {
   height: 40px;
   position: fixed;
-  /* display: block; */
   top: 0;
   width: 100%;
   padding: 10px;
@@ -14,6 +13,10 @@ nav {
   margin: 0 10px;
   /* float: left; */
 }
+
+/* .nav-demo-btn {
+  display: inline-block;
+} */
 
 /* .login-btn,
 .signup-btn,

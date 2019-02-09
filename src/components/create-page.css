@@ -1,3 +1,21 @@
+.card-btn-wrapper {
+  text-align: center;
+}
+
+.create-page-btn {
+  display: inline;
+  margin-right: 20px;
+  padding: 5px;
+  background-color: green;
+}
+
+.create-page-btn a,
+.create-page-btn {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
 .footer {
   text-align: center;
 }

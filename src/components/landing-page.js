@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from './footer';
 import './landing-page.css';
 
@@ -25,6 +26,9 @@ export default class LandingPage extends React.Component {
             <p>Add a list of recipient emails, and send it off!</p>
           </div>
         </section>
+        <button className="demo-btn">
+          <Link to="/create">Try it out</Link>
+        </button>
         <Footer />
       </div>
     );

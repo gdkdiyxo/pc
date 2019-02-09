@@ -20,7 +20,7 @@ export class CardContainer extends React.Component {
           <CardBack />
         </div>
         <p className="photo-credit">
-          Compliments of www.unsplash.com Photo credit:{' '}
+          Click on postcard to flip. Compliments of www.unsplash.com Photo credit:{' '}
           <a href="www.unsplash.com">[photographer]</a>
         </p>
       </section>

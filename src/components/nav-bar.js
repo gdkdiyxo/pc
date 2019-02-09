@@ -1,18 +1,16 @@
 import React from 'react';
-import './nav-bar.css';
-
 import { Link } from 'react-router-dom';
 
+import './nav-bar.css';
+
 export default class NavBar extends React.Component {
-  // goToDemo(event) {
-  //   // event.preventDefault();
-  //   console.log('goToDemo fired');
-  //   this.props.history.push('/create');
-  // }
   render() {
     return (
       <nav role="navigation">
         <p className="nav-logo">Deltio</p>
+        <button>
+          <Link to="/create">Try the demo</Link>
+        </button>
         <div className="nav-btns">
           <button>
             <Link to="/login">Log in</Link>

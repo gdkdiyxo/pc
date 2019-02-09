@@ -30,3 +30,17 @@ h1 {
   margin: 10px auto;
   border: 1px solid grey;
 }
+
+.demo-btn {
+  display: block;
+  margin: 20px auto;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  background-color: green;
+}
+
+.demo-btn a {
+  color: white;
+  text-decoration: none;
+}
