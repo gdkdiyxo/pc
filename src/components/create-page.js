@@ -7,29 +7,40 @@ import ImageForm from './image-form';
 import MessageForm from './message-form';
 import CardContainer from './card-container';
 import RecipientForm from './recipient-form';
+import { connect } from 'react-redux';
 
-export default function CreatePage() {
-  return (
-    <div>
-      <ImageForm />
-      <MessageForm />
-      <CardContainer />
-      <RecipientForm />
-      <div className="card-btn-wrapper">
-        <button className="create-page-btn">
-          <Link to="/preview">Preview postcard</Link>
-        </button>
-        <button className="create-page-btn">
-          <a
-            href={`mailto:myapp115@gmail.com?subject=You've received a postcard from [account name]&body=Click on this link to view the postcard:${API_BASE_URL}/preview`}
-          >
-            Send postcard
-          </a>
-        </button>
+export class CreatePage extends React.Component {
+  render() {
+    return (
+      <div>
+        <ImageForm />
+        <MessageForm />
+        <CardContainer />
+        <RecipientForm />
+        <div className="card-btn-wrapper">
+          <button className="create-page-btn">
+            <Link to="/preview">Preview postcard</Link>
+          </button>
+          <button className="create-page-btn">
+            <a
+              href={`mailto:${
+                this.props.recipients
+              }?subject=You've received a postcard from [account name]&body=Click on this link to view the postcard:${API_BASE_URL}/preview`}
+            >
+              Send postcard
+            </a>
+          </button>
+        </div>
+        <div className="footer">
+          <p>Created by Mark Yapp</p>
+        </div>
       </div>
-      <div className="footer">
-        <p>Created by Mark Yapp</p>
-      </div>
-    </div>
-  );
+    );
+  }
 }
+
+const mapStateToProps = state => ({
+  recipients: state.recipients
+});
+
+export default connect(mapStateToProps)(CreatePage);

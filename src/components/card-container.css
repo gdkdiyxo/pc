@@ -29,6 +29,8 @@
   transform: rotateY(180deg);
 }
 
+.flip-instructions,
 .photo-credit {
+  margin-left: 15%;
   display: inline;
 }
