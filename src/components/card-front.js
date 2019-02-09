@@ -6,10 +6,7 @@ export class CardFront extends React.Component {
   render() {
     return (
       <div className="card-image-container">
-        <img
-          src="https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU0MzUwfQ"
-          alt="Cats in a basket"
-        />
+        <img src={this.props.image.src} alt={this.props.image.alt} />
 
         <button type="submit" className="last-image-btn" onClick={e => this.loadNextImage(e)}>
           <i className="fas fa-7x fa-angle-left" />

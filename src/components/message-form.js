@@ -16,13 +16,16 @@ export class MessageForm extends React.Component {
 
   render() {
     return (
-      <div className="message-form-wrapper">
-        <h3>2) Add your message</h3>
-        <textarea
-          placeholder="i.e. Guess where I am right now?!"
-          onChange={e => this.onChange(e.target.value)}
-        />
-      </div>
+      <form className="message-form-wrapper">
+        <label htmlFor="message">2) Add your message</label>
+        <div className="message-form-row">
+          <textarea
+            id="message"
+            placeholder="i.e. Guess where I am right now?!"
+            onChange={e => this.onChange(e.target.value)}
+          />
+        </div>
+      </form>
     );
   }
 }

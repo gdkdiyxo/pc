@@ -1,3 +1,9 @@
+export const SET_IMAGE = 'SET_IMAGE';
+export const setImage = image => ({
+  type: SET_IMAGE,
+  image
+});
+
 export const FLIP_CARD = 'FLIP_CARD';
 export const flipCard = () => ({
   type: FLIP_CARD

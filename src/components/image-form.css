@@ -1,20 +1,20 @@
-.recipient-form-wrapper {
+.search-form-wrapper {
   width: 70%;
   border: 1px solid black;
   padding: 10px;
-  margin: 25px auto 20px;
+  margin: 0 auto 15px;
 }
 
-.recipient-form-row {
+.image-form-row {
   display: flex;
   padding: 10px 10px 10px 0;
 }
 
-.recipient-form-row input {
+.image-form-row input {
   flex: 3;
   margin-right: 10px;
 }
 
-.recipient-form-row button {
+.image-form-row button {
   flex: 1;
 }

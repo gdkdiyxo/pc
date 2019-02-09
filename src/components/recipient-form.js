@@ -22,17 +22,18 @@ export class RecipientForm extends React.Component {
   render() {
     return (
       <div className="recipient-form-wrapper">
-        <h3>3) Address your postcard!</h3>
         <form onSubmit={e => this.addRecipient(e)}>
-          <label htmlFor="recipient-list">Send your postcard!</label>
-          <input
-            id="recipient-list"
-            type="email"
-            placeholder="add emails here"
-            ref={input => (this.emailInput = input)}
-            onChange={e => this.clearRecipients(e)}
-          />
-          <button type="submit">Add</button>
+          <label htmlFor="recipient-list">3) Add recipients' emails</label>
+          <div className="recipient-form-row">
+            <input
+              id="recipient-list"
+              type="email"
+              placeholder="add emails here"
+              ref={input => (this.emailInput = input)}
+              onChange={e => this.clearRecipients(e)}
+            />
+            <button type="submit">Add</button>
+          </div>
         </form>
       </div>
     );

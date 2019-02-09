@@ -29,15 +29,6 @@
   transform: rotateY(180deg);
 }
 
-/* .design-container:hover */
-/* .card-outer:hover .card-inner {
-  transform: rotateY(180deg);
-} */
-
-/* .card-inner-flip {
-  transform: rotateY(180deg);
-}  */
-
-/* .card-outer-flip .card-inner {
-  transform: rotateY(-180deg);
-} */
+.photo-credit {
+  display: inline;
+}
