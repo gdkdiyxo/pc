@@ -9,8 +9,8 @@ export const addMessage = message => ({
   message
 });
 
-export const ADD_RECIPIENTS = 'ADD_RECIPIENTS';
-export const addRecipients = recipients => ({
-  type: ADD_RECIPIENTS,
-  recipients
+export const ADD_RECIPIENT = 'ADD_RECIPIENT';
+export const addRecipient = recipient => ({
+  type: ADD_RECIPIENT,
+  recipient
 });

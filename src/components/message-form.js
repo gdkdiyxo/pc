@@ -1,17 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addMessage } from '../actions';
+import { flipCard, addMessage } from '../actions';
 
 import './message-form.css';
 
 export class MessageForm extends React.Component {
   constructor(props) {
     super(props);
-    this.onChange = this.onChange.bind(this);
+    // this.onChange = this.onChange.bind(this);
   }
+
+  flipCard;
   onChange(text) {
-    console.log(text);
+    if (!this.props.isCardFlipped) {
+      this.props.dispatch(flipCard());
+    }
     this.props.dispatch(addMessage(text));
   }
 
@@ -29,7 +33,8 @@ export class MessageForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  message: state.message
+  message: state.message,
+  isCardFlipped: state.isCardFlipped
 });
 
 export default connect(mapStateToProps)(MessageForm);

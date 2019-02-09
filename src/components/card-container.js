@@ -1,15 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import CardFront from './card-front';
 import CardBack from './card-back';
+
+import { flipCard } from '../actions';
 import './card-container.css';
 
-export default class CardContainer extends React.Component {
+export class CardContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       image: []
     };
-    this.designContainer = React.createRef();
+    // this.designContainer = React.createRef();
   }
   loadImage(e) {
     e.preventDefault();
@@ -35,15 +38,15 @@ export default class CardContainer extends React.Component {
     // });
   }
 
-  flipImage(e) {
-    e.preventDefault();
-    // this.designContainer(addClass("small"));
+  flipCard(e) {
+    this.props.dispatch(flipCard());
   }
 
   render() {
+    const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
-      <section className="design-container" ref={this.designContainer}>
-        <div className="design-container-inner" ref={this.designContainerInner}>
+      <section className="card-outer" onClick={e => this.flipCard(e)}>
+        <div className={cardClass}>
           <CardFront />
           <CardBack />
         </div>
@@ -51,3 +54,9 @@ export default class CardContainer extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isCardFlipped: state.isCardFlipped
+});
+
+export default connect(mapStateToProps)(CardContainer);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './card-back.css';
+// import EmailList from './email-list';
 
 export class CardBack extends React.Component {
   render() {
