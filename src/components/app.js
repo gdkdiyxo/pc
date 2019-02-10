@@ -4,7 +4,7 @@ import NavBar from './nav-bar';
 import LandingPage from './landing-page';
 import SignupPage from './signup-page';
 import LoginPage from './login-page';
-import CreatePage from './create-page';
+import CreatePage from './create-page/create-page';
 import PreviewPage from './preview-page';
 
 export default class App extends React.Component {

@@ -25,7 +25,7 @@ export class CardFront extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  image: state.image
+  image: state.card.image
 });
 
 export default connect(mapStateToProps)(CardFront);

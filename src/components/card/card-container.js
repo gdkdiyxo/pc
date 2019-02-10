@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CardFront from './card-front';
 import CardBack from './card-back';
 
-import { flipCard } from '../actions';
+import { flipCard } from '../../actions';
 import './card-container.css';
 
 export class CardContainer extends React.Component {

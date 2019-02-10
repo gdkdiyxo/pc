@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { flipCard, addMessage } from '../actions';
+import { flipCard, addMessage } from '../../actions';
 
 import './message-form.css';
 
@@ -31,7 +31,7 @@ export class MessageForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  message: state.message,
+  message: state.card.message,
   isCardFlipped: state.isCardFlipped
 });
 

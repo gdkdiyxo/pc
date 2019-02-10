@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { clearRecipients, addRecipient, feelRecipientForm } from '../actions';
+import { clearRecipients, addRecipient, feelRecipientForm } from '../../actions';
 import './recipient-form.css';
 
 export class RecipientForm extends React.Component {
@@ -28,6 +28,7 @@ export class RecipientForm extends React.Component {
             <input
               id="recipient-list"
               type="email"
+              required={true}
               placeholder="add emails here"
               ref={input => (this.emailInput = input)}
               onChange={e => this.clearRecipients(e)}
@@ -42,6 +43,6 @@ export class RecipientForm extends React.Component {
 
 const mapStateToProps = state => ({
   recipientFormTouched: state.recipientFormTouched,
-  recipients: state.recipients
+  recipients: state.card.recipients
 });
 export default connect(mapStateToProps)(RecipientForm);

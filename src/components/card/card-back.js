@@ -21,8 +21,8 @@ export class CardBack extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  message: state.message,
-  recipients: state.recipients
+  message: state.card.message,
+  recipients: state.card.recipients
 });
 
 export default connect(mapStateToProps)(CardBack);

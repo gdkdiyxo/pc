@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from '../../config';
 import './create-page.css';
 
 import ImageForm from './image-form';
 import MessageForm from './message-form';
-import CardContainer from './card-container';
+import CardContainer from '../card/card-container';
 import RecipientForm from './recipient-form';
 import { connect } from 'react-redux';
 
@@ -14,8 +14,8 @@ export class CreatePage extends React.Component {
     return (
       <div>
         <ImageForm />
-        <MessageForm />
         <CardContainer />
+        <MessageForm />
         <RecipientForm />
         <div className="card-btn-wrapper">
           <button className="create-page-btn">
@@ -40,7 +40,7 @@ export class CreatePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  recipients: state.recipients
+  recipients: state.card.recipients
 });
 
 export default connect(mapStateToProps)(CreatePage);

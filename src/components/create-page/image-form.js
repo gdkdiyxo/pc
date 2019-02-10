@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setImage } from '../actions';
+import { setImage } from '../../actions';
 import './image-form.css';
 
 export class ImageForm extends React.Component {

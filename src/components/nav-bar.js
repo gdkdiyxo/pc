@@ -35,7 +35,9 @@ export class NavBar extends React.Component {
   render() {
     return !this.props.currentUser ? (
       <nav role="navigation">
-        <p className="nav-logo">Deltio</p>
+        <p className="nav-logo">
+          <Link to="/">Deltio</Link>
+        </p>
         <LoggedOutLinks />
       </nav>
     ) : (
