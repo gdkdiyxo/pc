@@ -6,25 +6,22 @@ nav {
   padding: 10px;
   z-index: 100;
   background-color: grey;
+  display: flex;
 }
 
 .nav-logo {
   display: inline-block;
   margin: 0 10px;
-  /* float: left; */
+  flex: 1;
 }
 
-/* .nav-demo-btn {
-  display: inline-block;
-} */
+.nav-demo-btn {
+  position: absolute;
+  right: 50%;
+  flex: 1;
+}
 
-/* .login-btn,
-.signup-btn,
-.account-btn,
-.logout-btn {
+.nav-right-btn {
   display: inline-block;
-  /* float: right; */
-
-.nav-btns {
-  float: right;
+  flex: 1;
 }
