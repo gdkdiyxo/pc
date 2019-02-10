@@ -8,7 +8,7 @@ import {
 } from './actions';
 
 const initialState = {
-  userAuth: false,
+  currentUser: null,
   image: {
     src:
       'https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU0MzUwfQ',
