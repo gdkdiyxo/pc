@@ -32,7 +32,7 @@ export class MessageForm extends React.Component {
 
 const mapStateToProps = state => ({
   message: state.card.message,
-  isCardFlipped: state.isCardFlipped
+  isCardFlipped: state.card.isCardFlipped
 });
 
 export default connect(mapStateToProps)(MessageForm);

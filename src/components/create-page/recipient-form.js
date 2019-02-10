@@ -42,7 +42,7 @@ export class RecipientForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  recipientFormTouched: state.recipientFormTouched,
+  recipientFormTouched: state.card.recipientFormTouched,
   recipients: state.card.recipients
 });
 export default connect(mapStateToProps)(RecipientForm);

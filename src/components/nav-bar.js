@@ -50,7 +50,7 @@ export class NavBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  userAuth: state.userAuth
+  userAuth: state.auth.userAuth
 });
 
 export default connect(mapStateToProps)(NavBar);

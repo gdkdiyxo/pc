@@ -32,7 +32,7 @@ export class CardContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isCardFlipped: state.isCardFlipped
+  isCardFlipped: state.card.isCardFlipped
 });
 
 export default connect(mapStateToProps)(CardContainer);
