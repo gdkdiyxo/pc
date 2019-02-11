@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from './footer';
 import './signup-page.css';
 
@@ -27,7 +28,7 @@ export default function SignupPage() {
           <button type="submit">Submit</button>
         </form>
         <button type="submit" className="switch-signup-login-btn">
-          Or, Log In
+          <Link to="/login">Or, Log In</Link>
         </button>
       </section>
       <Footer />

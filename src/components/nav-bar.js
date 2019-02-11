@@ -42,7 +42,9 @@ export class NavBar extends React.Component {
       </nav>
     ) : (
       <nav role="navigation">
-        <p className="nav-logo">Deltio</p>
+        <p className="nav-logo">
+          <Link to="/">Deltio</Link>
+        </p>
         <LoggedInLinks />
       </nav>
     );
@@ -50,7 +52,7 @@ export class NavBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  userAuth: state.auth.userAuth
+  currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(NavBar);
