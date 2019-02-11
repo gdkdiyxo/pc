@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { clearRecipients, addRecipient, feelRecipientForm } from '../../actions';
+import { clearRecipients, addRecipient, feelRecipientForm } from '../../actions/card';
 import './recipient-form.css';
 
 export class RecipientForm extends React.Component {

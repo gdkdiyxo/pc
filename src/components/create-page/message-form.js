@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { flipCard, addMessage } from '../../actions';
+import { flipCard, addMessage } from '../../actions/card';
 
 import './message-form.css';
 

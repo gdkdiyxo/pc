@@ -8,9 +8,10 @@ import './login-page.css';
 
 export class LoginPage extends React.Component {
   render() {
-    if (this.props.currentUser) {
-      return <Redirect to={`/create/${this.props.currentUser}`} />;
-    }
+    //redirect to user's create page
+    // if (this.props.currentUser) {
+    //   return <Redirect to={`/create/${this.props.currentUser}`} />;
+    // }
     return (
       <div className="login-form">
         <h2 className="center">Log in</h2>

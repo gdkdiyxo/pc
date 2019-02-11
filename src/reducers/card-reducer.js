@@ -5,7 +5,7 @@ import {
   FEEL_RECIPIENT_FORM,
   CLEAR_RECIPIENTS,
   SET_IMAGE
-} from '../actions';
+} from '../actions/card';
 
 const initialState = {
   image: {
