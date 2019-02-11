@@ -1,8 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { Field, reduxForm, focus } from 'redux-form';
-
-import './login-page.css';
+import { Field, reduxForm } from 'redux-form';
 
 export function LoginForm(props) {
   return (
@@ -15,12 +12,8 @@ export function LoginForm(props) {
         <label htmlFor="password">Password:</label>
         <Field component="input" name="password" />
       </div>
-
       <button type="submit" className="login-form-submit-btn">
         Log in
-      </button>
-      <button type="submit" className="switch-signup-login-btn">
-        <Link to="/signup">Or, sign up</Link>
       </button>
     </form>
   );

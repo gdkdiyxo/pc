@@ -3,7 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import LoginForm from './login-form';
-import Footer from '../footer';
+
+import './login-page.css';
 
 export class LoginPage extends React.Component {
   render() {
@@ -14,7 +15,10 @@ export class LoginPage extends React.Component {
       <div className="login-form">
         <h2 className="center">Log in</h2>
         <LoginForm />
-        <Footer />
+        <br />
+        <button type="submit" className="switch-signup-login-btn">
+          <Link to="/signup">Sign up here</Link>
+        </button>
       </div>
     );
   }
