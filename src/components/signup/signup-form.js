@@ -16,10 +16,6 @@ export class SignupForm extends React.Component {
           <Field component="input" name="name" type="text" />
         </div>
         <div className="form-row">
-          <label htmlFor="email">Email</label>
-          <Field component="input" name="email" type="email" />
-        </div>
-        <div className="form-row">
           <label htmlFor="username">Username</label>
           <Field component="input" name="username" type="text" />
         </div>
