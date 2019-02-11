@@ -9,6 +9,7 @@ export default function SignupPage() {
       <section className="signup-form-wrapper">
         <h2>Sign up</h2>
         <SignupForm />
+        <br />
         <button type="submit" className="switch-signup-login-btn">
           <Link to="/login">Or, Log In</Link>
         </button>
