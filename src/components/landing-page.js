@@ -7,11 +7,20 @@ export default class LandingPage extends React.Component {
   render() {
     return (
       <div>
+        <img
+          src="../images/deltio-icon-main.png"
+          alt="the deltio icon, a postcard"
+          className="icon-main"
+        />
         <header role="banner" className="landing-page-header">
           <h1>Welcome to Deltio</h1>
-          <h3>Create and share beautiful digital postcards.</h3>
         </header>
-
+        <h3>
+          Deltiology is the study and collection of postcards.
+          <br />
+          With Deltio, you can pay homage to this practice by creating and sharing beautiful digital
+          postcards.
+        </h3>
         <section className="instruction-wrapper">
           <div className="instruction">
             <i className="far fa-5x fa-image" />
@@ -26,9 +35,15 @@ export default class LandingPage extends React.Component {
             <p>Add a list of recipient emails, and send it off!</p>
           </div>
         </section>
-        <button className="demo-btn">
-          <Link to="/create">Try it out</Link>
-        </button>
+        <h3>Try out the demo, or create an account to start your collection.</h3>
+        <div className="landing-page-btns">
+          <button className="landing-page-btn">
+            <Link to="/create">Try the demo</Link>
+          </button>
+          <button className="landing-page-btn">
+            <Link to="/signup">Sign up</Link>
+          </button>
+        </div>
         <Footer />
       </div>
     );

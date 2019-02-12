@@ -1,8 +1,20 @@
+body {
+  background-color: #efeeeb;
+}
+
+.icon-main {
+  height: 400px;
+  display: inherit;
+  margin: 0 auto;
+}
+
 h1 {
   font-style: italic;
   color: #373fff;
-  height: 20%;
-  padding-top: 10%;
+}
+
+h3 {
+  text-align: center;
 }
 
 .hero {
@@ -31,16 +43,18 @@ h1 {
   border: 1px solid grey;
 }
 
-.demo-btn {
-  display: block;
-  margin: 20px auto;
-  width: 100px;
+.landing-page-btns {
+  text-align: center;
+}
+.landing-page-btn {
+  margin: 20px;
+  width: 150px;
   height: 40px;
   font-size: 20px;
   background-color: green;
 }
 
-.demo-btn a {
+.landing-page-btn a {
   color: white;
   text-decoration: none;
 }
