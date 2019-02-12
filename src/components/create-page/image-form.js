@@ -26,7 +26,7 @@ export class ImageForm extends React.Component {
       .then(response => response.json())
       .then(data => {
         console.log(data.results[0].urls.full);
-        const image = { src: data.results[0].urls.regular, alt: 'this is the alt' };
+        const image = { full: data.results[0].urls.regular, alt: 'this is the alt' };
         this.props.dispatch(setImage(image));
       });
   }
