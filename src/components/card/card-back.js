@@ -4,6 +4,15 @@ import './card-back.css';
 
 export class CardBack extends React.Component {
   render() {
+    const formattedMessage = this.props.message.split('\n').map((item, key) => {
+      return (
+        <span key={key}>
+          {item}
+          <br />
+        </span>
+      );
+    });
+
     const emailList = this.props.recipients.map((email, index) => (
       <div key={index}>
         <p>{email}</p>
@@ -13,7 +22,7 @@ export class CardBack extends React.Component {
 
     return (
       <div className="card-message-container">
-        <div className="message">{this.props.message}</div>
+        <div className="message">{formattedMessage}</div>
         <div className="card-email-container">{emailList}</div>
       </div>
     );

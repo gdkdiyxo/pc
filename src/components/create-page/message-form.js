@@ -20,7 +20,8 @@ export class MessageForm extends React.Component {
         <label htmlFor="message">2) Add your message</label>
         <div className="message-form-row">
           <textarea
-            id="message"
+            name="message"
+            className="message-textarea"
             placeholder="i.e. Guess where I am right now?!"
             onChange={e => this.onChange(e.target.value)}
           />

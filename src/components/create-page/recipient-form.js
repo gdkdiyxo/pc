@@ -6,7 +6,6 @@ import './recipient-form.css';
 
 export class RecipientForm extends React.Component {
   clearRecipients() {
-    console.log(this.props.recipientFormTouched);
     if (this.props.recipientFormTouched === false) {
       this.props.dispatch(feelRecipientForm());
       this.props.dispatch(clearRecipients());
@@ -17,6 +16,7 @@ export class RecipientForm extends React.Component {
     e.preventDefault();
     const email = this.emailInput.value;
     this.props.dispatch(addRecipient(email));
+    this.emailInput.value = '';
   }
 
   render() {
