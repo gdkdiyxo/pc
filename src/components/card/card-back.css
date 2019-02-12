@@ -11,6 +11,15 @@
   display: flex;
 }
 
+.recipient-wrapper p {
+  display: inline;
+}
+
+.recipient-wrapper button {
+  float: right;
+  z-index: 1000;
+}
+
 .card-message-container textarea {
   width: 70%;
 }

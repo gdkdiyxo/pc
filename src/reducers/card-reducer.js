@@ -4,7 +4,8 @@ import {
   ADD_RECIPIENT,
   FEEL_RECIPIENT_FORM,
   CLEAR_RECIPIENTS,
-  SET_IMAGE
+  SET_IMAGE,
+  DELETE_EMAIL
 } from '../actions/card';
 
 const initialState = {
@@ -49,6 +50,10 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === ADD_RECIPIENT) {
     return Object.assign({}, state, {
       recipients: [...state.recipients, action.recipient]
+    });
+  } else if (action.type === DELETE_EMAIL) {
+    return Object.assign({}, state, {
+      recipients: state.recipients.filter((recipient, index) => index !== action.index)
     });
   }
 

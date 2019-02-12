@@ -21,6 +21,12 @@ export const addRecipient = recipient => ({
   recipient
 });
 
+export const DELETE_EMAIL = 'DELETE_EMAIL';
+export const deleteEmail = index => ({
+  type: DELETE_EMAIL,
+  index
+});
+
 export const FEEL_RECIPIENT_FORM = 'FEEL_RECIPIENT_FORM';
 export const feelRecipientForm = () => ({
   type: FEEL_RECIPIENT_FORM
