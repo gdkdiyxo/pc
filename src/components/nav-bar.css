@@ -9,10 +9,14 @@ nav {
   display: flex;
 }
 
-.nav-logo {
-  display: inline-block;
-  margin: 0 10px;
+.nav-icon {
+  height: 35px;
+  margin-top: -8px;
   flex: 1;
+}
+
+.nav-icon img {
+  height: 100%;
 }
 
 .nav-demo-btn {

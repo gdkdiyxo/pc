@@ -40,9 +40,11 @@ export class NavBar extends React.Component {
   render() {
     return !this.props.currentUser ? (
       <nav role="navigation">
-        <p className="nav-logo">
-          <Link to="/">Deltio</Link>
-        </p>
+        <div className="nav-icon">
+          <Link to="/">
+            <img src="../images/deltio-nav-icon.png" alt="the yappr logo, a postcard" />
+          </Link>
+        </div>
         <LoggedOutLinks />
       </nav>
     ) : (
