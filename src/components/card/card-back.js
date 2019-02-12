@@ -19,6 +19,7 @@ function Recipient(props) {
 export class CardBack extends React.Component {
   deleteEmail(event, index) {
     event.preventDefault();
+    event.stopPropagation();
     this.props.dispatch(deleteEmail(index));
   }
 
