@@ -1,20 +1,12 @@
-body {
-  background-color: #efeeeb;
-}
-
 .icon-main {
   height: 400px;
   display: inherit;
   margin: 0 auto;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
-}
-
 h3 {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .hero {
@@ -39,22 +31,39 @@ h3 {
   height: 200px;
   padding: 10px;
   width: 250px;
-  margin: 10px auto;
-  border: 1px solid grey;
+  margin: 10px auto 20px;
+  background-color: white;
+  box-shadow: 5px 10px 18px #888888;
 }
 
 .landing-page-btns {
   text-align: center;
+  margin-bottom: 40px;
 }
+
 .landing-page-btn {
   margin: 20px;
   width: 150px;
   height: 40px;
   font-size: 20px;
-  background-color: green;
+  background-color: #4d8b77;
 }
 
 .landing-page-btn a {
   color: white;
   text-decoration: none;
+}
+
+.footer {
+  height: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #4d808b;
+}
+
+.footer p {
+  margin: 0;
+  color: white;
 }

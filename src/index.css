@@ -15,7 +15,17 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 92vh;
+  background-color: #efeeeb;
+}
+
+/* //header & footer heights  */
+header {
+  height: 5vh;
+}
+
+footer {
+  height: 3vh;
 }
 
 main {

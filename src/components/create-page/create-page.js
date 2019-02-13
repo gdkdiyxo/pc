@@ -25,14 +25,11 @@ export class CreatePage extends React.Component {
             <a
               href={`mailto:${
                 this.props.recipients
-              }?subject=You've received a postcard from [account name]&body=Click on this link to view the postcard:${API_BASE_URL}/preview`}
+              }?subject=You've received a postcard from [account name]&body=Click on this link to view the postcard: ${API_BASE_URL}/preview`}
             >
               Send postcard
             </a>
           </button>
-        </div>
-        <div className="footer">
-          <p>Created by Mark Yapp</p>
         </div>
       </div>
     );

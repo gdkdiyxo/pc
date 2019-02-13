@@ -13,13 +13,13 @@ export default class App extends React.Component {
       <Router>
         <div>
           <NavBar history={this.props.history} />
-          <main role="main">
+          <div>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/create" component={CreatePage} />
             <Route exact path="/preview" component={PreviewPage} />
-          </main>
+          </div>
         </div>
       </Router>
     );

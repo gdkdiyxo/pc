@@ -3,29 +3,36 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px;
   z-index: 100;
-  background-color: grey;
+  background-color: #4d808b;
   display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bababa;
 }
 
 .nav-icon {
-  height: 35px;
-  margin-top: -8px;
-  flex: 1;
+  height: 39px;
+  /* flex: 1; */
 }
 
 .nav-icon img {
   height: 100%;
 }
 
-.nav-demo-btn {
-  position: absolute;
-  right: 50%;
+h1 {
+  font-style: italic;
+  color: white;
+  margin: 0;
   flex: 1;
 }
 
-.nav-right-btn {
-  display: inline-block;
+.nav-btn {
   flex: 1;
+  height: 40px;
+  font-size: 18px;
+  background-color: #efeeeb;
+}
+
+.nav-btn a {
+  text-decoration: none;
 }
