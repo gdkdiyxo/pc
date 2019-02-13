@@ -43,7 +43,7 @@ export class NavBar extends React.Component {
               <img src="../images/deltio-nav-icon.png" alt="the yappr logo, a postcard" />
             </Link>
           </div>
-          <h1>Welcome to Deltio</h1>
+
           {!this.props.currentUser ? (
             <LoggedOutLinks />
           ) : (

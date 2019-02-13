@@ -1,17 +1,13 @@
 .icon-main {
-  height: 400px;
+  height: 300px;
   display: inherit;
-  margin: 0 auto;
+  margin: 0 auto 30px;
 }
 
+h1,
 h3 {
   text-align: center;
   margin-bottom: 30px;
-}
-
-.hero {
-  height: 500px;
-  padding: 10% 0 10% 0;
 }
 
 .landing-page-header {

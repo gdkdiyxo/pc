@@ -32,7 +32,7 @@ export class ImageForm extends React.Component {
 
   render() {
     return (
-      <div className="search-form-wrapper">
+      <div className="image-form-wrapper">
         <form onSubmit={e => this.searchImage(e)}>
           <label htmlFor="search">1) Search for an image</label>
           <div className="image-form-row">

@@ -7,27 +7,20 @@ nav {
   background-color: #4d808b;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #bababa;
+  border-right: 1px solid #bababa;
 }
 
 .nav-icon {
   height: 39px;
-  /* flex: 1; */
 }
 
 .nav-icon img {
   height: 100%;
 }
 
-h1 {
-  font-style: italic;
-  color: white;
-  margin: 0;
-  flex: 1;
-}
-
 .nav-btn {
-  flex: 1;
   height: 40px;
   font-size: 18px;
   background-color: #efeeeb;

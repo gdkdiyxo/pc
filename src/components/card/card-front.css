@@ -13,9 +13,8 @@
 
 /* Image styling */
 .card-image-container img {
-  height: 60vh;
+  height: 100%;
   width: 100%;
-  /* position: absolute; */
 }
 
 .last-image-btn,

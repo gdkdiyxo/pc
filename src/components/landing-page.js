@@ -7,11 +7,15 @@ export default class LandingPage extends React.Component {
     return (
       <div>
         <main role="main">
-          <img
-            src="../images/deltio-icon-main.png"
-            alt="the deltio icon, a postcard"
-            className="icon-main"
-          />
+          <div className="icon-main">
+            <img
+              src="../images/deltio-icon-main.png"
+              alt="the deltio icon, a postcard"
+              className="icon-main"
+            />
+          </div>
+          <h1>Welcome to Deltio</h1>
+
           <h3>
             Deltiology is the study and collection of postcards.
             <br />

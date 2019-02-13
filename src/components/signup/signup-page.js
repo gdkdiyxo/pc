@@ -11,7 +11,7 @@ export default function SignupPage() {
         <SignupForm />
         <br />
         <button type="submit" className="switch-signup-login-btn">
-          <Link to="/login">Or, Log In</Link>
+          <Link to="/login">Log in here</Link>
         </button>
       </section>
     </div>

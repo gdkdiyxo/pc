@@ -15,3 +15,40 @@
   font-size: 20px;
   text-decoration: none;
 }
+
+.image-form-wrapper,
+.message-form-wrapper,
+.recipient-form-wrapper {
+  width: 98%;
+}
+
+.card-outer {
+  width: 98vw;
+  height: 66vw;
+}
+
+@media only screen and (min-width: 568px) {
+  .image-form-wrapper,
+  .message-form-wrapper,
+  .recipient-form-wrapper {
+    width: 80%;
+  }
+
+  .card-outer {
+    width: 80vw;
+    height: 53vw;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .image-form-wrapper,
+  .message-form-wrapper,
+  .recipient-form-wrapper {
+    width: 600px;
+  }
+
+  .card-outer {
+    width: 750px;
+    height: 495px;
+  }
+}
