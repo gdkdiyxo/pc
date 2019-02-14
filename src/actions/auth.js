@@ -1,5 +1,4 @@
-// import { API_BASE_URL } from '../config';
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/api';
+import { API_BASE_URL } from '../config';
 
 export const SIGNUP_USER = 'SIGNUP_USER';
 export const signupUser = user => ({
