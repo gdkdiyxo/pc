@@ -29,8 +29,7 @@
   transform: rotateY(180deg);
 }
 
-.flip-instructions,
-.photo-credit {
+.flip-instructions {
   margin-left: 15%;
   display: inline;
 }

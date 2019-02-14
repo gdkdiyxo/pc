@@ -43,8 +43,6 @@ export class ImageForm extends React.Component {
             />
             <button type="submit">Search</button>
           </div>
-          <p>Or, you can upload one of your own</p>
-          <button>Upload image</button>
         </form>
       </div>
     );

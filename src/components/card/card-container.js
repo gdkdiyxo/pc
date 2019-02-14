@@ -14,19 +14,12 @@ export class CardContainer extends React.Component {
   render() {
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
-      <div>
-        <p className="flip-instructions">Click on postcard to flip. </p>
-        <section className="card-outer" onClick={e => this.flipCard(e)}>
-          <div className={cardClass}>
-            <CardFront />
-            <CardBack />
-          </div>
-        </section>
-        <p className="photo-credit">
-          Compliments of www.unsplash.com Photo credit:{' '}
-          <a href="www.unsplash.com">[photographer]</a>
-        </p>
-      </div>
+      <section className="card-outer" onClick={e => this.flipCard(e)}>
+        <div className={cardClass}>
+          <CardFront />
+          <CardBack />
+        </div>
+      </section>
     );
   }
 }
