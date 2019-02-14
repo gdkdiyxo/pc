@@ -1,4 +1,5 @@
-import { API_BASE_URL } from '../config';
+// import { API_BASE_URL } from '../config';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/api';
 
 export const SIGNUP_USER = 'SIGNUP_USER';
 export const signupUser = user => ({
@@ -12,8 +13,9 @@ export const logoutUser = () => ({
 });
 
 export const loginUser = (username, password) => dispatch => {
-  console.log('loginUser action fired');
-  return fetch(`${API_BASE_URL}/auth/login`, {
+  console.log(`loginUser action fired; username: ${username} password: ${password}`);
+  console.log(API_BASE_URL);
+  return fetch(`${API_BASE_URL}/login`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'

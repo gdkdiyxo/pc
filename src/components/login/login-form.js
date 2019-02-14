@@ -5,8 +5,8 @@ import { loginUser } from '../../actions/auth';
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
-    console.log(`login form values: ${values.username}`);
-    this.props.dispatch(loginUser(values));
+    const { username, password } = values;
+    this.props.dispatch(loginUser(username, password));
   }
   render() {
     return (
@@ -17,7 +17,7 @@ export class LoginForm extends React.Component {
         </div>
         <div className="form-row">
           <label htmlFor="password">Password:</label>
-          <Field component="input" id="password" name="password" required={true} />
+          <Field component="input" id="password" name="password" type="text" required={true} />
         </div>
         <button type="submit" className="login-form-submit-btn">
           Log in
