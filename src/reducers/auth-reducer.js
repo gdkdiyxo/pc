@@ -1,4 +1,4 @@
-import { SIGNUP_USER, LOGIN_USER, LOGOUT_USER } from '../actions/auth';
+import { SIGNUP_USER, LOGOUT_USER } from '../actions/auth';
 
 const initialState = {
   currentUser: null
@@ -10,15 +10,7 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       currentUser: action.user
     });
-  }
-
-  if (action.type === LOGIN_USER) {
-    console.log('login user reducer fired');
-    return Object.assign({}, state, {
-      currentUser: action.user
-    });
-  }
-  if (action.type === LOGOUT_USER) {
+  } else if (action.type === LOGOUT_USER) {
     console.log('logout reducer fired');
     return Object.assign({}, state, {
       currentUser: null

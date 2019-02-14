@@ -13,15 +13,15 @@ export class SignupForm extends React.Component {
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <div className="form-row">
           <label htmlFor="name">Name</label>
-          <Field component="input" id="name" name="name" type="text" />
+          <Field component="input" id="name" name="name" type="text" required={true} />
         </div>
         <div className="form-row">
           <label htmlFor="username">Username</label>
-          <Field component="input" id="username" name="username" type="text" />
+          <Field component="input" id="username" name="username" type="text" required={true} />
         </div>
         <div className="form-row">
           <label htmlFor="password">Password</label>
-          <Field component="input" id="password" name="password" />
+          <Field component="input" id="password" name="password" required={true} />
         </div>
         <button type="submit">Submit</button>
       </form>
