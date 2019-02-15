@@ -51,3 +51,14 @@ export const saveCard = currentCard => dispatch => {
     .then(resJSON => console.log(resJSON))
     .catch(err => console.log(err));
 };
+
+export const getUserCards = () => dispatch => {
+  fetch(`${API_BASE_URL}/cards`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+    .then(res => res.JSON())
+    .then(data => console.log(data));
+};

@@ -1,0 +1,16 @@
+.user-cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.user-card {
+  height: 200px;
+
+  width: 250px;
+  margin: 10px auto 20px;
+
+  box-shadow: 5px 10px 18px #888888;
+}

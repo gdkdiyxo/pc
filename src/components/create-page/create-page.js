@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { saveCard } from '../../actions/card';
 import { API_BASE_URL } from '../../config';
@@ -8,7 +9,7 @@ import ImageForm from './image-form';
 import MessageForm from './message-form';
 import CardContainer from '../card/card-container';
 import RecipientForm from './recipient-form';
-import { connect } from 'react-redux';
+import UserCards from './user-cards';
 
 export class CreatePage extends React.Component {
   saveCard() {
@@ -50,6 +51,7 @@ export class CreatePage extends React.Component {
             </a>
           </button>
         </div>
+        <UserCards />
       </div>
     );
   }
