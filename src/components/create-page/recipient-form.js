@@ -9,7 +9,7 @@ export class RecipientForm extends React.Component {
     super(props);
     this.state = {
       recipients: 0,
-      maxRecipients: 1,
+      maxRecipients: 8,
       errorMessage: ''
     };
   }

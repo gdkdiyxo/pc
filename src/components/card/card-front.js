@@ -22,7 +22,18 @@ export class CardFront extends React.Component {
           <i className="fas fa-7x fa-sync" />
         </button> */}
         <p className="photo-credit">
-          www.unsplash.com Photo credit: <a href="www.unsplash.com">[photographer]</a>
+          Photo credit:{' '}
+          <a
+            href={`${this.props.image.portfolio}?utm_source=Deltio&utm_medium=referral`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {this.props.image.credit}
+          </a>{' '}
+          on{' '}
+          <a href="http://www.unsplash.com" target="_blank" rel="noopener noreferrer">
+            Unsplash
+          </a>
         </p>
       </div>
     );

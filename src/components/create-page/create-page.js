@@ -35,7 +35,7 @@ export class CreatePage extends React.Component {
         <RecipientForm />
         <div className="card-btn-wrapper">
           <button className="create-page-btn">
-            <Link to="/preview">Preview postcard</Link>
+            <Link to="/preview">Preview</Link>
           </button>
           <button className="create-page-btn" onClick={e => this.saveCard(e)}>
             Save

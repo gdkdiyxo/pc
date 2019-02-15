@@ -8,11 +8,12 @@ export class ImageForm extends React.Component {
   searchImage(e) {
     e.preventDefault();
     const page = 1;
-    const per_page = 1;
+    const per_page = 10;
+    const orientation = 'landscape';
     const query = this.searchInput.value;
     const unsplashAuth =
       'Client-ID 72f712e5e78353fa3a7bb238edf115fdb80e04120f85d42b48f85ffb5e849cca';
-    let url = `https://api.unsplash.com/search/photos?page=${page}&per_page=${per_page}&query=${query}`;
+    let url = `https://api.unsplash.com/search/photos?page=${page}&per_page=${per_page}&orientation=${orientation}&query=${query}`;
     fetch(`${url}`, {
       headers: {
         method: 'GET',
@@ -23,7 +24,12 @@ export class ImageForm extends React.Component {
     })
       .then(response => response.json())
       .then(data => {
-        const image = { full: data.results[0].urls.regular, alt: 'this is the alt' };
+        const image = {
+          full: data.results[1].urls.regular,
+          alt: data.results[1].description,
+          credit: data.results[1].user.name,
+          portfolio: data.results[1].user.links.html
+        };
         this.props.dispatch(setImage(image));
       });
   }
