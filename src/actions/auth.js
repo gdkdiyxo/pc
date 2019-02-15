@@ -36,5 +36,6 @@ export const signupUser = (name, username, password) => dispatch => {
     })
   })
     .then(res => res.json())
-    .then(resJSON => console.log(resJSON));
+    .then(resJSON => console.log(resJSON))
+    .catch(err => console.log(err));
 };

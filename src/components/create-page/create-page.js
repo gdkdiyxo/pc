@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { saveCard } from '../../actions/card';
 import { API_BASE_URL } from '../../config';
 import './create-page.css';
 
@@ -10,6 +11,21 @@ import RecipientForm from './recipient-form';
 import { connect } from 'react-redux';
 
 export class CreatePage extends React.Component {
+  saveCard() {
+    const currentCard = {
+      image: {
+        full: this.props.image.full,
+        thumb: this.props.image.thumb,
+        alt: this.props.image.alt
+      },
+      message: this.props.message,
+      recipients: this.props.recipients
+    };
+    //POST request
+    console.log(currentCard);
+    this.props.dispatch(saveCard(currentCard));
+  }
+
   render() {
     return (
       <div>
@@ -20,6 +36,9 @@ export class CreatePage extends React.Component {
         <div className="card-btn-wrapper">
           <button className="create-page-btn">
             <Link to="/preview">Preview postcard</Link>
+          </button>
+          <button className="create-page-btn" onClick={e => this.saveCard(e)}>
+            Save
           </button>
           <button className="create-page-btn">
             <a
@@ -37,6 +56,8 @@ export class CreatePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  image: state.card.image,
+  message: state.card.message,
   recipients: state.card.recipients
 });
 

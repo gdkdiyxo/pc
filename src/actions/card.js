@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../config';
+
 export const SET_IMAGE = 'SET_IMAGE';
 export const setImage = image => ({
   type: SET_IMAGE,
@@ -36,3 +38,16 @@ export const CLEAR_RECIPIENTS = 'CLEAR_RECIPIENTS';
 export const clearRecipients = () => ({
   type: CLEAR_RECIPIENTS
 });
+
+export const saveCard = currentCard => dispatch => {
+  fetch(`${API_BASE_URL}/cards`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({ currentCard })
+  })
+    .then(res => res.json())
+    .then(resJSON => console.log(resJSON))
+    .catch(err => console.log(err));
+};
