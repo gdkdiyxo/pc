@@ -5,6 +5,15 @@ import { clearRecipients, addRecipient, feelRecipientForm, flipCard } from '../.
 import './recipient-form.css';
 
 export class RecipientForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipients: 0,
+      maxRecipients: 1,
+      errorMessage: ''
+    };
+  }
+
   clearRecipients() {
     if (this.props.recipientFormTouched === false) {
       this.props.dispatch(feelRecipientForm());
@@ -12,21 +21,29 @@ export class RecipientForm extends React.Component {
     }
   }
 
+  validateForm() {
+    return this.state.recipients < this.state.maxRecipients ? true : false;
+  }
+
   addRecipient(e) {
     e.preventDefault();
-    console.log(this.props.isCardFlipped);
+    const email = this.emailInput.value;
     if (!this.props.isCardFlipped) {
       this.props.dispatch(flipCard());
     }
-    const email = this.emailInput.value;
-    this.props.dispatch(addRecipient(email));
-    this.emailInput.value = '';
+    if (this.validateForm()) {
+      this.props.dispatch(addRecipient(email));
+      this.emailInput.value = '';
+      this.setState({ recipients: this.state.recipients + 1 });
+    } else {
+      this.setState({ errorMessage: 'Reached maximum recipients' });
+    }
   }
 
   render() {
     return (
       <div className="recipient-form-wrapper">
-        <form onSubmit={e => this.addRecipient(e)}>
+        <form className="recipient-form" onSubmit={e => this.addRecipient(e)}>
           <label htmlFor="recipient-list">3) Add recipients' emails</label>
           <div className="recipient-form-row">
             <input
@@ -39,6 +56,7 @@ export class RecipientForm extends React.Component {
             />
             <button type="submit">Add</button>
           </div>
+          <div className="error-message">{this.state.errorMessage}</div>
         </form>
       </div>
     );

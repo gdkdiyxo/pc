@@ -18,3 +18,8 @@
 .recipient-form-row button {
   flex: 1;
 }
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+}
