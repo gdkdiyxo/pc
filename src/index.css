@@ -37,3 +37,7 @@ main {
 .center {
   text-align: center;
 }
+
+button:hover {
+  cursor: pointer;
+}

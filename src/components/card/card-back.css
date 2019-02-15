@@ -15,33 +15,33 @@
   word-break: break-word;
   font-family: 'Indie Flower', cursive;
   font-size: 2.8vmin;
-  padding-right: 1vh;
+  padding-right: 1.5vw;
+  margin-top: 1vh;
   border-right: 2.5px dotted rgb(80, 80, 80);
   flex: 2;
 }
 
 .card-emails-container {
   flex: 1;
-  padding-top: 15%;
+  padding: 12% 0 0 2%;
 }
 
 .card-email {
-  margin-bottom: 10px;
-  padding-left: 1vw;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card-email p {
-  display: inline;
   font-size: 2vmin;
-  margin: 2px;
+  margin: 1.2vw 0;
 }
 
 .email-delete-btn {
-  padding: 2px;
+  padding: 2px 0;
+  width: 10px;
+  font-size: 1.2vh;
   color: white;
   background-color: #4d8b77;
-  float: right;
-  border: none;
-  text-align: center;
-  z-index: 100;
 }

@@ -11,7 +11,7 @@ function Recipient(props) {
       <button className="email-delete-btn" onClick={e => props.onClick(e, props.index)}>
         X
       </button>
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 }

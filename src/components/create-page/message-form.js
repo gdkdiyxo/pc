@@ -6,7 +6,6 @@ import { flipCard, addMessage } from '../../actions/card';
 import './message-form.css';
 
 export class MessageForm extends React.Component {
-  flipCard;
   onChange(text) {
     if (!this.props.isCardFlipped) {
       this.props.dispatch(flipCard());
@@ -23,6 +22,7 @@ export class MessageForm extends React.Component {
             id="message"
             className="message-textarea"
             placeholder="i.e. Guess where I am right now?!"
+            maxLength="300"
             onChange={e => this.onChange(e.target.value)}
           />
         </div>
