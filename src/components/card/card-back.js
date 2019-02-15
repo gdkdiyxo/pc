@@ -6,7 +6,7 @@ import './card-back.css';
 
 function Recipient(props) {
   return (
-    <div className="recipient-wrapper">
+    <div className="card-email">
       <p>{props.email}</p>
       <button className="email-delete-btn" onClick={e => props.onClick(e, props.index)}>
         X
@@ -43,9 +43,9 @@ export class CardBack extends React.Component {
     ));
 
     return (
-      <div className="card-message-container">
-        <div className="message">{formattedMessage}</div>
-        <div className="card-email-container">{emailList}</div>
+      <div className="card-back-container">
+        <div className="card-message">{formattedMessage}</div>
+        <div className="card-emails-container">{emailList}</div>
       </div>
     );
   }

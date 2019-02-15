@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './nav-bar';
 import LandingPage from './landing-page';
-import SignupPage from './signup/signup-page';
-import LoginPage from './login/login-page';
+import SignupPage from './signup-page/signup-page';
+import LoginPage from './login-page/login-page';
 import CreatePage from './create-page/create-page';
 import PreviewPage from './preview-page';
 
