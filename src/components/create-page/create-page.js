@@ -29,7 +29,7 @@ export class CreatePage extends React.Component {
   render() {
     return (
       <div>
-        <ImageForm />
+        {/* <ImageForm /> */}
         <CardContainer />
         <MessageForm />
         <RecipientForm />
