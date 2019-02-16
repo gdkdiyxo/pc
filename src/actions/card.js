@@ -87,3 +87,21 @@ export const fetchCards = () => dispatch => {
       dispatch(fetchSuccess());
     });
 };
+
+export const updateCard = () => dispatch => {
+  fetch(`${API_BASE_URL}/cards/:id`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json'
+    }
+  });
+};
+
+export const deleteCard = () => dispatch => {
+  fetch(`${API_BASE_URL}/cards/:id`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json'
+    }
+  });
+};

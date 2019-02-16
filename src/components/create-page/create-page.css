@@ -118,8 +118,8 @@
 
 /* Delete card modal   */
 .delete-card-modal {
-  height: 20vh;
-  width: 22vw;
+  height: 25vh;
+  width: 40vw;
   padding: 2vh;
   text-align: center;
   font-size: 2vh;
@@ -133,8 +133,8 @@
 }
 
 .delete-card-modal button {
-  margin-right: 10px;
-  font-size: 20px;
+  margin: 0 10px 10px 0;
+  font-size: 2vh;
 }
 
 .delete-card-modal button:nth-child(odd) {
