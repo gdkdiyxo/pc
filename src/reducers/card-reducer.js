@@ -5,7 +5,10 @@ import {
   FEEL_RECIPIENT_FORM,
   CLEAR_RECIPIENTS,
   SET_IMAGE,
-  DELETE_EMAIL
+  DELETE_EMAIL,
+  DISPLAY_CARDS,
+  FETCH_REQUEST,
+  FETCH_SUCCESS
 } from '../actions/card';
 
 const initialState = {
@@ -23,7 +26,10 @@ const initialState = {
   recipients: ['example1@gmail.com', 'example2@yahoo.com', 'example3@aol.com'],
   isCardFlipped: false,
   recipientFormTouched: false,
-  isCardEditing: false
+  isCardEditing: false,
+  userCards: [],
+  loading: false,
+  error: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -56,6 +62,19 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === DELETE_EMAIL) {
     return Object.assign({}, state, {
       recipients: state.recipients.filter((recipient, index) => index !== action.index)
+    });
+  } else if (action.type === DISPLAY_CARDS) {
+    return Object.assign({}, state, {
+      userCards: action.userCards
+    });
+  } else if (action.type === FETCH_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+      error: null
+    });
+  } else if (action.type === FETCH_SUCCESS) {
+    return Object.assign({}, state, {
+      loading: false
     });
   }
 

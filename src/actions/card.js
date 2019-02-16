@@ -39,6 +39,22 @@ export const clearRecipients = () => ({
   type: CLEAR_RECIPIENTS
 });
 
+export const DISPLAY_CARDS = 'DISPLAY_CARDS';
+export const displayCards = userCards => ({
+  type: DISPLAY_CARDS,
+  userCards
+});
+
+export const FETCH_REQUEST = 'FETCH_REQUEST';
+export const fetchRequest = () => ({
+  type: FETCH_REQUEST
+});
+
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const fetchSuccess = () => ({
+  type: FETCH_SUCCESS
+});
+
 export const saveCard = currentCard => dispatch => {
   fetch(`${API_BASE_URL}/cards`, {
     method: 'POST',
@@ -47,18 +63,32 @@ export const saveCard = currentCard => dispatch => {
     },
     body: JSON.stringify({ currentCard })
   })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      res.json();
+    })
     .then(resJSON => console.log(resJSON))
     .catch(err => console.log(err));
 };
 
-export const getUserCards = () => dispatch => {
+export const fetchCards = () => dispatch => {
+  dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/cards`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json'
     }
   })
-    .then(res => res.JSON())
-    .then(data => console.log(data));
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then(userCards => {
+      dispatch(displayCards(userCards));
+      dispatch(fetchSuccess());
+    });
 };
