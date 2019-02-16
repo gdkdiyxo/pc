@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { saveCard } from '../../actions/card';
 import { API_BASE_URL } from '../../config';
 import './create-page.css';
+import '../card/card.css';
 
 import ImageForm from './image-form';
 import MessageForm from './message-form';

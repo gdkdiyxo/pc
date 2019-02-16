@@ -1,5 +1,4 @@
 import React from 'react';
-import './card-front.css';
 import { connect } from 'react-redux';
 
 export class CardFront extends React.Component {

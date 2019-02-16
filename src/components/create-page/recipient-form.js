@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { clearRecipients, addRecipient, feelRecipientForm, flipCard } from '../../actions/card';
+import { clearRecipients, addRecipient, flipCard } from '../../actions/card';
 
 export class RecipientForm extends React.Component {
   constructor(props) {
@@ -9,13 +9,16 @@ export class RecipientForm extends React.Component {
     this.state = {
       recipients: 0,
       maxRecipients: 8,
-      errorMessage: ''
+      errorMessage: '',
+      isFormPristine: true
     };
   }
 
   clearRecipients() {
-    if (this.props.recipientFormTouched === false) {
-      this.props.dispatch(feelRecipientForm());
+    if (this.state.isFormPristine === true) {
+      this.setState({
+        isFormPristine: false
+      });
       this.props.dispatch(clearRecipients());
     }
   }

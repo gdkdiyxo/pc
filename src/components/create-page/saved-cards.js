@@ -2,6 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCards } from '../../actions/card';
 
+export function DeleteCardModal() {
+  return (
+    <div className="delete-card-modal">
+      <p>Are you sure you want to delete this postcard?</p>
+      <button className="modal-cancel-btn">Cancel</button>
+      <button className="modal-delete-btn">Delete</button>
+    </div>
+  );
+}
+
 export class UserCards extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchCards());

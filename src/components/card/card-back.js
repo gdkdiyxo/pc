@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { deleteEmail } from '../../actions/card';
-import './card-back.css';
 
 function Recipient(props) {
   return (

@@ -4,7 +4,6 @@ import CardFront from './card-front';
 import CardBack from './card-back';
 
 import { flipCard } from '../../actions/card';
-import './card-container.css';
 
 export class CardContainer extends React.Component {
   flipCard(e) {

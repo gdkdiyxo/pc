@@ -2,7 +2,6 @@ import {
   FLIP_CARD,
   ADD_MESSAGE,
   ADD_RECIPIENT,
-  FEEL_RECIPIENT_FORM,
   CLEAR_RECIPIENTS,
   SET_IMAGE,
   DELETE_EMAIL,
@@ -45,11 +44,6 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === ADD_MESSAGE) {
     return Object.assign({}, state, {
       message: action.message
-    });
-  } else if (action.type === FEEL_RECIPIENT_FORM) {
-    console.log('recipientFormTouched ran');
-    return Object.assign({}, state, {
-      recipientFormTouched: true
     });
   } else if (action.type === CLEAR_RECIPIENTS) {
     return Object.assign({}, state, {
