@@ -44,13 +44,15 @@ export class RecipientForm extends React.Component {
     return (
       <div className="create-page-form-wrapper">
         <form className="recipient-form" onSubmit={e => this.addRecipient(e)}>
-          <label htmlFor="recipient-list">3) Add recipients' emails</label>
+          <label htmlFor="recipient-list">
+            3) Add recipients — they'll receive an email with a link to view the postcard.
+          </label>
           <div className="create-page-form-row">
             <input
               id="recipient-list"
               type="email"
               required={true}
-              placeholder="add emails here"
+              placeholder="Add up to 8 email addresses"
               ref={input => (this.emailInput = input)}
               onChange={e => this.clearRecipients(e)}
             />

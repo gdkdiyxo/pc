@@ -18,10 +18,11 @@ export default class LandingPage extends React.Component {
 
           <h3>
             Deltiology is the study and collection of postcards.
-            <br />
-            <br />
-            With Deltio, you can create beautiful digital postcards, send them to loved ones, and
-            start your own collection.
+            {/* <br /> */}
+          </h3>
+          <h3>
+            With Deltio, you can create beautiful digital postcards, share them, and start your own
+            collection.
           </h3>
           <section className="instruction-wrapper">
             <div className="instruction">

@@ -20,7 +20,6 @@ body {
   background-color: #efeeeb;
 }
 
-/* //header & footer heights  */
 header {
   height: 5vh;
 }
@@ -31,10 +30,6 @@ footer {
 
 main {
   margin-top: 30px;
-}
-
-.center {
-  text-align: center;
 }
 
 button:hover {

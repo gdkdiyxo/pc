@@ -1,0 +1,37 @@
+.account-form img {
+  margin-top: 5vh;
+}
+
+.account-form-wrapper {
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 5vh auto;
+}
+
+.account-form-wrapper h2 {
+  text-align: center;
+}
+
+.account-form-wrapper p {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.account-form-wrapper a {
+  text-decoration: none;
+}
+
+.form-row {
+  display: flex;
+  padding: 8px 0;
+}
+
+.form-row label {
+  flex: 1;
+}
+
+.form-row input {
+  flex: 3;
+}

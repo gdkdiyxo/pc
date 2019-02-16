@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginForm from './login-form';
 
-import './login-page.css';
+import './account-pages.css';
 
 export class LoginPage extends React.Component {
   render() {
@@ -13,13 +13,23 @@ export class LoginPage extends React.Component {
     //   return <Redirect to={`/create/${this.props.currentUser}`} />;
     // }
     return (
-      <main role="main" className="login-form">
-        <h2 className="center">Log in</h2>
-        <LoginForm />
-        <br />
-        <button type="submit" className="switch-signup-login-btn">
-          <Link to="/signup">Sign up here</Link>
-        </button>
+      <main role="main">
+        <div className="account-page-icon">
+          <img
+            src="../images/deltio-icon-main.png"
+            alt="the deltio icon, a postcard"
+            className="icon-main"
+          />
+        </div>
+        <div className="account-form-wrapper">
+          <h2>Log in</h2>
+          <LoginForm />
+          <br />
+          <p>Need an account?</p>
+          <button type="submit">
+            <Link to="/signup">Sign up here</Link>
+          </button>
+        </div>
       </main>
     );
   }

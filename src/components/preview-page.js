@@ -2,12 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CardContainer from './card/card-container';
 
-import './preview-page.css';
-
 export default function PreviewPage() {
+  const style = { display: 'block', margin: '10px auto' };
   return (
     <main role="main">
-      <button className="create-page-btn back-btn">
+      <button style={style} className="create-page-btn">
         <Link to="/create">Back</Link>
       </button>
       <CardContainer />;

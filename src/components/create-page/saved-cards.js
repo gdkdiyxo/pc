@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCards } from '../../actions/card';
 
-import './saved-cards.css';
-
 export class UserCards extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchCards());

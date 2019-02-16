@@ -1,11 +1,13 @@
 .card-btn-wrapper {
-  text-align: center;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .create-page-btn {
-  display: inline;
-  margin-right: 20px;
   padding: 10px;
   background-color: #1a5666;
 }
@@ -47,6 +49,63 @@
 .card-outer {
   width: 98vw;
   height: 66vw;
+}
+
+.saved-cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 750px;
+  margin: 30px auto;
+  border: 2px lightgrey solid;
+  border-radius: 2%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.saved-cards-container-label {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 10px;
+  font-weight: 500;
+  background-color: #efeeeb;
+  transform: translate(0, -50%);
+}
+
+.saved-card {
+  display: flex;
+  position: relative;
+  margin: 2vh 1vh;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+.saved-card:hover {
+  opacity: 0.8;
+}
+
+.saved-card-flip-instruction {
+  display: none;
+  margin: 0;
+  opacity: 0.8;
+  font-size: 1.5vh;
+  color: white;
+  background-color: #4d808b;
+  padding: 5px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.saved-card:hover > .saved-card-flip-instruction {
+  display: block;
+}
+
+.delete-card-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 @media only screen and (min-width: 568px) {

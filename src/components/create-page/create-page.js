@@ -47,7 +47,7 @@ export class CreatePage extends React.Component {
                 this.props.recipients
               }?subject=You've received a postcard from [account name]&body=Click on this link to view the postcard: ${API_BASE_URL}/preview`}
             >
-              Send postcard
+              Send
             </a>
           </button>
         </div>
