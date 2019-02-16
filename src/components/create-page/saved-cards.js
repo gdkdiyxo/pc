@@ -2,22 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCards } from '../../actions/card';
 
-export function ConfirmDeleteModal() {
-  return (
-    <div className="delete-card-modal">
-      <p>Are you sure you want to delete this postcard?</p>
-      <button className="modal-cancel-btn">Cancel</button>
-      <button className="modal-delete-btn">Delete</button>
-    </div>
-  );
+export class ConfirmDeleteModal extends React.Component {
+  closeModal() {}
+  render() {
+    const hidden = { display: 'none' };
+    return (
+      <div className="delete-card-modal" style={!this.props.isModalShowing ? hidden : null}>
+        <p>Are you sure you want to delete this postcard?</p>
+        <button className="modal-cancel-btn" onClick={e => this.closeModal(e)}>
+          Cancel
+        </button>
+        <button className="modal-delete-btn">Delete</button>
+      </div>
+    );
+  }
 }
 
 export class UserCards extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isModalShowing: false
-    }
+    };
   }
 
   componentDidMount() {
@@ -26,9 +32,8 @@ export class UserCards extends React.Component {
 
   showModal(e) {
     e.stopPropagation();
-    console.log('showImageModal clicked');
     this.setState({
-      isModalShowing: !this.state.isModalShowing
+      isModalShowing: true
     });
   }
 
@@ -53,11 +58,14 @@ export class UserCards extends React.Component {
     ));
 
     return (
-      <section className="saved-cards-container">
-        <p className="saved-cards-container-label">My saved postcards</p>
-        {userCards}
-      </section>
-      <ConfirmDeleteModal/ className={{isModalShowing ? show : hide}}>
+      <div>
+        <section className="saved-cards-container">
+          <p className="saved-cards-container-label">My saved postcards</p>
+          {userCards}
+        </section>
+        {/* pass in props of closeModal function  */}
+        <ConfirmDeleteModal isModalShowing={this.state.isModalShowing} />
+      </div>
     );
   }
 }

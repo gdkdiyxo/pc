@@ -1,3 +1,9 @@
+.card-outer {
+  width: 98vw;
+  height: 66vw;
+}
+
+/*    Preview, Save, Send buttons   */
 .card-btn-wrapper {
   margin-bottom: 20px;
   display: flex;
@@ -19,6 +25,7 @@
   text-decoration: none;
 }
 
+/*    Image, Message, Recipient forms   */
 .create-page-form-wrapper {
   width: 98%;
   border: 1px solid grey;
@@ -46,11 +53,7 @@
   font-weight: 100;
 }
 
-.card-outer {
-  width: 98vw;
-  height: 66vw;
-}
-
+/*    Saved cards   */
 .saved-cards-container {
   display: flex;
   justify-content: space-around;
@@ -107,9 +110,36 @@
   top: 0;
   right: 0;
 }
+
 .error-message {
   color: red;
   font-size: 0.8em;
+}
+
+/* Delete card modal   */
+.delete-card-modal {
+  height: 20vh;
+  width: 22vw;
+  padding: 2vh;
+  text-align: center;
+  font-size: 2vh;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  position: absolute;
+  right: 50%;
+  bottom: 30%;
+  transform: translate(50%, 50%);
+}
+
+.delete-card-modal button {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.delete-card-modal button:nth-child(odd) {
+  color: white;
+  background-color: red;
 }
 
 @media only screen and (min-width: 568px) {
