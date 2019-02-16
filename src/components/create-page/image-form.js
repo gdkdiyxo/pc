@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import { setImage, flipCard } from '../../actions/card';
 
 export class ImageForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      errorMessage: ''
+    };
+  }
+
   searchImage(e) {
     e.preventDefault();
     if (this.props.isCardFlipped) {
@@ -26,15 +33,22 @@ export class ImageForm extends React.Component {
     })
       .then(response => response.json())
       .then(data => {
-        const image = {
-          full: data.results[1].urls.regular,
-          alt: data.results[1].description,
-          credit: data.results[1].user.name,
-          portfolio: data.results[1].user.links.html
-        };
-        this.props.dispatch(setImage(image));
+        if (data.total === 0) {
+          this.setState({ errorMessage: 'There were no results. Try a simpler search term' });
+        } else {
+          this.setState({ errorMessage: '' });
+          const image = {
+            full: data.results[1].urls.regular,
+            alt: data.results[1].description,
+            credit: data.results[1].user.name,
+            portfolio: data.results[1].user.links.html
+          };
+          this.props.dispatch(setImage(image));
+        }
       });
   }
+
+  handleNoResults() {}
 
   render() {
     return (
@@ -44,11 +58,13 @@ export class ImageForm extends React.Component {
           <div className="create-page-form-row">
             <input
               id="search"
-              placeholder="e.g. London, Paris, cat, dog, nature, house boat"
+              placeholder="e.g. London, Paris, cat, nature"
+              required={true}
               ref={input => (this.searchInput = input)}
             />
             <button type="submit">Search</button>
           </div>
+          <div className="error-message">{this.state.errorMessage}</div>
         </form>
       </div>
     );

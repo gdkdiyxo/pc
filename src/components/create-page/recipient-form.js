@@ -40,12 +40,12 @@ export class RecipientForm extends React.Component {
   }
 
   render() {
-    const style = { color: 'red', fontSize: '0.8em' };
     return (
       <div className="create-page-form-wrapper">
         <form className="recipient-form" onSubmit={e => this.addRecipient(e)}>
           <label htmlFor="recipient-list">
-            3) Add recipients — they'll receive an email with a link to view the postcard.
+            3) Add recipients — when you send a card they'll receive an email with a link to view
+            it.
           </label>
           <div className="create-page-form-row">
             <input
@@ -58,9 +58,7 @@ export class RecipientForm extends React.Component {
             />
             <button type="submit">Add</button>
           </div>
-          <div className="error-message" style={style}>
-            {this.state.errorMessage}
-          </div>
+          <div className="error-message">{this.state.errorMessage}</div>
         </form>
       </div>
     );
