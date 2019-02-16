@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { clearRecipients, addRecipient, feelRecipientForm, flipCard } from '../../actions/card';
-import './recipient-form.css';
 
 export class RecipientForm extends React.Component {
   constructor(props) {
@@ -41,11 +40,12 @@ export class RecipientForm extends React.Component {
   }
 
   render() {
+    const style = { color: 'red', fontSize: '0.8em' };
     return (
-      <div className="recipient-form-wrapper">
+      <div className="create-page-form-wrapper">
         <form className="recipient-form" onSubmit={e => this.addRecipient(e)}>
           <label htmlFor="recipient-list">3) Add recipients' emails</label>
-          <div className="recipient-form-row">
+          <div className="create-page-form-row">
             <input
               id="recipient-list"
               type="email"
@@ -56,7 +56,9 @@ export class RecipientForm extends React.Component {
             />
             <button type="submit">Add</button>
           </div>
-          <div className="error-message">{this.state.errorMessage}</div>
+          <div className="error-message" style={style}>
+            {this.state.errorMessage}
+          </div>
         </form>
       </div>
     );

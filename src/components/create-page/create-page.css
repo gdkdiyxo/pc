@@ -17,10 +17,31 @@
   text-decoration: none;
 }
 
-.image-form-wrapper,
-.message-form-wrapper,
-.recipient-form-wrapper {
+.create-page-form-wrapper {
   width: 98%;
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 0 auto 15px;
+}
+
+.create-page-form-row {
+  display: flex;
+  padding: 10px 10px 10px 0;
+}
+
+.create-page-form-row input {
+  flex: 3;
+  margin-right: 10px;
+}
+
+.create-page-form-row button {
+  flex: 1;
+}
+
+.create-page-form-wrapper label {
+  font-family: 'Monda', sans-serif;
+  font-weight: 100;
 }
 
 .card-outer {
@@ -29,10 +50,8 @@
 }
 
 @media only screen and (min-width: 568px) {
-  .image-form-wrapper,
-  .message-form-wrapper,
-  .recipient-form-wrapper {
-    width: 80%;
+  .create-page-form-wrapper {
+    width: 80vw;
   }
 
   .card-outer {
@@ -42,10 +61,8 @@
 }
 
 @media only screen and (min-width: 900px) {
-  .image-form-wrapper,
-  .message-form-wrapper,
-  .recipient-form-wrapper {
-    width: 600px;
+  .create-page-form-wrapper {
+    width: 750px;
   }
 
   .card-outer {

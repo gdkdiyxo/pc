@@ -9,7 +9,7 @@ import ImageForm from './image-form';
 import MessageForm from './message-form';
 import CardContainer from '../card/card-container';
 import RecipientForm from './recipient-form';
-import UserCards from './user-cards';
+import SavedCards from './saved-cards';
 
 export class CreatePage extends React.Component {
   saveCard() {
@@ -52,7 +52,7 @@ export class CreatePage extends React.Component {
           </button>
         </div>
         <hr />
-        <UserCards />
+        <SavedCards />
       </main>
     );
   }

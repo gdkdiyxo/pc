@@ -1,4 +1,4 @@
-.user-cards-container {
+.saved-cards-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.user-cards-container p {
+.saved-cards-container-label {
   position: absolute;
   margin: 0;
   top: 0;
@@ -20,11 +20,33 @@
   transform: translate(0, -50%);
 }
 
-.user-card {
+.saved-card {
   display: flex;
   position: relative;
   margin: 2vh 1vh;
   box-shadow: 5px 10px 18px #888888;
+}
+
+.saved-card:hover {
+  opacity: 0.8;
+}
+
+.saved-card-flip-instruction {
+  display: none;
+  margin: 0;
+  opacity: 0.8;
+  font-size: 1.5vh;
+  color: white;
+  background-color: #4d808b;
+  padding: 5px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.saved-card:hover > .saved-card-flip-instruction {
+  display: block;
 }
 
 .delete-card-btn {

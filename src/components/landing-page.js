@@ -6,7 +6,7 @@ export default class LandingPage extends React.Component {
   render() {
     return (
       <div>
-        <main role="main">
+        <main role="main" className="homepage-main">
           <div className="icon-main">
             <img
               src="../images/deltio-icon-main.png"
@@ -20,8 +20,8 @@ export default class LandingPage extends React.Component {
             Deltiology is the study and collection of postcards.
             <br />
             <br />
-            With Deltio, you can pay homage to this practice by creating and sharing beautiful
-            digital postcards.
+            With Deltio, you can create beautiful digital postcards, send them to loved ones, and
+            start your own collection.
           </h3>
           <section className="instruction-wrapper">
             <div className="instruction">

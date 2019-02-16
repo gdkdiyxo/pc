@@ -6,7 +6,7 @@ export class CardFront extends React.Component {
   render() {
     return (
       <div className="card-image-container">
-        <p className="card-flip-instruction">Click image to flip</p>
+        <p className="card-flip-instruction">Click to flip postcard</p>
 
         <img src={this.props.image.full} alt={this.props.image.alt} />
 

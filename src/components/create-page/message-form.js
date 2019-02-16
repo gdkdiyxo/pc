@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import { flipCard, addMessage } from '../../actions/card';
 
-import './message-form.css';
-
 export class MessageForm extends React.Component {
   onChange(text) {
     if (!this.props.isCardFlipped) {
@@ -14,14 +12,16 @@ export class MessageForm extends React.Component {
   }
 
   render() {
+    const style = { flex: 1 };
     return (
-      <form className="message-form-wrapper">
+      <form className="create-page-form-wrapper">
         <label htmlFor="message">2) Add your message</label>
-        <div className="message-form-row">
+        <div className="create-page-form-row">
           <textarea
+            style={style}
             id="message"
             className="message-textarea"
-            placeholder="i.e. Guess where I am right now?!"
+            placeholder="e.g. Guess where I am right now?!"
             maxLength="300"
             onChange={e => this.onChange(e.target.value)}
           />

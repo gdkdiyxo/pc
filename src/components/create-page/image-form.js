@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setImage } from '../../actions/card';
-import './image-form.css';
+import { setImage, flipCard } from '../../actions/card';
 
 export class ImageForm extends React.Component {
   searchImage(e) {
     e.preventDefault();
+    if (this.props.isCardFlipped) {
+      this.props.dispatch(flipCard());
+    }
     const page = 1;
     const per_page = 10;
     const orientation = 'landscape';
@@ -34,17 +36,15 @@ export class ImageForm extends React.Component {
       });
   }
 
-  uploadImage() {}
-
   render() {
     return (
-      <div className="image-form-wrapper">
+      <div className="create-page-form-wrapper">
         <form onSubmit={e => this.searchImage(e)}>
           <label htmlFor="search">1) Search for an image</label>
-          <div className="image-form-row">
+          <div className="create-page-form-row">
             <input
               id="search"
-              placeholder="search for anything"
+              placeholder="e.g. London, Paris, cat, dog, nature, house boat"
               ref={input => (this.searchInput = input)}
             />
             <button type="submit">Search</button>
@@ -55,4 +55,8 @@ export class ImageForm extends React.Component {
   }
 }
 
-export default connect()(ImageForm);
+const mapStateToProps = state => ({
+  isCardFlipped: state.card.isCardFlipped
+});
+
+export default connect(mapStateToProps)(ImageForm);
