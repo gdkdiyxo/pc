@@ -13,13 +13,23 @@ export function ConfirmDeleteModal() {
 }
 
 export class UserCards extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isModalShowing: false
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchCards());
   }
 
-  showModal() {
-    console.log('deleteCard btn clicked');
-    return <ConfirmDeleteModal />;
+  showModal(e) {
+    e.stopPropagation();
+    console.log('showImageModal clicked');
+    this.setState({
+      isModalShowing: !this.state.isModalShowing
+    });
   }
 
   deleteCard() {}
@@ -47,6 +57,7 @@ export class UserCards extends React.Component {
         <p className="saved-cards-container-label">My saved postcards</p>
         {userCards}
       </section>
+      <ConfirmDeleteModal/ className={{isModalShowing ? show : hide}}>
     );
   }
 }
