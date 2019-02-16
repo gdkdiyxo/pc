@@ -26,7 +26,7 @@ export default class LandingPage extends React.Component {
           <section className="instruction-wrapper">
             <div className="instruction">
               <i className="far fa-5x fa-image" />
-              <p>Design the postcard photo, selecting from thousands of professional images.</p>
+              <p>Choose from thousands of professional images for the postcard front.</p>
             </div>
             <div className="instruction">
               <i className="fas fa-5x fa-pen-fancy" />

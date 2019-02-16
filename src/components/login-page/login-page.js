@@ -13,14 +13,14 @@ export class LoginPage extends React.Component {
     //   return <Redirect to={`/create/${this.props.currentUser}`} />;
     // }
     return (
-      <div className="login-form">
+      <main role="main" className="login-form">
         <h2 className="center">Log in</h2>
         <LoginForm />
         <br />
         <button type="submit" className="switch-signup-login-btn">
           <Link to="/signup">Sign up here</Link>
         </button>
-      </div>
+      </main>
     );
   }
 }

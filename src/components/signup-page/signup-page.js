@@ -5,7 +5,7 @@ import './signup-page.css';
 
 export default function SignupPage() {
   return (
-    <div>
+    <main role="main">
       <section className="signup-form-wrapper">
         <h2>Sign up</h2>
         <SignupForm />
@@ -14,6 +14,6 @@ export default function SignupPage() {
           <Link to="/login">Log in here</Link>
         </button>
       </section>
-    </div>
+    </main>
   );
 }

@@ -5,6 +5,11 @@
   margin: 25px auto 20px;
 }
 
+.recipient-form-wrapper label {
+  font-family: 'Monda', sans-serif;
+  font-weight: 100;
+}
+
 .recipient-form-row {
   display: flex;
   padding: 10px 10px 10px 0;

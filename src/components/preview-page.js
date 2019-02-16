@@ -6,11 +6,11 @@ import './preview-page.css';
 
 export default function PreviewPage() {
   return (
-    <div>
+    <main role="main">
       <button className="create-page-btn back-btn">
         <Link to="/create">Back</Link>
       </button>
       <CardContainer />;
-    </div>
+    </main>
   );
 }

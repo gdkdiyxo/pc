@@ -8,6 +8,14 @@ h1,
 h3 {
   text-align: center;
   margin-bottom: 30px;
+  /* font-family: 'Indie Flower', cursive; */
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Monda', sans-serif;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 25px;
 }
 
 .landing-page-header {
@@ -42,7 +50,7 @@ h3 {
   width: 150px;
   height: 40px;
   font-size: 20px;
-  background-color: #4d8b77;
+  background-color: #1a5666;
 }
 
 .landing-page-btn a {
@@ -56,7 +64,7 @@ h3 {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #4d808b;
+  background-color: #1a5666;
 }
 
 .footer p {

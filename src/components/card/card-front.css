@@ -61,10 +61,14 @@
 
 .photo-credit {
   padding: 0 4px 0;
-  font-size: 1vh;
-  background-color: grey;
+  font-size: 1.2vh;
+  background-color: white;
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%);
+  margin: 0;
+  left: 3px;
+  bottom: 3px;
+}
+
+.photo-credit a {
+  text-decoration: none;
 }

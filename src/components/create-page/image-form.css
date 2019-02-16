@@ -10,6 +10,11 @@
   padding: 10px 10px 10px 0;
 }
 
+.image-form-wrapper label {
+  font-family: 'Monda', sans-serif;
+  font-weight: 100;
+}
+
 .image-form-row input {
   flex: 3;
   margin-right: 10px;

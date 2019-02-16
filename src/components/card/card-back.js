@@ -9,7 +9,7 @@ function Recipient(props) {
     <div className="card-email">
       <p>{props.email}</p>
       <button className="email-delete-btn" onClick={e => props.onClick(e, props.index)}>
-        X
+        <i className="fa fa-trash" />
       </button>
       {/* <hr /> */}
     </div>

@@ -1,17 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCards } from '../../actions/card';
-import { API_BASE_URL } from '../../config';
 
 import './user-cards.css';
 
 export class UserCards extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     userCards: []
-  //   };
-  // }
   componentDidMount() {
     this.props.dispatch(fetchCards());
   }
@@ -28,7 +21,6 @@ export class UserCards extends React.Component {
         </div>
       );
     }
-    console.log(this.props.userCards[0]);
     const userCards = this.props.userCards.map((card, index) => (
       <div className="user-card" key={index}>
         <button className="delete-card-btn" onClick={e => this.deleteCard(e)}>
@@ -39,9 +31,10 @@ export class UserCards extends React.Component {
     ));
 
     return (
-      <div>
-        <section className="user-cards-container">{userCards}</section>
-      </div>
+      <section className="user-cards-container">
+        <p>My saved postcards</p>
+        {userCards}
+      </section>
     );
   }
 }

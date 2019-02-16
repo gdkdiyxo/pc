@@ -39,9 +39,6 @@
 }
 
 .email-delete-btn {
-  padding: 2px 0;
-  width: 10px;
-  font-size: 1.2vh;
-  color: white;
-  background-color: #4d8b77;
+  border: none;
+  background-color: #efeeeb;
 }

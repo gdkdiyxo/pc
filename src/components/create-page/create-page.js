@@ -29,7 +29,7 @@ export class CreatePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <main role="main">
         <ImageForm />
         <CardContainer />
         <MessageForm />
@@ -51,8 +51,9 @@ export class CreatePage extends React.Component {
             </a>
           </button>
         </div>
+        <hr />
         <UserCards />
-      </div>
+      </main>
     );
   }
 }

@@ -1,12 +1,13 @@
 .card-btn-wrapper {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .create-page-btn {
   display: inline;
   margin-right: 20px;
-  padding: 5px;
-  background-color: #4d8b77;
+  padding: 10px;
+  background-color: #1a5666;
 }
 
 .create-page-btn a,
