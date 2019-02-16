@@ -6,6 +6,7 @@ import {
   SET_IMAGE,
   DELETE_EMAIL,
   DISPLAY_CARDS,
+  SET_CARD,
   FETCH_REQUEST,
   FETCH_SUCCESS
 } from '../actions/card';
@@ -24,8 +25,6 @@ const initialState = {
     'Eiusmod ut do labore nostrud deserunt consequat ut exercitation aliqua reprehenderit proident officia eiusmod.Ex ullamco incididunt eu in sit consequat nulla excepteur fugiat elit ipsum. Culpa sint sunt est esse est laborum velit anim voluptate magna do id veniam Lorem. Ut irure labore laboris est. Non eu eiusmod eu in. Quis aute labore veniam eu occaecat Lorem eu culpa aliquip elit Lorem magna do.',
   recipients: ['example1@gmail.com', 'example2@yahoo.com', 'example3@aol.com'],
   isCardFlipped: false,
-  recipientFormTouched: false,
-  isCardEditing: false,
   userCards: [],
   loading: false,
   error: null
@@ -60,6 +59,11 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === DISPLAY_CARDS) {
     return Object.assign({}, state, {
       userCards: action.userCards
+    });
+  } else if (action.type === SET_CARD) {
+    const cardToUpdate = state.userCards.filter(card => card._id === action.id)[0];
+    return Object.assign({}, state, {
+      image: cardToUpdate.image
     });
   } else if (action.type === FETCH_REQUEST) {
     return Object.assign({}, state, {

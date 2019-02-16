@@ -40,6 +40,12 @@ export const displayCards = userCards => ({
   userCards
 });
 
+export const SET_CARD = 'SET_CARD';
+export const setCard = id => ({
+  type: SET_CARD,
+  id
+});
+
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const fetchRequest = () => ({
   type: FETCH_REQUEST
@@ -56,7 +62,7 @@ export const saveCard = currentCard => dispatch => {
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify({ currentCard })
+    body: JSON.stringify(currentCard)
   })
     .then(res => {
       if (!res.ok) {
@@ -64,7 +70,7 @@ export const saveCard = currentCard => dispatch => {
       }
       res.json();
     })
-    .then(resJSON => console.log(resJSON))
+    .then(data => console.log(data))
     .catch(err => console.log(err));
 };
 

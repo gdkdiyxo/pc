@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCards, updateCard, deleteCard } from '../../actions/card';
+import { fetchCards, setCard, deleteCard } from '../../actions/card';
 
 function ConfirmDeleteModal(props) {
   const hidden = { display: 'none' };
@@ -35,17 +35,16 @@ export class UserCards extends React.Component {
     });
   }
 
-  updateCard(event, index) {
-    event.preventDefault();
-    console.log('updateCard fired');
-    console.log(index);
-    this.props.dispatch(updateCard(this.cardId));
+  setCardToUpdate(event, id) {
+    console.log(id);
+    this.props.dispatch(setCard(id));
   }
 
-  deleteCard(event, index) {
+  deleteCard(event, id) {
     event.preventDefault();
+    event.stopPropagation();
     console.log('delteCard fired');
-    console.log(this.cardId);
+    console.log(id);
     this.props.dispatch(deleteCard(this.cardId));
   }
 
@@ -57,12 +56,12 @@ export class UserCards extends React.Component {
         </div>
       );
     }
-    const userCards = this.props.userCards.map((card, index) => (
+    const userCards = this.props.userCards.map(card => (
       <div
         className="saved-card"
         key={card._id}
         ref={key => (this.cardId = key)}
-        onClick={(e, key) => this.updateCard(e, key)}
+        onClick={e => this.setCardToUpdate(e, card._id)}
       >
         <p className="saved-card-flip-instruction">Click to edit</p>
         <button className="delete-card-btn" onClick={() => this.toggleModal(true)}>

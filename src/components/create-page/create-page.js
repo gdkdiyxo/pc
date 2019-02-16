@@ -18,12 +18,13 @@ export class CreatePage extends React.Component {
       image: {
         full: this.props.image.full,
         thumb: this.props.image.thumb,
-        alt: this.props.image.alt
+        alt: this.props.image.alt,
+        credit: this.props.image.credit,
+        portfolio: this.props.image.portfolio
       },
       message: this.props.message,
       recipients: this.props.recipients
     };
-    //POST request
     console.log(currentCard);
     this.props.dispatch(saveCard(currentCard));
   }

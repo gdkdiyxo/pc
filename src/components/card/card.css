@@ -40,6 +40,7 @@
 
 .card-image-container:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .card-flip-instruction {

@@ -10,7 +10,6 @@ function Recipient(props) {
       <button className="email-delete-btn" onClick={e => props.onClick(e, props.index)}>
         <i className="fa fa-trash" />
       </button>
-      {/* <hr /> */}
     </div>
   );
 }
