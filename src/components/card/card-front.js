@@ -10,15 +10,15 @@ export class CardFront extends React.Component {
 
         <img src={this.props.image.full} alt={this.props.image.alt} />
 
-        {/* <button type="submit" className="last-image-btn" onClick={e => this.loadNextImage(e)}>
+        {/* <button className="last-image-btn" onClick={e => this.loadNextImage(e)}>
           <i className="fas fa-7x fa-angle-left" />
         </button>
 
-        <button type="submit" className="next-image-btn" onClick={e => this.loadNextImage(e)}>
+        <button  className="next-image-btn" onClick={e => this.loadNextImage(e)}>
           <i className="fas fa-7x fa-angle-right" />
         </button>
 
-        <button type="submit" className="flip-image-btn" onClick={e => this.flipImage(e)}>
+        <button  className="flip-image-btn" onClick={e => this.flipImage(e)}>
           <i className="fas fa-7x fa-sync" />
         </button> */}
         <p className="photo-credit">
