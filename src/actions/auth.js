@@ -1,5 +1,15 @@
 import { API_BASE_URL } from '../config';
 
+export const SET_USER = 'SET_USER';
+export const setUser = username => ({
+  type: SET_USER,
+  username
+});
+
+export const saveAuthToken = authToken => {
+  localStorage.setItem('authToken', authToken);
+};
+
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const logoutUser = () => ({
   type: LOGOUT_USER
@@ -19,20 +29,19 @@ export const loginUser = (username, password) => dispatch => {
     })
   })
     .then(res => res.json())
-    .then(resJSON => console.log(resJSON));
+    .then(authToken => dispatch(saveAuthToken(authToken)))
+    .catch(err => console.log(err));
 };
 
-export const signupUser = (name, username, password) => dispatch => {
-  console.log('signup action fired');
+export const signupUser = values => dispatch => {
+  console.log(values);
   fetch(`${API_BASE_URL}/auth/signup`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
     body: JSON.stringify({
-      name,
-      username,
-      password
+      values
     })
   })
     .then(res => res.json())

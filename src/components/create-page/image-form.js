@@ -39,6 +39,7 @@ export class ImageForm extends React.Component {
           this.setState({ errorMessage: '' });
           const image = {
             full: data.results[1].urls.regular,
+            thumb: data.results[1].urls.thumb,
             alt: data.results[1].description,
             credit: data.results[1].user.name,
             portfolio: data.results[1].user.links.html

@@ -8,10 +8,10 @@ import './account-pages.css';
 
 export class LoginPage extends React.Component {
   render() {
-    //redirect to user's create page
-    // if (this.props.currentUser) {
-    //   return <Redirect to={`/create/${this.props.currentUser}`} />;
-    // }
+    if (this.props.currentUser) {
+      console.log(this.props.currentUser);
+      return <Redirect to={`/create`} />;
+    }
     return (
       <main role="main">
         <div className="account-page-icon">
@@ -24,6 +24,10 @@ export class LoginPage extends React.Component {
         <div className="account-form-wrapper">
           <h2>Log in</h2>
           <LoginForm />
+          <p className="center">
+            Demo login:
+            <br /> username: <b>testuser</b> | password: <b>password</b>
+          </p>
           <br />
           <p>Need an account?</p>
           <button type="submit">

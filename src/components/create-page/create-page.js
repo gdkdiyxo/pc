@@ -14,13 +14,14 @@ import SavedCards from './saved-cards';
 
 export class CreatePage extends React.Component {
   saveCard() {
+    const { full, thumb, alt, credit, portfolio } = this.props.image;
     const currentCard = {
       image: {
-        full: this.props.image.full,
-        thumb: this.props.image.thumb,
-        alt: this.props.image.alt,
-        credit: this.props.image.credit,
-        portfolio: this.props.image.portfolio
+        full,
+        thumb,
+        alt,
+        credit,
+        portfolio
       },
       message: this.props.message,
       recipients: this.props.recipients
@@ -43,11 +44,11 @@ export class CreatePage extends React.Component {
           <button className="create-page-btn" onClick={e => this.saveCard(e)}>
             Save
           </button>
-          <button className="create-page-btn">
+          <button className="create-page-btn" onClick={e => this.saveCard(e)}>
             <a
-              href={`mailto:${
-                this.props.recipients
-              }?subject=You've received a postcard from [account name]&body=Click on this link to view the postcard: ${API_BASE_URL}/preview`}
+              href={`mailto:${this.props.recipients}?subject=You've received a postcard from ${
+                this.props.currentUser
+              }!&body=Click on this link to view the postcard: ${API_BASE_URL}/preview`}
             >
               Send
             </a>
@@ -63,7 +64,8 @@ export class CreatePage extends React.Component {
 const mapStateToProps = state => ({
   image: state.card.image,
   message: state.card.message,
-  recipients: state.card.recipients
+  recipients: state.card.recipients,
+  currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(CreatePage);
