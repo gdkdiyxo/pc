@@ -7,6 +7,16 @@ export const setUser = username => ({
   username
 });
 
+export const FETCH_REQUEST = 'FETCH_REQUEST';
+export const fetchRequest = () => ({
+  type: FETCH_REQUEST
+});
+
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const fetchSuccess = () => ({
+  type: FETCH_SUCCESS
+});
+
 export const handleAuthToken = (authToken, dispatch) => {
   localStorage.setItem('authToken', authToken);
   const decodedToken = jwtDecode(authToken);
@@ -31,7 +41,7 @@ export const loginUser = (username, password) => dispatch => {
 };
 
 export const signupUser = values => dispatch => {
-  console.log(`${API_BASE_URL}/signup`);
+  dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/signup`, {
     method: 'POST',
     headers: {
@@ -39,7 +49,15 @@ export const signupUser = values => dispatch => {
     },
     body: JSON.stringify(values)
   })
-    .then(res => res.json())
-    .then(resJSON => console.log(resJSON))
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then(resJSON => {
+      console.log(resJSON);
+      dispatch(fetchSuccess());
+    })
     .catch(err => console.log(err));
 };

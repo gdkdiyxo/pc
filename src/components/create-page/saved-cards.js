@@ -56,6 +56,9 @@ export class UserCards extends React.Component {
         </div>
       );
     }
+    if (this.props.userCards === []) {
+      return <p className="collection-message">You don't have any saved cards yet</p>;
+    }
     const userCards = this.props.userCards.map(card => (
       <div
         className="saved-card"
@@ -73,10 +76,7 @@ export class UserCards extends React.Component {
 
     return (
       <div>
-        <section className="saved-cards-container">
-          <p className="saved-cards-container-label">My collection</p>
-          {userCards}
-        </section>
+        <section className="collection-cards">{userCards}</section>
         <ConfirmDeleteModal
           showing={this.state.showing}
           toggleModal={e => this.toggleModal(e)}

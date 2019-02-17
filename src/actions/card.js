@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config';
+import { fetchRequest, fetchSuccess } from './auth';
 
 export const SET_IMAGE = 'SET_IMAGE';
 export const setImage = image => ({
@@ -44,16 +45,6 @@ export const SET_CARD = 'SET_CARD';
 export const setCard = id => ({
   type: SET_CARD,
   id
-});
-
-export const FETCH_REQUEST = 'FETCH_REQUEST';
-export const fetchRequest = () => ({
-  type: FETCH_REQUEST
-});
-
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-export const fetchSuccess = () => ({
-  type: FETCH_SUCCESS
 });
 
 export const fetchCards = () => dispatch => {

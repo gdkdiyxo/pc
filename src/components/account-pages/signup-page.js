@@ -6,7 +6,7 @@ import './account-pages.css';
 
 export class SignupPage extends React.Component {
   render() {
-    if (this.props.currentUser) {
+    if (this.props.currentUser !== null) {
       console.log(this.props.currentUser);
       return <Redirect to={`/create`} />;
     }

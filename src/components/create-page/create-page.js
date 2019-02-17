@@ -55,7 +55,14 @@ export class CreatePage extends React.Component {
           </button>
         </div>
         <hr />
-        <SavedCards />
+        <section className="card-collection-container">
+          <p className="card-collection-container-label">My collection</p>
+          {this.props.currentUser ? (
+            <SavedCards />
+          ) : (
+            <p className="collection-message">Sign up to start your collection</p>
+          )}
+        </section>
       </main>
     );
   }

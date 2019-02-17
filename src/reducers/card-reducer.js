@@ -6,9 +6,7 @@ import {
   SET_IMAGE,
   DELETE_EMAIL,
   DISPLAY_CARDS,
-  SET_CARD,
-  FETCH_REQUEST,
-  FETCH_SUCCESS
+  SET_CARD
 } from '../actions/card';
 
 const initialState = {
@@ -25,9 +23,7 @@ const initialState = {
     'Eiusmod ut do labore nostrud deserunt consequat ut exercitation aliqua reprehenderit proident officia eiusmod.Ex ullamco incididunt eu in sit consequat nulla excepteur fugiat elit ipsum. Culpa sint sunt est esse est laborum velit anim voluptate magna do id veniam Lorem. Ut irure labore laboris est. Non eu eiusmod eu in. Quis aute labore veniam eu occaecat Lorem eu culpa aliquip elit Lorem magna do.',
   recipients: ['example1@gmail.com', 'example2@yahoo.com', 'example3@aol.com'],
   isCardFlipped: false,
-  userCards: [],
-  loading: false,
-  error: null
+  userCards: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -67,15 +63,6 @@ export default function reducer(state = initialState, action) {
       image: cardToUpdate.image,
       message: cardToUpdate.message,
       recipient: cardToUpdate.recipients
-    });
-  } else if (action.type === FETCH_REQUEST) {
-    return Object.assign({}, state, {
-      loading: true,
-      error: null
-    });
-  } else if (action.type === FETCH_SUCCESS) {
-    return Object.assign({}, state, {
-      loading: false
     });
   }
 
