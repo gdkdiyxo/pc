@@ -7,10 +7,10 @@ function ConfirmDeleteModal(props) {
   return (
     <div className="delete-card-modal" style={!props.showing ? hidden : null}>
       <p>Are you sure you want to delete this postcard?</p>
-      <button className="modal-cancel-btn" onClick={() => props.toggleModal(false)}>
+      <button className="modal-cancel-btn" onClick={e => props.toggleModal(e, false)}>
         Cancel
       </button>
-      <button className="modal-delete-btn" onClick={e => props.onClick(e, props.key)}>
+      <button className="modal-delete-btn" onClick={e => props.deleteCard(e, props.cardId)}>
         Delete
       </button>
     </div>
@@ -21,7 +21,8 @@ export class UserCards extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showing: false
+      showing: false,
+      cardId: ''
     };
   }
 
@@ -29,23 +30,22 @@ export class UserCards extends React.Component {
     this.props.dispatch(fetchCards());
   }
 
-  toggleModal(showing) {
+  toggleModal(event, showing, cardId) {
+    event.stopPropagation();
     this.setState({
-      showing
+      showing,
+      cardId
     });
   }
 
-  setCardToUpdate(event, id) {
-    console.log(id);
-    this.props.dispatch(setCard(id));
+  setCardToUpdate(event, cardId) {
+    this.props.dispatch(setCard(cardId));
   }
 
-  deleteCard(event, id) {
+  deleteCard(event, cardId) {
     event.preventDefault();
-    event.stopPropagation();
-    console.log('delteCard fired');
-    console.log(id);
-    this.props.dispatch(deleteCard(this.cardId));
+    this.props.dispatch(deleteCard(cardId));
+    this.toggleModal(event, false);
   }
 
   render() {
@@ -60,11 +60,11 @@ export class UserCards extends React.Component {
       <div
         className="saved-card"
         key={card._id}
-        ref={key => (this.cardId = key)}
+        ref={cardId => (this.cardId = cardId)}
         onClick={e => this.setCardToUpdate(e, card._id)}
       >
         <p className="saved-card-flip-instruction">Click to edit</p>
-        <button className="delete-card-btn" onClick={() => this.toggleModal(true)}>
+        <button className="delete-card-btn" onClick={e => this.toggleModal(e, true, card._id)}>
           <i className="fa fa-trash" />
         </button>
         <img src={card.image.thumb} alt={card.image.alt} />
@@ -74,13 +74,14 @@ export class UserCards extends React.Component {
     return (
       <div>
         <section className="saved-cards-container">
-          <p className="saved-cards-container-label">My saved postcards</p>
+          <p className="saved-cards-container-label">My collection</p>
           {userCards}
         </section>
         <ConfirmDeleteModal
           showing={this.state.showing}
           toggleModal={e => this.toggleModal(e)}
-          onClick={(e, key) => this.deleteCard(e, key)}
+          cardId={this.state.cardId}
+          deleteCard={(e, cardId) => this.deleteCard(e, cardId)}
         />
       </div>
     );

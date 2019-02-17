@@ -62,8 +62,11 @@ export default function reducer(state = initialState, action) {
     });
   } else if (action.type === SET_CARD) {
     const cardToUpdate = state.userCards.filter(card => card._id === action.id)[0];
+    console.log(cardToUpdate);
     return Object.assign({}, state, {
-      image: cardToUpdate.image
+      image: cardToUpdate.image,
+      message: cardToUpdate.message,
+      recipient: cardToUpdate.recipients
     });
   } else if (action.type === FETCH_REQUEST) {
     return Object.assign({}, state, {

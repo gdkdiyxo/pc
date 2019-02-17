@@ -56,24 +56,6 @@ export const fetchSuccess = () => ({
   type: FETCH_SUCCESS
 });
 
-export const saveCard = currentCard => dispatch => {
-  fetch(`${API_BASE_URL}/cards`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify(currentCard)
-  })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject(res.statusText);
-      }
-      res.json();
-    })
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
-};
-
 export const fetchCards = () => dispatch => {
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/cards`, {
@@ -94,6 +76,24 @@ export const fetchCards = () => dispatch => {
     });
 };
 
+export const saveCard = currentCard => dispatch => {
+  fetch(`${API_BASE_URL}/cards`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(currentCard)
+  })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      res.json();
+    })
+    .then(dispatch(fetchCards()))
+    .catch(err => console.log(err));
+};
+
 export const updateCard = () => dispatch => {
   fetch(`${API_BASE_URL}/cards/:id`, {
     method: 'PUT',
@@ -103,11 +103,18 @@ export const updateCard = () => dispatch => {
   });
 };
 
-export const deleteCard = () => dispatch => {
-  fetch(`${API_BASE_URL}/cards/:id`, {
+export const deleteCard = id => dispatch => {
+  fetch(`${API_BASE_URL}/cards/${id}`, {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json'
     }
-  });
+  })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      dispatch(fetchCards());
+    })
+    .catch(err => console.log(err));
 };
