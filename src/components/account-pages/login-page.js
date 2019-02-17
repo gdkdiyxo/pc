@@ -9,7 +9,6 @@ import './account-pages.css';
 export class LoginPage extends React.Component {
   render() {
     if (this.props.currentUser) {
-      console.log(this.props.currentUser);
       return <Redirect to={`/create`} />;
     }
     return (

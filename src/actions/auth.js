@@ -7,21 +7,15 @@ export const setUser = username => ({
   username
 });
 
-export const saveAuthToken = authToken => {
+export const handleAuthToken = (authToken, dispatch) => {
+  localStorage.setItem('authToken', authToken);
   const decodedToken = jwtDecode(authToken);
   console.log(decodedToken);
-  localStorage.setItem('authToken', decodedToken);
+  dispatch(setUser(decodedToken.user.username));
 };
 
-export const LOGOUT_USER = 'LOGOUT_USER';
-export const logoutUser = () => ({
-  type: LOGOUT_USER
-});
-
 export const loginUser = (username, password) => dispatch => {
-  console.log(`loginUser action fired; username: ${username} password: ${password}`);
-  console.log(API_BASE_URL);
-  return fetch(`${API_BASE_URL}/auth/login`, {
+  return fetch(`${API_BASE_URL}/login`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -32,7 +26,7 @@ export const loginUser = (username, password) => dispatch => {
     })
   })
     .then(res => res.json())
-    .then(authToken => dispatch(saveAuthToken(authToken)))
+    .then(({ authToken }) => handleAuthToken(authToken, dispatch))
     .catch(err => console.log(err));
 };
 

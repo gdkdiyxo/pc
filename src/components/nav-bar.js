@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions/auth';
+import { setUser } from '../actions/auth';
 
 import './nav-bar.css';
 
@@ -20,18 +20,15 @@ function LoggedOutLinks() {
 
 function LoggedInLinks(props) {
   return (
-    <div>
-      <button className="nav-btn">Account</button>
-      <button className="nav-btn" onClick={e => props.onClick(e)}>
-        <Link to="/">Log out</Link>
-      </button>
-    </div>
+    <button className="nav-btn" onClick={e => props.onClick(e)}>
+      <Link to="/">Log out</Link>
+    </button>
   );
 }
 
 export class NavBar extends React.Component {
   onClick(e) {
-    this.props.dispatch(logoutUser());
+    this.props.dispatch(setUser(null));
   }
 
   render() {
