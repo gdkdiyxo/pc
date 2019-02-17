@@ -34,7 +34,7 @@ export class ImageForm extends React.Component {
       .then(response => response.json())
       .then(data => {
         if (data.total === 0) {
-          this.setState({ errorMessage: 'There were no results. Try a simpler search term' });
+          this.setState({ errorMessage: 'There were no results. Try a different search' });
         } else {
           this.setState({ errorMessage: '' });
           const image = {

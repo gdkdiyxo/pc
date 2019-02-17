@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config';
+import jwtDecode from 'jwt-decode';
 
 export const SET_USER = 'SET_USER';
 export const setUser = username => ({
@@ -7,7 +8,9 @@ export const setUser = username => ({
 });
 
 export const saveAuthToken = authToken => {
-  localStorage.setItem('authToken', authToken);
+  const decodedToken = jwtDecode(authToken);
+  console.log(decodedToken);
+  localStorage.setItem('authToken', decodedToken);
 };
 
 export const LOGOUT_USER = 'LOGOUT_USER';
@@ -34,15 +37,13 @@ export const loginUser = (username, password) => dispatch => {
 };
 
 export const signupUser = values => dispatch => {
-  console.log(values);
-  fetch(`${API_BASE_URL}/auth/signup`, {
+  console.log(`${API_BASE_URL}/signup`);
+  fetch(`${API_BASE_URL}/signup`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify({
-      values
-    })
+    body: JSON.stringify(values)
   })
     .then(res => res.json())
     .then(resJSON => console.log(resJSON))
