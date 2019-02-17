@@ -6,7 +6,8 @@ import {
   SET_IMAGE,
   DELETE_EMAIL,
   DISPLAY_CARDS,
-  SET_CARD
+  SET_CARD,
+  SET_EDITING
 } from '../actions/card';
 
 const initialState = {
@@ -23,7 +24,9 @@ const initialState = {
     'Eiusmod ut do labore nostrud deserunt consequat ut exercitation aliqua reprehenderit proident officia eiusmod.Ex ullamco incididunt eu in sit consequat nulla excepteur fugiat elit ipsum. Culpa sint sunt est esse est laborum velit anim voluptate magna do id veniam Lorem. Ut irure labore laboris est. Non eu eiusmod eu in. Quis aute labore veniam eu occaecat Lorem eu culpa aliquip elit Lorem magna do.',
   recipients: ['example1@gmail.com', 'example2@yahoo.com', 'example3@aol.com'],
   isCardFlipped: false,
-  userCards: []
+  userCards: [],
+  editing: false,
+  editingId: ''
 };
 
 export default function reducer(state = initialState, action) {
@@ -58,11 +61,16 @@ export default function reducer(state = initialState, action) {
     });
   } else if (action.type === SET_CARD) {
     const cardToUpdate = state.userCards.filter(card => card._id === action.id)[0];
-    console.log(cardToUpdate);
     return Object.assign({}, state, {
+      editingId: action.id,
       image: cardToUpdate.image,
       message: cardToUpdate.message,
       recipient: cardToUpdate.recipients
+    });
+  } else if (action.type === SET_EDITING) {
+    console.log(state.editing);
+    return Object.assign({}, state, {
+      editing: action.boolean
     });
   }
 

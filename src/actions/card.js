@@ -47,6 +47,12 @@ export const setCard = id => ({
   id
 });
 
+export const SET_EDITING = 'SET_EDITING';
+export const setEditing = boolean => ({
+  type: SET_EDITING,
+  boolean
+});
+
 export const fetchCards = () => dispatch => {
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/cards`, {
@@ -85,13 +91,17 @@ export const saveCard = currentCard => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const updateCard = () => dispatch => {
-  fetch(`${API_BASE_URL}/cards/:id`, {
+export const updateCard = (id, currentCard) => dispatch => {
+  console.log(id, currentCard);
+  fetch(`${API_BASE_URL}/cards/${id}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json'
-    }
-  });
+    },
+    body: JSON.stringify(currentCard)
+  })
+    .then(console.log('success'))
+    .catch(err => console.log(err));
 };
 
 export const deleteCard = id => dispatch => {

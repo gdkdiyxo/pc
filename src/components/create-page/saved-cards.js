@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCards, setCard, deleteCard } from '../../actions/card';
+import { fetchCards, setCard, setEditing, deleteCard } from '../../actions/card';
 
 function ConfirmDeleteModal(props) {
   const hidden = { display: 'none' };
@@ -40,6 +40,7 @@ export class UserCards extends React.Component {
 
   setCardToUpdate(event, cardId) {
     this.props.dispatch(setCard(cardId));
+    this.props.dispatch(setEditing(true));
   }
 
   deleteCard(event, cardId) {
