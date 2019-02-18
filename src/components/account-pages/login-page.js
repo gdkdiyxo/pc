@@ -1,12 +1,16 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-
 import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { handleRefresh } from '../../actions/auth';
 import LoginForm from './login-form';
 
 import './account-pages.css';
 
 export class LoginPage extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(handleRefresh());
+  }
+
   render() {
     if (this.props.currentUser !== null) {
       return <Redirect to={`/create`} />;

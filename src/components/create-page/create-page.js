@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { saveCard, updateCard, setEditing } from '../../actions/card';
+import { handleRefresh } from '../../actions/auth';
 import { CLIENT_BASE_URL } from '../../config';
 import './create-page.css';
 import '../card/card.css';
@@ -13,6 +14,10 @@ import RecipientForm from './recipient-form';
 import SavedCards from './saved-cards';
 
 export class CreatePage extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(handleRefresh());
+  }
+
   saveCard() {
     const { full, thumb, alt, credit, portfolio } = this.props.card.image;
     const currentCard = {

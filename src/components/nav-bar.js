@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setUser } from '../actions/auth';
+import { logoutUser } from '../actions/auth';
 
 import './nav-bar.css';
 
@@ -30,7 +30,7 @@ function LoggedInLinks(props) {
 
 export class NavBar extends React.Component {
   onClick(e) {
-    this.props.dispatch(setUser(null));
+    this.props.dispatch(logoutUser());
   }
 
   render() {

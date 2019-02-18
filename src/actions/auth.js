@@ -23,6 +23,21 @@ export const handleAuthToken = (authToken, dispatch) => {
   dispatch(setUser(decodedToken.user.username));
 };
 
+export const handleRefresh = () => dispatch => {
+  const authToken = localStorage.getItem('authToken');
+  if (!authToken) {
+    return;
+  }
+  const decodedToken = jwtDecode(authToken);
+  dispatch(setUser(decodedToken.user.username));
+};
+
+export const logoutUser = () => dispatch => {
+  console.log('logout User fired');
+  localStorage.clear();
+  setUser(null);
+};
+
 export const loginUser = (username, password) => dispatch => {
   return fetch(`${API_BASE_URL}/api/login`, {
     method: 'POST',
