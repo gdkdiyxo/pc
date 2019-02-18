@@ -67,7 +67,7 @@ export class UserCards extends React.Component {
         ref={cardId => (this.cardId = cardId)}
         onClick={e => this.setCardToUpdate(e, card._id)}
       >
-        <p className="saved-card-flip-instruction">Click to edit</p>
+        <p className="saved-card-edit-instruction">Click to edit</p>
         <button className="delete-card-btn" onClick={e => this.toggleModal(e, true, card._id)}>
           <i className="fa fa-trash" />
         </button>

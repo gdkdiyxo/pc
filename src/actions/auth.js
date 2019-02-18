@@ -18,7 +18,6 @@ export const fetchSuccess = () => ({
 });
 
 export const handleAuthToken = (authToken, dispatch) => {
-  console.log(authToken);
   localStorage.setItem('authToken', authToken);
   const localStorageWorked = localStorage.getItem('authToken');
   console.log(localStorageWorked);
@@ -43,7 +42,7 @@ export const loginUser = (username, password) => dispatch => {
 };
 
 export const signupUser = values => dispatch => {
-  dispatch(fetchRequest());
+  // dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/signup`, {
     method: 'POST',
     headers: {
@@ -55,11 +54,16 @@ export const signupUser = values => dispatch => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
-      return res.json();
+      return Promise.resolve(res.json());
     })
-    .then(resJSON => {
-      console.log(resJSON);
-      dispatch(fetchSuccess());
-    })
+    // .then(resJSON => {
+    //   console.log(resJSON);
+    //   // dispatch(fetchSuccess());
+    //   let aPromise = new Promise();
+    //   setTimeout(function() {
+    //     aPromise.resolve();
+    //   }, 10);
+    //   return aPromise;
+    // })
     .catch(err => console.log(err));
 };

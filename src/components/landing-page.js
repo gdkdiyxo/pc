@@ -40,12 +40,12 @@ export default class LandingPage extends React.Component {
           </section>
           <h3>Try out the demo, or sign up to start your collection.</h3>
           <div className="landing-page-btns">
-            <button className="landing-page-btn">
-              <Link to="/create">Try the demo</Link>
-            </button>
-            <button className="landing-page-btn">
-              <Link to="/signup">Sign up</Link>
-            </button>
+            <Link to="/create">
+              <button className="landing-page-btn">Try the demo</button>
+            </Link>
+            <Link to="/signup">
+              <button className="landing-page-btn">Sign up</button>
+            </Link>
           </div>
         </main>
         <footer role="contentinfo" className="footer">

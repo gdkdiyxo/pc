@@ -16,8 +16,7 @@ export class CreatePage extends React.Component {
   saveCard() {
     const { full, thumb, alt, credit, portfolio } = this.props.image;
     const currentCard = {
-      // username: this.props.currentUser,
-      username: 'testuser',
+      username: this.props.currentUser,
       image: {
         full,
         thumb,
@@ -32,7 +31,6 @@ export class CreatePage extends React.Component {
   }
 
   updateCard() {
-    console.log('updateCard fired');
     const { full, thumb, alt, credit, portfolio } = this.props.image;
     const currentCard = {
       image: {
@@ -51,6 +49,7 @@ export class CreatePage extends React.Component {
   }
 
   render() {
+    console.log(`currentUser: ${this.props.currentUser}`);
     return (
       <main role="main">
         <ImageForm />
@@ -58,32 +57,35 @@ export class CreatePage extends React.Component {
         <MessageForm />
         <RecipientForm />
         <div className="card-btn-wrapper">
-          <button className="create-page-btn">
-            <Link to="/preview">Preview</Link>
-          </button>
+          <Link to="/preview">
+            <button className="create-page-btn">Preview</button>
+          </Link>
           <button
             className={this.props.currentUser ? 'create-page-btn' : 'hidden'}
             onClick={e => (!this.props.editing ? this.saveCard(e) : this.updateCard(e))}
           >
             {!this.props.editing ? 'Save' : 'Save changes'}
           </button>
-          <button
-            className="create-page-btn"
-            onClick={e => (this.props.currentUser ? this.saveCard(e) : null)}
+
+          <a
+            href={`mailto:${this.props.recipients}?subject=${
+              this.props.currentUser ? this.props.currentUser : 'Demo User'
+            } sent you a postcard!&body=Click on this link to view the postcard: ${API_BASE_URL}/preview`}
           >
-            <a
-              href={`mailto:${this.props.recipients}?subject=You've received a postcard from ${
-                this.props.currentUser
-              }!&body=Click on this link to view the postcard: ${API_BASE_URL}/preview`}
+            <button
+              className="create-page-btn"
+              onClick={e =>
+                this.props.currentUser && !this.props.editing ? this.saveCard(e) : null
+              }
             >
               Send
-            </a>
-          </button>
+            </button>
+          </a>
         </div>
         <hr />
         <section className="card-collection-container">
           <p className="card-collection-container-label">My collection</p>
-          {!this.props.currentUser ? (
+          {this.props.currentUser ? (
             <SavedCards />
           ) : (
             <p className="collection-message">Sign up to start your collection</p>

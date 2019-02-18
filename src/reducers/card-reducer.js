@@ -68,7 +68,6 @@ export default function reducer(state = initialState, action) {
       recipient: cardToUpdate.recipients
     });
   } else if (action.type === SET_EDITING) {
-    console.log(state.editing);
     return Object.assign({}, state, {
       editing: action.boolean
     });

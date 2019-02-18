@@ -8,21 +8,23 @@ import './nav-bar.css';
 function LoggedOutLinks() {
   return (
     <div>
-      <button className="nav-btn">
-        <Link to="/signup">Sign up</Link>
-      </button>
-      <button className="nav-btn">
-        <Link to="/login">Log in</Link>
-      </button>
+      <Link to="/signup">
+        <button className="nav-btn">Sign up</button>
+      </Link>
+      <Link to="/login">
+        <button className="nav-btn">Log in</button>
+      </Link>
     </div>
   );
 }
 
 function LoggedInLinks(props) {
   return (
-    <button className="nav-btn" onClick={e => props.onClick(e)}>
-      <Link to="/">Log out</Link>
-    </button>
+    <Link to="/">
+      <button className="nav-btn" onClick={e => props.onClick(e)}>
+        Log out
+      </button>
+    </Link>
   );
 }
 

@@ -55,15 +55,11 @@ export const setEditing = boolean => ({
 
 export const fetchCards = () => dispatch => {
   dispatch(fetchRequest());
-  console.log(localStorage.getItem('authToken'));
-
   fetch(`${API_BASE_URL}/api/cards`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
-      // Authorization: `Bearer ${localStorage.getItem('authToken')}`
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjNjkwYWZiYzUzMzdhNDBiN2FmMmRiMiIsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJwYXNzd29yZCI6IiQyYSQxMCRFMnp4OWVucmtMNkV5Y0FrLlMzYS51cDFhOXVtaDRmZVU4S1E2am1ZNVM5Y0ZXdklaMi8uNiIsIm5hbWUiOiJEZW1vIFVzZXIiLCJfX3YiOjB9LCJpYXQiOjE1NTAzODgxODIsImV4cCI6MTU1MDk5Mjk4Miwic3ViIjoidGVzdHVzZXIifQ.YTx9wKhDJsnY1zrhXijwMR2vcyyuUfB46tT-628GHyw'
+      Authorization: `Bearer ${localStorage.getItem('authToken')}`
     }
   })
     .then(res => {
@@ -83,9 +79,7 @@ export const saveCard = currentCard => dispatch => {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      // Authorization: `Bearer ${localStorage.getItem('authToken')}`
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjNjkwYWZiYzUzMzdhNDBiN2FmMmRiMiIsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJwYXNzd29yZCI6IiQyYSQxMCRFMnp4OWVucmtMNkV5Y0FrLlMzYS51cDFhOXVtaDRmZVU4S1E2am1ZNVM5Y0ZXdklaMi8uNiIsIm5hbWUiOiJEZW1vIFVzZXIiLCJfX3YiOjB9LCJpYXQiOjE1NTAzODgxODIsImV4cCI6MTU1MDk5Mjk4Miwic3ViIjoidGVzdHVzZXIifQ.YTx9wKhDJsnY1zrhXijwMR2vcyyuUfB46tT-628GHyw'
+      Authorization: `Bearer ${localStorage.getItem('authToken')}`
     },
     body: JSON.stringify(currentCard)
   })
@@ -100,14 +94,11 @@ export const saveCard = currentCard => dispatch => {
 };
 
 export const updateCard = (id, currentCard) => dispatch => {
-  console.log(id, currentCard);
   fetch(`${API_BASE_URL}/api/cards/${id}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
-      // Authorization: `Bearer ${localStorage.getItem('authToken')}`
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjNjkwYWZiYzUzMzdhNDBiN2FmMmRiMiIsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJwYXNzd29yZCI6IiQyYSQxMCRFMnp4OWVucmtMNkV5Y0FrLlMzYS51cDFhOXVtaDRmZVU4S1E2am1ZNVM5Y0ZXdklaMi8uNiIsIm5hbWUiOiJEZW1vIFVzZXIiLCJfX3YiOjB9LCJpYXQiOjE1NTAzODgxODIsImV4cCI6MTU1MDk5Mjk4Miwic3ViIjoidGVzdHVzZXIifQ.YTx9wKhDJsnY1zrhXijwMR2vcyyuUfB46tT-628GHyw'
+      Authorization: `Bearer ${localStorage.getItem('authToken')}`
     },
     body: JSON.stringify(currentCard)
   })
