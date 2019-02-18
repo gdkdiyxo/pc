@@ -18,7 +18,8 @@ export default class App extends React.Component {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/create" component={CreatePage} />
-            <Route path="/preview/:id" component={PreviewPage} />
+            <Route exact path="/preview" component={PreviewPage} />
+            <Route path="/postcards/:id" component={PreviewPage} />
           </div>
         </div>
       </Router>

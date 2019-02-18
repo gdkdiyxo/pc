@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { saveCard, updateCard, setEditing } from '../../actions/card';
-import { API_BASE_URL } from '../../config';
+import { CLIENT_BASE_URL } from '../../config';
 import './create-page.css';
 import '../card/card.css';
 
@@ -70,7 +70,7 @@ export class CreatePage extends React.Component {
           <a
             href={`mailto:${this.props.recipients}?subject=${
               this.props.currentUser ? this.props.currentUser : 'Demo User'
-            } sent you a postcard!&body=Click on this link to view the postcard: ${API_BASE_URL}/preview`}
+            } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/preview`}
           >
             <button
               className="create-page-btn"
