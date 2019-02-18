@@ -49,9 +49,9 @@ export class CardBack extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  message: state.card.message,
-  recipients: state.card.recipients
-});
+// const mapStateToProps = state => ({
+//   message: state.card.message,
+//   recipients: state.card.recipients
+// });
 
-export default connect(mapStateToProps)(CardBack);
+export default connect()(CardBack);

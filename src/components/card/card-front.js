@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 export default class CardFront extends React.Component {
   render() {
@@ -27,9 +26,3 @@ export default class CardFront extends React.Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//   image: state.card.image
-// });
-
-// export default connect(mapStateToProps)(CardFront);

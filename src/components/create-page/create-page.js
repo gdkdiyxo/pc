@@ -14,7 +14,7 @@ import SavedCards from './saved-cards';
 
 export class CreatePage extends React.Component {
   saveCard() {
-    const { full, thumb, alt, credit, portfolio } = this.props.image;
+    const { full, thumb, alt, credit, portfolio } = this.props.card.image;
     const currentCard = {
       username: this.props.currentUser,
       image: {
@@ -24,14 +24,14 @@ export class CreatePage extends React.Component {
         credit,
         portfolio
       },
-      message: this.props.message,
-      recipients: this.props.recipients
+      message: this.props.card.message,
+      recipients: this.props.card.recipients
     };
     this.props.dispatch(saveCard(currentCard));
   }
 
   updateCard() {
-    const { full, thumb, alt, credit, portfolio } = this.props.image;
+    const { full, thumb, alt, credit, portfolio } = this.props.card.image;
     const currentCard = {
       image: {
         full,
@@ -40,8 +40,8 @@ export class CreatePage extends React.Component {
         credit,
         portfolio
       },
-      message: this.props.message,
-      recipients: this.props.recipients
+      message: this.props.state.message,
+      recipients: this.props.state.recipients
     };
     const id = this.props.editingId;
     this.props.dispatch(updateCard(id, currentCard));
@@ -70,7 +70,9 @@ export class CreatePage extends React.Component {
           <a
             href={`mailto:${this.props.recipients}?subject=${
               this.props.currentUser ? this.props.currentUser : 'Demo User'
-            } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/preview`}
+            } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/postcards/${
+              this.props.card.cardId
+            }`}
           >
             <button
               className="create-page-btn"
@@ -98,9 +100,6 @@ export class CreatePage extends React.Component {
 
 const mapStateToProps = state => ({
   card: state.card,
-  image: state.card.image,
-  message: state.card.message,
-  recipients: state.card.recipients,
   editing: state.card.editing,
   editingId: state.card.editingId,
   currentUser: state.auth.currentUser

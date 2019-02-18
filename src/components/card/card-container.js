@@ -11,7 +11,6 @@ export class CardContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props.card);
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <section className="card-outer" onClick={e => this.flipCard(e)}>
