@@ -55,7 +55,7 @@ export const setEditing = boolean => ({
 
 export const fetchCards = () => dispatch => {
   dispatch(fetchRequest());
-  fetch(`${API_BASE_URL}/cards`, {
+  fetch(`${API_BASE_URL}/api/cards`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json'
@@ -74,7 +74,7 @@ export const fetchCards = () => dispatch => {
 };
 
 export const saveCard = currentCard => dispatch => {
-  fetch(`${API_BASE_URL}/cards`, {
+  fetch(`${API_BASE_URL}/api/cards`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -93,7 +93,7 @@ export const saveCard = currentCard => dispatch => {
 
 export const updateCard = (id, currentCard) => dispatch => {
   console.log(id, currentCard);
-  fetch(`${API_BASE_URL}/cards/${id}`, {
+  fetch(`${API_BASE_URL}/api/cards/${id}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json'
@@ -105,7 +105,7 @@ export const updateCard = (id, currentCard) => dispatch => {
 };
 
 export const deleteCard = id => dispatch => {
-  fetch(`${API_BASE_URL}/cards/${id}`, {
+  fetch(`${API_BASE_URL}/api/cards/${id}`, {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json'
