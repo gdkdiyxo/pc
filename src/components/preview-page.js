@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 export class PreviewPage extends React.Component {
   render() {
     const style = { display: 'block', margin: '10px auto' };
-    console.log(this.props.history);
     return (
       <main role="main">
         {this.props.history ? (
@@ -16,13 +15,14 @@ export class PreviewPage extends React.Component {
             </button>
           </Link>
         ) : null}
-        <CardContainer />
+        <CardContainer card={this.props.card} />
       </main>
     );
   }
 }
 
 const mapStateToProps = state => ({
+  card: state.card,
   currentUser: state.auth.currentUser
 });
 

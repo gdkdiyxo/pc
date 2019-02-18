@@ -48,8 +48,13 @@ export class CreatePage extends React.Component {
     this.props.dispatch(setEditing(false));
   }
 
+  sendCard() {
+    this.saveCard();
+  }
+
   render() {
     console.log(`currentUser: ${this.props.currentUser}`);
+    console.log(`cardId: ${this.props.card.id}`);
     return (
       <main role="main">
         <ImageForm />
@@ -71,14 +76,12 @@ export class CreatePage extends React.Component {
             href={`mailto:${this.props.recipients}?subject=${
               this.props.currentUser ? this.props.currentUser : 'Demo User'
             } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/postcards/${
-              this.props.card.cardId
+              this.props.card.id
             }`}
           >
             <button
               className="create-page-btn"
-              onClick={e =>
-                this.props.currentUser && !this.props.editing ? this.saveCard(e) : null
-              }
+              onClick={e => (!this.props.editing ? this.sendCard(e) : null)}
             >
               Send
             </button>

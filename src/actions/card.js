@@ -47,6 +47,12 @@ export const setCard = id => ({
   id
 });
 
+export const SET_CARD_ID = 'SET_CARD_ID';
+export const setCardId = id => ({
+  type: SET_CARD_ID,
+  id
+});
+
 export const SET_EDITING = 'SET_EDITING';
 export const setEditing = boolean => ({
   type: SET_EDITING,
@@ -90,7 +96,11 @@ export const saveCard = currentCard => dispatch => {
       }
       res.json();
     })
-    .then(dispatch(fetchCards()))
+    .then(card => {
+      console.log(card._id);
+      dispatch(setCardId(card._id));
+      dispatch(fetchCards());
+    })
     .catch(err => console.log(err));
 };
 

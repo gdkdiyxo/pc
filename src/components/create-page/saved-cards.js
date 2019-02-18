@@ -57,7 +57,7 @@ export class UserCards extends React.Component {
         </div>
       );
     }
-    if (this.props.userCards === []) {
+    if (this.props.userCards.length === 0) {
       return <p className="collection-message">You don't have any saved cards yet</p>;
     }
     const userCards = this.props.userCards.map(card => (

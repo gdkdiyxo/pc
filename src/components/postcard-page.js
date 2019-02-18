@@ -51,10 +51,8 @@ export default class PostcardPage extends React.Component {
     if (this.state.error) {
       return <p>{this.state.error}</p>;
     } else if (this.state.loading) {
-      console.log(this.state.loading);
       return <p>Loading</p>;
     } else if (!this.state.loading) {
-      console.log(this.state.loading);
     }
     return <CardContainer card={this.state.card} />;
   }

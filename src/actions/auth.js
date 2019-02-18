@@ -19,8 +19,6 @@ export const fetchSuccess = () => ({
 
 export const handleAuthToken = (authToken, dispatch) => {
   localStorage.setItem('authToken', authToken);
-  const localStorageWorked = localStorage.getItem('authToken');
-  console.log(localStorageWorked);
   const decodedToken = jwtDecode(authToken);
   dispatch(setUser(decodedToken.user.username));
 };

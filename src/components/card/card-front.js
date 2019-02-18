@@ -2,7 +2,6 @@ import React from 'react';
 
 export default class CardFront extends React.Component {
   render() {
-    console.log(this.props.image);
     return (
       <div className="card-image-container">
         <p className="card-flip-instruction">Click to flip postcard</p>
