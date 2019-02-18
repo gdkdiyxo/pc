@@ -34,7 +34,12 @@ export const loginUser = (username, password) => dispatch => {
       password
     })
   })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
     .then(({ authToken }) => handleAuthToken(authToken, dispatch))
     .catch(err => console.log(err));
 };

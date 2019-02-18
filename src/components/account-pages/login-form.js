@@ -1,14 +1,12 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import { loginUser, setUser } from '../../actions/auth';
+import { loginUser } from '../../actions/auth';
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
     const { username, password } = values;
-    return this.props
-      .dispatch(loginUser(username, password))
-      .then(this.props.dispatch(setUser(username)));
+    return this.props.dispatch(loginUser(username, password));
   }
   render() {
     return (
