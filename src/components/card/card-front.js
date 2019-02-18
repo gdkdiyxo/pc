@@ -1,25 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export class CardFront extends React.Component {
+export default class CardFront extends React.Component {
   render() {
+    console.log(this.props.image);
     return (
       <div className="card-image-container">
         <p className="card-flip-instruction">Click to flip postcard</p>
 
         <img src={this.props.image.full} alt={this.props.image.alt} />
-
-        {/* <button className="last-image-btn" onClick={e => this.loadNextImage(e)}>
-          <i className="fas fa-7x fa-angle-left" />
-        </button>
-
-        <button  className="next-image-btn" onClick={e => this.loadNextImage(e)}>
-          <i className="fas fa-7x fa-angle-right" />
-        </button>
-
-        <button  className="flip-image-btn" onClick={e => this.flipImage(e)}>
-          <i className="fas fa-7x fa-sync" />
-        </button> */}
         <p className="photo-credit">
           Photo credit:{' '}
           <a
@@ -39,8 +28,8 @@ export class CardFront extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  image: state.card.image
-});
+// const mapStateToProps = state => ({
+//   image: state.card.image
+// });
 
-export default connect(mapStateToProps)(CardFront);
+// export default connect(mapStateToProps)(CardFront);

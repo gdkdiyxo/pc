@@ -53,6 +53,7 @@ export const setEditing = boolean => ({
   boolean
 });
 
+//    User CRUD operations    //
 export const fetchCards = () => dispatch => {
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards`, {

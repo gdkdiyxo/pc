@@ -6,6 +6,7 @@ import SignupPage from './account-pages/signup-page';
 import LoginPage from './account-pages/login-page';
 import CreatePage from './create-page/create-page';
 import PreviewPage from './preview-page';
+import PostcardPage from './postcard-page';
 
 export default class App extends React.Component {
   render() {
@@ -19,7 +20,7 @@ export default class App extends React.Component {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/create" component={CreatePage} />
             <Route exact path="/preview" component={PreviewPage} />
-            <Route path="/postcards/:id" component={PreviewPage} />
+            <Route path="/postcards/" component={PostcardPage} />
           </div>
         </div>
       </Router>

@@ -53,7 +53,7 @@ export class CreatePage extends React.Component {
     return (
       <main role="main">
         <ImageForm />
-        <CardContainer />
+        <CardContainer card={this.props.card} />
         <MessageForm />
         <RecipientForm />
         <div className="card-btn-wrapper">
@@ -97,6 +97,7 @@ export class CreatePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  card: state.card,
   image: state.card.image,
   message: state.card.message,
   recipients: state.card.recipients,
