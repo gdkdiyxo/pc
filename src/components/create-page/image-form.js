@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setImage, flipCard } from '../../actions/card';
+import { setImage, flipCard, setEditing } from '../../actions/card';
 
 export class ImageForm extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ export class ImageForm extends React.Component {
 
   searchImage(e) {
     e.preventDefault();
+    this.props.dispatch(setEditing(false));
     if (this.props.isCardFlipped) {
       this.props.dispatch(flipCard());
     }
@@ -73,7 +74,8 @@ export class ImageForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isCardFlipped: state.card.isCardFlipped
+  isCardFlipped: state.card.isCardFlipped,
+  editing: state.card.editing
 });
 
 export default connect(mapStateToProps)(ImageForm);

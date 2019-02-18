@@ -16,6 +16,8 @@ export class CreatePage extends React.Component {
   saveCard() {
     const { full, thumb, alt, credit, portfolio } = this.props.image;
     const currentCard = {
+      // username: this.props.currentUser,
+      username: 'testuser',
       image: {
         full,
         thumb,
@@ -26,7 +28,6 @@ export class CreatePage extends React.Component {
       message: this.props.message,
       recipients: this.props.recipients
     };
-    console.log(currentCard);
     this.props.dispatch(saveCard(currentCard));
   }
 
@@ -61,12 +62,15 @@ export class CreatePage extends React.Component {
             <Link to="/preview">Preview</Link>
           </button>
           <button
-            className="create-page-btn"
+            className={this.props.currentUser ? 'create-page-btn' : 'hidden'}
             onClick={e => (!this.props.editing ? this.saveCard(e) : this.updateCard(e))}
           >
             {!this.props.editing ? 'Save' : 'Save changes'}
           </button>
-          <button className="create-page-btn" onClick={e => this.saveCard(e)}>
+          <button
+            className="create-page-btn"
+            onClick={e => (this.props.currentUser ? this.saveCard(e) : null)}
+          >
             <a
               href={`mailto:${this.props.recipients}?subject=You've received a postcard from ${
                 this.props.currentUser

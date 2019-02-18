@@ -55,11 +55,15 @@ export const setEditing = boolean => ({
 
 export const fetchCards = () => dispatch => {
   dispatch(fetchRequest());
+  console.log(localStorage.getItem('authToken'));
+
   fetch(`${API_BASE_URL}/api/cards`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('authToken')}`
+      // Authorization: `Bearer ${localStorage.getItem('authToken')}`
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjNjkwYWZiYzUzMzdhNDBiN2FmMmRiMiIsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJwYXNzd29yZCI6IiQyYSQxMCRFMnp4OWVucmtMNkV5Y0FrLlMzYS51cDFhOXVtaDRmZVU4S1E2am1ZNVM5Y0ZXdklaMi8uNiIsIm5hbWUiOiJEZW1vIFVzZXIiLCJfX3YiOjB9LCJpYXQiOjE1NTAzODgxODIsImV4cCI6MTU1MDk5Mjk4Miwic3ViIjoidGVzdHVzZXIifQ.YTx9wKhDJsnY1zrhXijwMR2vcyyuUfB46tT-628GHyw'
     }
   })
     .then(res => {
@@ -78,7 +82,10 @@ export const saveCard = currentCard => dispatch => {
   fetch(`${API_BASE_URL}/api/cards`, {
     method: 'POST',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      // Authorization: `Bearer ${localStorage.getItem('authToken')}`
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjNjkwYWZiYzUzMzdhNDBiN2FmMmRiMiIsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJwYXNzd29yZCI6IiQyYSQxMCRFMnp4OWVucmtMNkV5Y0FrLlMzYS51cDFhOXVtaDRmZVU4S1E2am1ZNVM5Y0ZXdklaMi8uNiIsIm5hbWUiOiJEZW1vIFVzZXIiLCJfX3YiOjB9LCJpYXQiOjE1NTAzODgxODIsImV4cCI6MTU1MDk5Mjk4Miwic3ViIjoidGVzdHVzZXIifQ.YTx9wKhDJsnY1zrhXijwMR2vcyyuUfB46tT-628GHyw'
     },
     body: JSON.stringify(currentCard)
   })
@@ -97,11 +104,14 @@ export const updateCard = (id, currentCard) => dispatch => {
   fetch(`${API_BASE_URL}/api/cards/${id}`, {
     method: 'PUT',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      // Authorization: `Bearer ${localStorage.getItem('authToken')}`
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjNjkwYWZiYzUzMzdhNDBiN2FmMmRiMiIsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJwYXNzd29yZCI6IiQyYSQxMCRFMnp4OWVucmtMNkV5Y0FrLlMzYS51cDFhOXVtaDRmZVU4S1E2am1ZNVM5Y0ZXdklaMi8uNiIsIm5hbWUiOiJEZW1vIFVzZXIiLCJfX3YiOjB9LCJpYXQiOjE1NTAzODgxODIsImV4cCI6MTU1MDk5Mjk4Miwic3ViIjoidGVzdHVzZXIifQ.YTx9wKhDJsnY1zrhXijwMR2vcyyuUfB46tT-628GHyw'
     },
     body: JSON.stringify(currentCard)
   })
-    .then(console.log('success'))
+    .then(dispatch(fetchCards()))
     .catch(err => console.log(err));
 };
 
@@ -109,7 +119,8 @@ export const deleteCard = id => dispatch => {
   fetch(`${API_BASE_URL}/api/cards/${id}`, {
     method: 'DELETE',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('authToken')}`
     }
   })
     .then(res => {
