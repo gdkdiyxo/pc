@@ -36,6 +36,7 @@ export class CreatePage extends React.Component {
   }
 
   updateCard() {
+    console.log(this.props.card.recipients);
     const { full, thumb, alt, credit, portfolio } = this.props.card.image;
     const currentCard = {
       image: {
@@ -45,8 +46,8 @@ export class CreatePage extends React.Component {
         credit,
         portfolio
       },
-      message: this.props.state.message,
-      recipients: this.props.state.recipients
+      message: this.props.card.message,
+      recipients: this.props.card.recipients
     };
     const id = this.props.editingId;
     this.props.dispatch(updateCard(id, currentCard));
@@ -58,8 +59,9 @@ export class CreatePage extends React.Component {
   }
 
   render() {
-    console.log(`currentUser: ${this.props.currentUser}`);
-    console.log(`cardId: ${this.props.card.id}`);
+    console.log(this.props.card);
+    // console.log(`currentUser: ${this.props.currentUser}`);
+    // console.log(`cardId: ${this.props.card.id}`);
     return (
       <main role="main">
         <ImageForm />
@@ -81,7 +83,7 @@ export class CreatePage extends React.Component {
             href={`mailto:${this.props.recipients}?subject=${
               this.props.currentUser ? this.props.currentUser : 'Demo User'
             } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/postcards/${
-              this.props.card.id
+              this.props.card.editingId
             }`}
           >
             <button

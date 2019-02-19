@@ -30,7 +30,7 @@ export class CardBack extends React.Component {
         </span>
       );
     });
-
+    console.log(this.props.recipients);
     const emailList = this.props.recipients.map((email, index) => (
       <Recipient
         key={index}

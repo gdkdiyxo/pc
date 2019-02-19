@@ -46,11 +46,10 @@ export class ImageForm extends React.Component {
             portfolio: data.results[1].user.links.html
           };
           this.props.dispatch(setImage(image));
+          this.searchInput.value = '';
         }
       });
   }
-
-  handleNoResults() {}
 
   render() {
     return (

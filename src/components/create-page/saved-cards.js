@@ -41,6 +41,7 @@ export class UserCards extends React.Component {
   setCardToUpdate(event, cardId) {
     this.props.dispatch(setCard(cardId));
     this.props.dispatch(setEditing(true));
+    console.log(this.props.card);
   }
 
   deleteCard(event, cardId) {
@@ -91,7 +92,8 @@ export class UserCards extends React.Component {
 
 const mapStateToProps = state => ({
   userCards: state.card.userCards,
-  loading: state.card.loading
+  loading: state.card.loading,
+  card: state.card
 });
 
 export default connect(mapStateToProps)(UserCards);

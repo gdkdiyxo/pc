@@ -94,10 +94,9 @@ export const saveCard = currentCard => dispatch => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
-      res.json();
+      return res.json();
     })
     .then(card => {
-      console.log(card._id);
       dispatch(setCardId(card._id));
       dispatch(fetchCards());
     })

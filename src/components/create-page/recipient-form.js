@@ -15,7 +15,7 @@ export class RecipientForm extends React.Component {
   }
 
   clearRecipients() {
-    if (this.state.isFormPristine === true) {
+    if (this.state.isFormPristine) {
       this.setState({
         isFormPristine: false
       });
