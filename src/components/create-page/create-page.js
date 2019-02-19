@@ -68,12 +68,14 @@ export class CreatePage extends React.Component {
           <Link to="/preview">
             <button className="create-page-btn">Preview</button>
           </Link>
-          <button
-            className={this.props.currentUser ? 'create-page-btn' : 'hidden'}
-            onClick={e => (!this.props.editing ? this.saveCard(e) : this.updateCard(e))}
-          >
-            {!this.props.editing ? 'Save' : 'Save changes'}
-          </button>
+          {this.props.currentUser ? (
+            <button
+              className="create-page-btn"
+              onClick={e => (!this.props.editing ? this.saveCard(e) : this.updateCard(e))}
+            >
+              {!this.props.editing ? 'Save' : 'Save changes'}
+            </button>
+          ) : null}
 
           <a
             href={`mailto:${this.props.recipients}?subject=${

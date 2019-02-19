@@ -6,7 +6,7 @@ import { loginUser } from '../../actions/auth';
 export class LoginForm extends React.Component {
   onSubmit(values) {
     const { username, password } = values;
-    return this.props.dispatch(loginUser(username, password));
+    return this.props.dispatch(loginUser(username.toLowercase(), password));
   }
   render() {
     return (
