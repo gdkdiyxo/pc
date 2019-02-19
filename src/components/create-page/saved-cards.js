@@ -41,7 +41,6 @@ export class UserCards extends React.Component {
   setCardToUpdate(event, cardId) {
     this.props.dispatch(setCard(cardId));
     this.props.dispatch(setEditing(true));
-    console.log(this.props.card);
   }
 
   deleteCard(event, cardId) {

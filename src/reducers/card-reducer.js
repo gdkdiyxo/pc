@@ -67,7 +67,7 @@ export default function reducer(state = initialState, action) {
       editingId: action.id,
       image: cardToUpdate.image,
       message: cardToUpdate.message,
-      recipient: cardToUpdate.recipients
+      recipients: cardToUpdate.recipients
     });
   } else if (action.type === SET_CARD_ID) {
     return Object.assign({}, state, {

@@ -36,7 +36,6 @@ export class CreatePage extends React.Component {
   }
 
   updateCard() {
-    console.log(this.props.card.recipients);
     const { full, thumb, alt, credit, portfolio } = this.props.card.image;
     const currentCard = {
       image: {
@@ -59,9 +58,6 @@ export class CreatePage extends React.Component {
   }
 
   render() {
-    console.log(this.props.card);
-    // console.log(`currentUser: ${this.props.currentUser}`);
-    // console.log(`cardId: ${this.props.card.id}`);
     return (
       <main role="main">
         <ImageForm />
@@ -110,6 +106,7 @@ export class CreatePage extends React.Component {
 
 const mapStateToProps = state => ({
   card: state.card,
+  userCards: state.card.userCards,
   editing: state.card.editing,
   editingId: state.card.editingId,
   currentUser: state.auth.currentUser
