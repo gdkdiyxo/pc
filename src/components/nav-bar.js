@@ -31,7 +31,6 @@ function LoggedInLinks(props) {
 export class NavBar extends React.Component {
   onClick(e) {
     this.props.dispatch(logoutUser());
-    // this.forceUpdate();
   }
 
   render() {

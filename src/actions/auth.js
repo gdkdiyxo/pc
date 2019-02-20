@@ -35,7 +35,7 @@ export const handleRefresh = () => dispatch => {
 export const logoutUser = () => dispatch => {
   console.log('logout User fired');
   localStorage.clear();
-  setUser(null);
+  dispatch(setUser(null));
 };
 
 export const loginUser = (username, password) => dispatch => {

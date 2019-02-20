@@ -5,9 +5,8 @@ import { signupUser, loginUser } from '../../actions/auth';
 export class SignupForm extends React.Component {
   onSubmit(values) {
     console.log(this.props.dispatch(signupUser(values)));
-    return this.props
-      .dispatch(signupUser(values))
-      .then(() => this.props.dispatch(loginUser(values.username, values.password)));
+    return this.props.dispatch(signupUser(values));
+    // .then(() => this.props.dispatch(loginUser(values.username, values.password)));
   }
 
   render() {
@@ -23,7 +22,7 @@ export class SignupForm extends React.Component {
         </div>
         <div className="form-row">
           <label htmlFor="password">Password</label>
-          <Field component="input" id="password" name="password" required={true} />
+          <Field component="input" id="password" name="password" type="password" required={true} />
         </div>
         <button type="submit">Submit</button>
       </form>
