@@ -4,7 +4,7 @@ import { signupUser, loginUser } from '../../actions/auth';
 
 export class SignupForm extends React.Component {
   onSubmit(values) {
-    console.log(this.props.dispatch(signupUser(values)));
+    // console.log(this.props.dispatch(signupUser(values)));
     return this.props.dispatch(signupUser(values));
     // .then(() => this.props.dispatch(loginUser(values.username, values.password)));
   }

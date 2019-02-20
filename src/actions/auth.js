@@ -74,14 +74,6 @@ export const signupUser = values => dispatch => {
       }
       return Promise.resolve(res.json());
     })
-    // .then(resJSON => {
-    //   console.log(resJSON);
-    //   // dispatch(fetchSuccess());
-    //   let aPromise = new Promise();
-    //   setTimeout(function() {
-    //     aPromise.resolve();
-    //   }, 10);
-    //   return aPromise;
-    // })
+    .then(() => dispatch(loginUser(values.username, values.password)))
     .catch(err => console.log(err));
 };
