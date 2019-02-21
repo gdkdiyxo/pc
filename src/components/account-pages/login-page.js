@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { handleRefresh } from '../../actions/auth';
+
 import LoginForm from './login-form';
+import { handleRefresh } from '../../actions/auth';
 
 import './account-pages.css';
 

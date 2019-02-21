@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+
 import SignupForm from './signup-form';
 import { handleRefresh } from '../../actions/auth';
+
 import './account-pages.css';
 
 export class SignupPage extends React.Component {

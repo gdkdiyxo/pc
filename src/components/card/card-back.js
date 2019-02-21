@@ -15,13 +15,14 @@ function Recipient(props) {
 }
 
 export class CardBack extends React.Component {
-  deleteEmail(event, index) {
-    event.preventDefault();
-    event.stopPropagation();
+  deleteEmail(e, index) {
+    e.preventDefault();
+    e.stopPropagation();
     this.props.dispatch(deleteEmail(index));
   }
 
   render() {
+    //Allow carriage return on message display
     const formattedMessage = this.props.message.split('\n').map((item, key) => {
       return (
         <span key={key}>
@@ -30,6 +31,7 @@ export class CardBack extends React.Component {
         </span>
       );
     });
+
     const emailList = this.props.recipients.map((email, index) => (
       <Recipient
         key={index}
@@ -47,10 +49,5 @@ export class CardBack extends React.Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//   message: state.card.message,
-//   recipients: state.card.recipients
-// });
 
 export default connect()(CardBack);

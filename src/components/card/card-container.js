@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import CardFront from './card-front';
 import CardBack from './card-back';
-
 import { flipCard } from '../../actions/card';
 
 export class CardContainer extends React.Component {
-  flipCard(e) {
+  flipCard() {
     this.props.dispatch(flipCard());
   }
 
