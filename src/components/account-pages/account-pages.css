@@ -2,25 +2,25 @@
   margin-top: 5vh;
 }
 
-.account-form-wrapper {
-  width: 400px;
-  border: 2px solid black;
+.account-form-box {
+  width: 90vw;
+  border: 2px solid grey;
   border-radius: 5px;
   padding: 20px;
   margin: 5vh auto;
 }
 
-.account-form-wrapper h2 {
+.account-form-box h2 {
   text-align: center;
 }
 
-.account-form-wrapper p {
+.account-form-box p {
   display: inline-block;
   text-align: center;
   margin-right: 10px;
 }
 
-.account-form-wrapper a {
+.account-form-box a {
   text-decoration: none;
 }
 
@@ -35,4 +35,10 @@
 
 .form-row input {
   flex: 3;
+}
+
+@media only screen and (min-width: 568px) {
+  .account-form-box {
+    width: 450px;
+  }
 }

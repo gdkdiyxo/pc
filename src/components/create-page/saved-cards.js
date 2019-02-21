@@ -5,7 +5,7 @@ import { fetchCards, setCard, setEditing, deleteCard } from '../../actions/card'
 function ConfirmDeleteModal(props) {
   const hidden = { display: 'none' };
   return (
-    <div className="delete-card-modal" style={!props.showing ? hidden : null}>
+    <div className="delete-card-modal" style={!props.showing ? hidden : null} aria-live="assertive">
       <p>Are you sure you want to delete this postcard?</p>
       <button className="modal-cancel-btn" onClick={e => props.toggleModal(e, false)}>
         Cancel

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-
 import { loginUser } from '../../actions/auth';
 
 export class LoginForm extends React.Component {
@@ -8,6 +7,7 @@ export class LoginForm extends React.Component {
     const { username, password } = values;
     return this.props.dispatch(loginUser(username.toLowerCase(), password));
   }
+
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>

@@ -8,11 +8,11 @@ import './landing-page.css';
 
 export class LandingPage extends React.Component {
   demoLogin() {
-    console.log('demoLogin fired');
     const username = 'testuser';
     const password = 'password';
     this.props.dispatch(loginUser(username, password));
   }
+
   render() {
     return (
       <div>
@@ -20,31 +20,28 @@ export class LandingPage extends React.Component {
           <div className="icon-main">
             <img
               src="../images/deltio-icon-main.png"
-              alt="the deltio icon, a postcard"
+              alt="The deltio icon, a postcard"
               className="icon-main"
             />
           </div>
-          <h1>Welcome to Deltio</h1>
 
-          <h3>
-            Deltiology is the study and collection of postcards.
-            {/* <br /> */}
-          </h3>
-          <h3>
-            With Deltio, you can create beautiful digital postcards, share them, and start your own
-            collection.
-          </h3>
+          <header>
+            <h1>Welcome to Deltio</h1>
+          </header>
+
+          <h3>Deltiology is the study and collection of postcards.</h3>
+          <h3>With Deltio, you can create, collect, and share beautiful digital postcards.</h3>
           <section className="instruction-wrapper">
             <div className="instruction">
-              <i className="far fa-5x fa-image" />
-              <p>Choose from thousands of professional images for the postcard front.</p>
+              <i className="far fa-4x fa-image" />
+              <p>Choose from thousands of professional images.</p>
             </div>
             <div className="instruction">
-              <i className="fas fa-5x fa-pen-fancy" />
+              <i className="fas fa-4x fa-pen-fancy" />
               <p>Flip the postcard and add your message.</p>
             </div>
             <div className="instruction">
-              <i className="fas fa-5x fa-at" />
+              <i className="fas fa-4x fa-at" />
               <p>Add a list of recipient emails, and send it off!</p>
             </div>
           </section>

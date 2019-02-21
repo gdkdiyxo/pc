@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+
 import { signupUser } from '../../actions/auth';
 
 export class SignupForm extends React.Component {

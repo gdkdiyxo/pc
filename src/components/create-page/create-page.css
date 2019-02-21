@@ -153,6 +153,10 @@
   font-size: 2vh;
 }
 
+.delete-card-modal button:nth-child(even) {
+  background-color: lightgrey;
+}
+
 .delete-card-modal button:nth-child(odd) {
   color: white;
   background-color: red;

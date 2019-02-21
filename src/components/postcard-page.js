@@ -17,7 +17,6 @@ export default class PostcardPage extends React.Component {
   componentDidMount() {
     console.log('component mounted');
     const cardId = window.location.pathname.split('postcards/')[1];
-    // const cardId = '5c6e35e0d504f66935e80c92';
     this.getCard(cardId);
   }
 

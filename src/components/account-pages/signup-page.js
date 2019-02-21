@@ -20,11 +20,11 @@ export class SignupPage extends React.Component {
         <div className="account-page-icon">
           <img
             src="../images/deltio-icon-main.png"
-            alt="the deltio icon, a postcard"
+            alt="The deltio icon, a postcard"
             className="icon-main"
           />
         </div>
-        <div className="account-form-wrapper">
+        <div className="account-form-box">
           <h2>Sign up</h2>
           <SignupForm />
           {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
