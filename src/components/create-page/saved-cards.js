@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { fetchCards, setCard, setEditing, deleteCard } from '../../actions/card';
 
 function ConfirmDeleteModal(props) {
@@ -91,8 +92,7 @@ export class UserCards extends React.Component {
 
 const mapStateToProps = state => ({
   userCards: state.card.userCards,
-  loading: state.card.loading,
-  card: state.card
+  loading: state.card.loading
 });
 
 export default connect(mapStateToProps)(UserCards);
