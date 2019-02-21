@@ -1,8 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { loginUser } from '../actions/auth';
+
 import './landing-page.css';
 
-export default class LandingPage extends React.Component {
+export class LandingPage extends React.Component {
+  demoLogin() {
+    console.log('demoLogin fired');
+    const username = 'testuser';
+    const password = 'password';
+    this.props.dispatch(loginUser(username, password));
+  }
   render() {
     return (
       <div>
@@ -41,7 +51,9 @@ export default class LandingPage extends React.Component {
           <h3>Try out the demo, or sign up to start your collection.</h3>
           <div className="landing-page-btns">
             <Link to="/create">
-              <button className="landing-page-btn">Try the demo</button>
+              <button className="landing-page-btn" onClick={e => this.demoLogin(e)}>
+                Try the demo
+              </button>
             </Link>
             <Link to="/signup">
               <button className="landing-page-btn">Sign up</button>
@@ -55,3 +67,5 @@ export default class LandingPage extends React.Component {
     );
   }
 }
+
+export default connect()(LandingPage);

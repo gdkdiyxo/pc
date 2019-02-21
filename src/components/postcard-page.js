@@ -15,8 +15,9 @@ export default class PostcardPage extends React.Component {
   }
 
   componentDidMount() {
-    // const cardId = window.location.pathname.split('postcards/')[1];
-    const cardId = '5c6a032a066f16df3a416494';
+    console.log('component mounted');
+    const cardId = window.location.pathname.split('postcards/')[1];
+    // const cardId = '5c6e35e0d504f66935e80c92';
     this.getCard(cardId);
   }
 
@@ -24,6 +25,7 @@ export default class PostcardPage extends React.Component {
     // this.setState({
     //   loading: true
     // });
+    console.log(cardId);
     fetch(`${API_BASE_URL}/api/cards/${cardId}`, {
       method: 'GET',
       headers: {

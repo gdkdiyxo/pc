@@ -2,7 +2,8 @@ import { SET_USER, FETCH_SUCCESS, FETCH_REQUEST } from '../actions/auth';
 
 const initialState = {
   currentUser: null,
-  loading: false
+  loading: false,
+  sendEmail: 'no'
 };
 
 export default function reducer(state = initialState, action) {
@@ -11,16 +12,13 @@ export default function reducer(state = initialState, action) {
       currentUser: action.username
     });
   } else if (action.type === FETCH_REQUEST) {
-    setTimeout(
-      () =>
-        Object.assign({}, state, {
-          loading: true
-        }),
-      3000
-    );
+    return Object.assign({}, state, {
+      loading: true
+    });
   } else if (action.type === FETCH_SUCCESS) {
     return Object.assign({}, state, {
-      loading: false
+      loading: false,
+      sendEmail: 'yes'
     });
   }
   return state;

@@ -16,10 +16,6 @@ export class LoginPage extends React.Component {
       return <Redirect to={`/create`} />;
     }
 
-    if (this.props.loading) {
-      return <i class="fas fa-5x fa-spinner" />;
-    }
-
     return (
       <main role="main">
         <div className="account-page-icon">
@@ -32,6 +28,7 @@ export class LoginPage extends React.Component {
         <div className="account-form-wrapper">
           <h2>Log in</h2>
           <LoginForm />
+          {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
           <p className="center">
             Demo login:
             <br /> username: <b>testuser</b> | password: <b>password</b>

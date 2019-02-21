@@ -15,10 +15,6 @@ export class SignupPage extends React.Component {
       return <Redirect to={`/create`} />;
     }
 
-    if (this.props.loading) {
-      return <i class="fas fa-5x fa-spinner" />;
-    }
-
     return (
       <main role="main">
         <div className="account-page-icon">
@@ -31,6 +27,7 @@ export class SignupPage extends React.Component {
         <div className="account-form-wrapper">
           <h2>Sign up</h2>
           <SignupForm />
+          {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
           <br />
           <p>Already a user?</p>
           <button>

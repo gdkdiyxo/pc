@@ -70,6 +70,7 @@ export default function reducer(state = initialState, action) {
       recipients: cardToUpdate.recipients
     });
   } else if (action.type === SET_CARD_ID) {
+    console.log('setCardId action fired');
     return Object.assign({}, state, {
       id: action.id
     });

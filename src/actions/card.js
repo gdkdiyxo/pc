@@ -1,6 +1,9 @@
 import { API_BASE_URL } from '../config';
 import { fetchRequest, fetchSuccess } from './auth';
 
+const demoAuthToken =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjNmUzMmJhN2M3ZTI5NjhmNzFmNzhhOCIsInVzZXJuYW1lIjoiZGVtb3VzZXIiLCJwYXNzd29yZCI6IiQyYSQxMCRuN1U0V3pMUHhZdnhFQWlpRk9QWUxPOGNjVkdxQW9FejIuUkpOTnBLY2kxZ0phbUExakJhaSIsIm5hbWUiOiJEZW1vVXNlciIsIl9fdiI6MH0sImlhdCI6MTU1MDcyNjAwMCwiZXhwIjoxNTUxMzMwODAwLCJzdWIiOiJkZW1vdXNlciJ9.rZhZBd4jXgs-6GfAQKqaHuSM3fkEjXCzG4c80H9j7yU';
+
 export const SET_IMAGE = 'SET_IMAGE';
 export const setImage = image => ({
   type: SET_IMAGE,
@@ -83,12 +86,15 @@ export const fetchCards = () => dispatch => {
 };
 
 export const saveCard = currentCard => dispatch => {
+  const authToken =
+    localStorage.getItem('authToken') !== null ? localStorage.getItem('authToken') : demoAuthToken;
+  console.log(currentCard);
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('authToken')}`
+      Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify(currentCard)
   })
@@ -100,8 +106,11 @@ export const saveCard = currentCard => dispatch => {
     })
     .then(card => {
       dispatch(setCardId(card._id));
+      dispatch(fetchCards());
     })
-    .then(() => dispatch(fetchSuccess()))
+    .then(() => {
+      dispatch(fetchSuccess());
+    })
     .catch(err => console.log(err));
 };
 
