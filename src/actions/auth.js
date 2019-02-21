@@ -39,7 +39,8 @@ export const logoutUser = () => dispatch => {
 };
 
 export const loginUser = (username, password) => dispatch => {
-  return fetch(`${API_BASE_URL}/api/login`, {
+  dispatch(fetchRequest());
+  fetch(`${API_BASE_URL}/api/login`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -56,11 +57,12 @@ export const loginUser = (username, password) => dispatch => {
       return res.json();
     })
     .then(({ authToken }) => handleAuthToken(authToken, dispatch))
+    .then(() => dispatch(fetchSuccess()))
     .catch(err => console.log(err));
 };
 
 export const signupUser = values => dispatch => {
-  // dispatch(fetchRequest());
+  dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/signup`, {
     method: 'POST',
     headers: {
@@ -75,5 +77,6 @@ export const signupUser = values => dispatch => {
       return Promise.resolve(res.json());
     })
     .then(() => dispatch(loginUser(values.username, values.password)))
+    .then(() => dispatch(fetchSuccess()))
     .catch(err => console.log(err));
 };

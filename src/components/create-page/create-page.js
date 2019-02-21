@@ -58,6 +58,10 @@ export class CreatePage extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <i class="fas fa-5x fa-spinner" />;
+    }
+
     return (
       <main role="main">
         <ImageForm />
@@ -79,7 +83,7 @@ export class CreatePage extends React.Component {
 
           <a
             href={`mailto:${this.props.recipients}?subject=${
-              this.props.currentUser ? this.props.currentUser : 'Demo User'
+              this.props.currentUser ? this.props.currentUser : 'Deltio Demo User'
             } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/postcards/${
               this.props.card.editingId
             }`}

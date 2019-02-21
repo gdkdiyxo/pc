@@ -11,9 +11,13 @@ export default function reducer(state = initialState, action) {
       currentUser: action.username
     });
   } else if (action.type === FETCH_REQUEST) {
-    return Object.assign({}, state, {
-      loading: true
-    });
+    setTimeout(
+      () =>
+        Object.assign({}, state, {
+          loading: true
+        }),
+      3000
+    );
   } else if (action.type === FETCH_SUCCESS) {
     return Object.assign({}, state, {
       loading: false

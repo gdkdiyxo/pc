@@ -77,11 +77,13 @@ export const fetchCards = () => dispatch => {
     })
     .then(userCards => {
       dispatch(displayCards(userCards));
-      dispatch(fetchSuccess());
-    });
+    })
+    .then(() => dispatch(fetchSuccess()))
+    .catch(err => console.log(err));
 };
 
 export const saveCard = currentCard => dispatch => {
+  dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards`, {
     method: 'POST',
     headers: {
@@ -98,12 +100,13 @@ export const saveCard = currentCard => dispatch => {
     })
     .then(card => {
       dispatch(setCardId(card._id));
-      dispatch(fetchCards());
     })
+    .then(() => dispatch(fetchSuccess()))
     .catch(err => console.log(err));
 };
 
 export const updateCard = (id, currentCard) => dispatch => {
+  dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards/${id}`, {
     method: 'PUT',
     headers: {
@@ -112,11 +115,12 @@ export const updateCard = (id, currentCard) => dispatch => {
     },
     body: JSON.stringify(currentCard)
   })
-    .then(dispatch(fetchCards()))
+    .then(() => dispatch(fetchCards()))
     .catch(err => console.log(err));
 };
 
 export const deleteCard = id => dispatch => {
+  dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards/${id}`, {
     method: 'DELETE',
     headers: {
@@ -128,7 +132,7 @@ export const deleteCard = id => dispatch => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
-      dispatch(fetchCards());
     })
+    .then(() => dispatch(fetchCards()))
     .catch(err => console.log(err));
 };

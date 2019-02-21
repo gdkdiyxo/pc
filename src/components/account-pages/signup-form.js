@@ -1,12 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { signupUser, loginUser } from '../../actions/auth';
+import { signupUser } from '../../actions/auth';
 
 export class SignupForm extends React.Component {
   onSubmit(values) {
-    // console.log(this.props.dispatch(signupUser(values)));
     return this.props.dispatch(signupUser(values));
-    // .then(() => this.props.dispatch(loginUser(values.username, values.password)));
   }
 
   render() {

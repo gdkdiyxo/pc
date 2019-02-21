@@ -15,6 +15,11 @@ export class LoginPage extends React.Component {
     if (this.props.currentUser !== null) {
       return <Redirect to={`/create`} />;
     }
+
+    if (this.props.loading) {
+      return <i class="fas fa-5x fa-spinner" />;
+    }
+
     return (
       <main role="main">
         <div className="account-page-icon">
@@ -43,7 +48,8 @@ export class LoginPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currentUser: state.auth.currentUser
+  currentUser: state.auth.currentUser,
+  loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(LoginPage);
