@@ -77,7 +77,7 @@ export class UserCards extends React.Component {
 
     return (
       <div>
-        <section className="collection-cards">{userCards}</section>
+        <section className="collection-cards">{userCards.reverse()}</section>
         <ConfirmDeleteModal
           showing={this.state.showing}
           toggleModal={e => this.toggleModal(e)}
