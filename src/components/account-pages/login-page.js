@@ -30,7 +30,7 @@ export class LoginPage extends React.Component {
           <h2>Log in</h2>
           <LoginForm />
           {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
-          <p className="center">
+          <p className="demo-login-info">
             Demo login:
             <br /> username: <b>testuser</b> | password: <b>password</b>
           </p>

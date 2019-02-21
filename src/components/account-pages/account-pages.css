@@ -37,6 +37,10 @@
   flex: 3;
 }
 
+.demo-login-info {
+  width: 100%;
+}
+
 @media only screen and (min-width: 568px) {
   .account-form-box {
     width: 450px;

@@ -25,12 +25,12 @@ export class LandingPage extends React.Component {
             />
           </div>
 
-          <header>
-            <h1>Welcome to Deltio</h1>
-          </header>
-
+          {/* <header> */}
+          <h1>Welcome to Deltio</h1>
           <h3>Deltiology is the study and collection of postcards.</h3>
           <h3>With Deltio, you can create, collect, and share beautiful digital postcards.</h3>
+          {/* </header> */}
+
           <section className="instruction-wrapper">
             <div className="instruction">
               <i className="far fa-4x fa-image" />

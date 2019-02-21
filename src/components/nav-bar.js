@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 import { logoutUser } from '../actions/auth';
 
 import './nav-bar.css';
@@ -29,13 +30,13 @@ function LoggedInLinks(props) {
 }
 
 export class NavBar extends React.Component {
-  onClick(e) {
+  onClick() {
     this.props.dispatch(logoutUser());
   }
 
   render() {
     return (
-      <header role="banner" className="landing-page-header">
+      <header role="banner" className="nav-header">
         <nav role="navigation">
           <div className="nav-icon">
             <Link to="/">

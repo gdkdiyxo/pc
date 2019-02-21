@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { saveCard, updateCard, setEditing } from '../../actions/card';
-import { setUser, handleRefresh } from '../../actions/auth';
+import { handleRefresh } from '../../actions/auth';
 import { CLIENT_BASE_URL } from '../../config';
 import './create-page.css';
 import '../card/card.css';
@@ -20,9 +20,8 @@ export class CreatePage extends React.Component {
 
   saveCard() {
     const { full, thumb, alt, credit, portfolio } = this.props.card.image;
-    const username = this.props.currentUser ? this.props.currentUser : 'demouser';
     const currentCard = {
-      username,
+      username: this.props.currentUser,
       image: {
         full,
         thumb,

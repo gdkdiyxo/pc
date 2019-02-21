@@ -1,3 +1,7 @@
+.nav-header {
+  height: 5vh;
+}
+
 nav {
   height: 40px;
   position: fixed;
