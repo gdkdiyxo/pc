@@ -56,6 +56,11 @@ export const setEditing = boolean => ({
   boolean
 });
 
+export const CLEAR_CARD = 'CLEAR_CARD';
+export const clearCard = () => ({
+  type: CLEAR_CARD
+});
+
 //    User CRUD operations    //
 export const fetchCards = () => dispatch => {
   dispatch(fetchRequest());
@@ -100,7 +105,6 @@ export const saveCard = currentCard => dispatch => {
     })
     .then(card => {
       dispatch(setCard(card));
-
       dispatch(fetchCards());
     })
     .then(() => {
@@ -121,6 +125,7 @@ export const updateCard = currentCard => dispatch => {
     body: JSON.stringify(currentCard)
   })
     .then(() => dispatch(fetchCards()))
+
     .catch(err => console.log(err));
 };
 

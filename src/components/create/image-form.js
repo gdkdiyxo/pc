@@ -13,7 +13,9 @@ export class ImageForm extends React.Component {
 
   searchImage(e) {
     e.preventDefault();
-    this.props.dispatch(setEditing(false));
+    if (this.props.cardId) {
+      this.props.dispatch(setEditing(true));
+    }
     if (this.props.isCardFlipped) {
       this.props.dispatch(flipCard());
     }
@@ -75,6 +77,7 @@ export class ImageForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  cardId: state.card.cardId,
   isCardFlipped: state.card.isCardFlipped,
   editing: state.card.editing
 });

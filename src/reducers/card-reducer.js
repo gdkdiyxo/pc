@@ -7,7 +7,8 @@ import {
   DELETE_EMAIL,
   DISPLAY_CARDS,
   SET_CARD,
-  SET_EDITING
+  SET_EDITING,
+  CLEAR_CARD
 } from '../actions/card';
 
 const initialState = {
@@ -71,6 +72,20 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === SET_EDITING) {
     return Object.assign({}, state, {
       editing: action.boolean
+    });
+  } else if (action.type === CLEAR_CARD) {
+    console.log('clearcard action fired');
+    return Object.assign({}, state, {
+      cardId: null,
+      image: {
+        full: '',
+        thumb: '',
+        alt: '',
+        credit: '',
+        portfolio: ''
+      },
+      message: '',
+      recipients: []
     });
   }
 

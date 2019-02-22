@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { clearRecipients, addRecipient, flipCard } from '../../actions/card';
+import { clearRecipients, addRecipient, setEditing, flipCard } from '../../actions/card';
 
 export class RecipientForm extends React.Component {
   constructor(props) {
@@ -28,6 +28,7 @@ export class RecipientForm extends React.Component {
       });
     } else {
       this.setState({ errorMessage: '' });
+      this.props.dispatch(setEditing(true));
       this.props.dispatch(addRecipient(email));
       this.emailInput.value = '';
     }
@@ -68,6 +69,7 @@ export class RecipientForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  cardId: state.card.cardId,
   recipients: state.card.recipients,
   isCardFlipped: state.card.isCardFlipped
 });

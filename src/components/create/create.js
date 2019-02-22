@@ -9,7 +9,7 @@ import RecipientForm from './recipient-form';
 import SavedCards from './user-cards';
 import Card from './card';
 
-import { flipCard, saveCard, updateCard, setEditing } from '../../actions/card';
+import { flipCard, clearCard, saveCard, updateCard, setEditing } from '../../actions/card';
 import { handleRefresh } from '../../actions/auth';
 
 import './create.css';
@@ -28,6 +28,14 @@ export class Create extends React.Component {
 
   flipCard() {
     this.props.dispatch(flipCard());
+  }
+
+  clearCard() {
+    this.props.dispatch(clearCard());
+  }
+
+  handleSave() {
+    this.props.editing ? this.updateCard() : this.saveCard();
   }
 
   saveCard() {
@@ -51,14 +59,12 @@ export class Create extends React.Component {
     this.props.dispatch(setEditing(false));
   }
 
-  handleSave() {
-    this.props.editing ? this.updateCard() : this.saveCard();
-  }
-
   sendCard() {
+    console.log(this.props.card);
+    console.log(this.props.cardId);
     if (!this.props.cardId) {
       this.setState({
-        errorMessage: 'Please save the card before sending'
+        errorMessage: 'Please select a card to send'
       });
     } else if (this.props.editing) {
       this.setState({
@@ -74,7 +80,7 @@ export class Create extends React.Component {
         `mailto:${this.props.recipients}?subject=${
           this.props.currentUser
         } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/postcards/${
-          this.props.editingId
+          this.props.cardId
         }`,
         '_self'
       );
@@ -85,6 +91,7 @@ export class Create extends React.Component {
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
+        <ImageForm />
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>
             <Card
@@ -110,9 +117,11 @@ export class Create extends React.Component {
           <button className="create-page-btn" onClick={e => this.sendCard(e)}>
             Send
           </button>
+          <button className="create-page-btn" onClick={e => this.clearCard(e)}>
+            New
+          </button>
         </div>
 
-        <ImageForm />
         <MessageForm />
         <RecipientForm />
 
@@ -131,13 +140,13 @@ Create.defaultProps = {
 };
 
 const mapStateToProps = state => ({
+  card: state.card,
   cardId: state.card.cardId,
   isCardFlipped: state.card.isCardFlipped,
   image: state.card.image,
   message: state.card.message,
   recipients: state.card.recipients,
   editing: state.card.editing,
-  editingId: state.card.editingId,
   currentUser: state.auth.currentUser,
   loading: state.auth.loading,
   sendEmail: state.auth.sendEmail

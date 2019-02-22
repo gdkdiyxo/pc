@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchCards, setCard, setEditing, deleteCard } from '../../actions/card';
+import { fetchCards, setCard, deleteCard } from '../../actions/card';
 
 function ConfirmDeleteModal(props) {
   const hidden = { display: 'none' };
@@ -42,8 +42,6 @@ export class UserCards extends React.Component {
   setCard(event, cardId) {
     const cardToUpdate = this.props.userCards.filter(card => card._id === cardId)[0];
     this.props.dispatch(setCard(cardToUpdate));
-    //turn this off
-    this.props.dispatch(setEditing(true));
   }
 
   deleteCard(event, cardId) {
@@ -70,7 +68,7 @@ export class UserCards extends React.Component {
         ref={cardId => (this.cardId = cardId)}
         onClick={e => this.setCard(e, card._id)}
       >
-        <p className="saved-card-edit-instruction">Click to edit</p>
+        <p className="saved-card-edit-instruction">Click to edit or send</p>
         <button className="delete-card-btn" onClick={e => this.toggleModal(e, true, card._id)}>
           <i className="fa fa-trash" />
         </button>

@@ -44,7 +44,7 @@ export class Card extends React.Component {
     return (
       <div>
         <div className="card-image-container">
-          <p className="card-flip-instruction">Click to flip postcard</p>
+          <p className="card-flip-instruction">Click to flip</p>
 
           <img src={this.props.image.full} alt={this.props.image.alt} />
           <p className="photo-credit">

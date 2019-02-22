@@ -22,10 +22,6 @@ export class Postcard extends React.Component {
     this.getCard(cardId);
   }
 
-  flipCard() {
-    this.props.dispatch(flipCard());
-  }
-
   getCard(cardId) {
     // this.setState({
     //   loading: true
@@ -54,6 +50,10 @@ export class Postcard extends React.Component {
       );
   }
 
+  flipCard() {
+    this.props.dispatch(flipCard());
+  }
+
   render() {
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
 
@@ -73,9 +73,9 @@ export class Postcard extends React.Component {
       >
         <div className={cardClass}>
           <Card
-            image={this.props.card.image}
-            message={this.props.card.message}
-            recipients={this.props.card.recipients}
+            image={this.state.card.image}
+            message={this.state.card.message}
+            recipients={this.state.card.recipients}
           />
         </div>
       </main>
@@ -84,10 +84,9 @@ export class Postcard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  card: state.card,
-  isCardFlipped: state.card.isCardFlipped,
-  loading: state.auth.loading,
-  sendEmail: state.auth.sendEmail
+  // card: state.card,
+  isCardFlipped: state.card.isCardFlipped
+  // loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(Postcard);

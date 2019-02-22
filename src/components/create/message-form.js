@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { flipCard, addMessage } from '../../actions/card';
+import { flipCard, setEditing, addMessage } from '../../actions/card';
 
 export class MessageForm extends React.Component {
   onChange(text) {
     if (!this.props.isCardFlipped) {
       this.props.dispatch(flipCard());
     }
+    this.props.dispatch(setEditing(true));
     this.props.dispatch(addMessage(text));
   }
 
