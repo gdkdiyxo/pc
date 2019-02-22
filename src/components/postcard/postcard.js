@@ -56,14 +56,21 @@ export class Postcard extends React.Component {
 
   render() {
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
+
     if (this.state.error) {
       return <p>{this.state.error}</p>;
     } else if (this.state.loading) {
       return <p>Loading</p>;
     } else if (!this.state.loading) {
     }
+
     return (
-      <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
+      <main
+        role="main"
+        card={this.props.card}
+        className="card-outer"
+        onClick={e => this.flipCard(e)}
+      >
         <div className={cardClass}>
           <Card
             image={this.props.card.image}
@@ -71,7 +78,7 @@ export class Postcard extends React.Component {
             recipients={this.props.card.recipients}
           />
         </div>
-      </section>
+      </main>
     );
   }
 }

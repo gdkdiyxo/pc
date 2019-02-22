@@ -11,19 +11,10 @@ export class Preview extends React.Component {
   }
 
   render() {
-    //move this into .css file
-    const style = { display: 'block', margin: '10px auto' };
-    const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
+    const cardClass = this.props.card.isCardFlipped ? 'card-back' : 'card-front';
 
     return (
       <main role="main">
-        {this.props.history ? (
-          <Link to="/create">
-            <button style={style} className="create-page-btn">
-              Back
-            </button>
-          </Link>
-        ) : null}
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>
             <Card
@@ -33,15 +24,18 @@ export class Preview extends React.Component {
             />
           </div>
         </section>
+        <div className="card-btn-wrapper">
+          <Link to="/create">
+            <button className="create-page-btn">Back</button>
+          </Link>
+        </div>
       </main>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  card: state.card,
-  isCardFlipped: state.card.isCardFlipped,
-  currentUser: state.auth.currentUser
+  card: state.card
 });
 
 export default connect(mapStateToProps)(Preview);

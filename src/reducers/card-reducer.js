@@ -23,7 +23,7 @@ const initialState = {
   },
   message:
     'Eiusmod ut do labore nostrud deserunt consequat ut exercitation aliqua reprehenderit proident officia eiusmod.Ex ullamco incididunt eu in sit consequat nulla excepteur fugiat elit ipsum. Culpa sint sunt est esse est laborum velit anim voluptate magna do id veniam Lorem. Ut irure labore laboris est. Non eu eiusmod eu in. Quis aute labore veniam eu occaecat Lorem eu culpa aliquip elit Lorem magna do.',
-  recipients: ['example1@gmail.com', 'example2@yahoo.com', 'example3@aol.com'],
+  recipients: [],
   id: null,
   isCardFlipped: false,
   userCards: [],

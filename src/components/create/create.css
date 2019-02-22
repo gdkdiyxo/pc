@@ -196,6 +196,11 @@
   flex: 1;
 }
 
+.create-page-form-row button:nth-child(odd) {
+  flex: 1;
+  margin-left: 20px;
+}
+
 .create-page-form-wrapper label {
   font-family: 'Monda', sans-serif;
   font-weight: 100;

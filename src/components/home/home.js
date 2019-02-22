@@ -42,10 +42,12 @@ export class Home extends React.Component {
             </div>
             <div className="instruction">
               <i className="fas fa-4x fa-at" />
-              <p>Add a list of recipient emails, and send it off!</p>
+              <p>Add recipient emails, and send it off!</p>
             </div>
           </section>
-          <h3>Try out the demo, or sign up to start your collection.</h3>
+          <h3 className="homepage-header">
+            Try out the demo, or sign up to start your collection.
+          </h3>
           <div className="homepage-btn-wrapper">
             <Link to="/create">
               <button className="homepage-btn" onClick={e => this.demoLogin(e)}>

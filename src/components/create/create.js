@@ -75,7 +75,7 @@ export class Create extends React.Component {
   }
 
   render() {
-    const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
+    const cardClass = this.props.card.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
         <ImageForm />
@@ -119,10 +119,13 @@ export class Create extends React.Component {
   }
 }
 
+Create.defaultProps = {
+  recipients: ['example1@gmail.com', 'example2@yahoo.com', 'example3@aol.com']
+};
+
 const mapStateToProps = state => ({
   card: state.card,
   currentUser: state.auth.currentUser,
-  isCardFlipped: state.card.isCardFlipped,
   loading: state.auth.loading,
   sendEmail: state.auth.sendEmail
 });

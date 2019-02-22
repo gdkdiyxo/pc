@@ -7,24 +7,13 @@ export class RecipientForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipients: 0,
-      maxRecipients: 8,
-      errorMessage: '',
-      isFormPristine: true
+      errorMessage: ''
     };
   }
 
-  clearRecipients() {
-    if (this.state.isFormPristine) {
-      this.setState({
-        isFormPristine: false
-      });
-      this.props.dispatch(clearRecipients());
-    }
-  }
-
   validateForm() {
-    return this.state.recipients < this.state.maxRecipients ? true : false;
+    const maxRecipients = 8;
+    return this.props.recipients.length < maxRecipients;
   }
 
   addRecipient(e) {
@@ -36,10 +25,13 @@ export class RecipientForm extends React.Component {
     if (this.validateForm()) {
       this.props.dispatch(addRecipient(email));
       this.emailInput.value = '';
-      this.setState({ recipients: this.state.recipients + 1 });
     } else {
       this.setState({ errorMessage: 'Reached maximum recipients' });
     }
+  }
+
+  clearRecipients() {
+    this.props.dispatch(clearRecipients());
   }
 
   render() {
@@ -57,9 +49,11 @@ export class RecipientForm extends React.Component {
               required={true}
               placeholder="Add up to 8 email addresses"
               ref={input => (this.emailInput = input)}
-              onChange={e => this.clearRecipients(e)}
             />
             <button type="submit">Add</button>
+            <button type="button" onClick={e => this.clearRecipients(e)}>
+              Delete all
+            </button>
           </div>
           <div className="error-message">{this.state.errorMessage}</div>
         </form>
@@ -69,7 +63,6 @@ export class RecipientForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  recipientFormTouched: state.card.recipientFormTouched,
   recipients: state.card.recipients,
   isCardFlipped: state.card.isCardFlipped
 });
