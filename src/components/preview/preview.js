@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import CardFront from '../create/card-front';
-import CardBack from '../create/card-back';
+import Card from '../create/card';
 import { flipCard } from '../../actions/card';
 
 export class Preview extends React.Component {
@@ -27,8 +26,11 @@ export class Preview extends React.Component {
         ) : null}
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>
-            <CardFront image={this.props.card.image} />
-            <CardBack message={this.props.card.message} recipients={this.props.card.recipients} />
+            <Card
+              image={this.props.card.image}
+              message={this.props.card.message}
+              recipients={this.props.card.recipients}
+            />
           </div>
         </section>
       </main>

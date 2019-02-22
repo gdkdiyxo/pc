@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { API_BASE_URL } from '../../config';
 
-import CardFront from '../create/card-front';
-import CardBack from '../create/card-back';
+import Card from '../create/card';
 import { flipCard } from '../../actions/card';
 
 export class Postcard extends React.Component {
@@ -66,8 +65,11 @@ export class Postcard extends React.Component {
     return (
       <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
         <div className={cardClass}>
-          <CardFront image={this.props.card.image} />
-          <CardBack message={this.props.card.message} recipients={this.props.card.recipients} />
+          <Card
+            image={this.props.card.image}
+            message={this.props.card.message}
+            recipients={this.props.card.recipients}
+          />
         </div>
       </section>
     );

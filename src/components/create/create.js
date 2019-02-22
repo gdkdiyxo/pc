@@ -7,14 +7,12 @@ import ImageForm from './image-form';
 import MessageForm from './message-form';
 import RecipientForm from './recipient-form';
 import SavedCards from './user-cards';
-import CardFront from './card-front';
-import CardBack from './card-back';
+import Card from './card';
 
 import { flipCard, saveCard, updateCard, setEditing } from '../../actions/card';
 import { handleRefresh } from '../../actions/auth';
 
 import './create.css';
-import './card.css';
 
 export class Create extends React.Component {
   componentDidMount() {
@@ -84,8 +82,11 @@ export class Create extends React.Component {
 
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>
-            <CardFront image={this.props.card.image} />
-            <CardBack message={this.props.card.message} recipients={this.props.card.recipients} />
+            <Card
+              image={this.props.card.image}
+              message={this.props.card.message}
+              recipients={this.props.card.recipients}
+            />
           </div>
         </section>
 
