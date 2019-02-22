@@ -5,9 +5,9 @@ import { Link, Redirect } from 'react-router-dom';
 import SignupForm from './signup-form';
 import { handleRefresh } from '../../actions/auth';
 
-import './account-pages.css';
+import './account.css';
 
-export class SignupPage extends React.Component {
+export class Signup extends React.Component {
   componentDidMount() {
     this.props.dispatch(handleRefresh());
   }
@@ -46,4 +46,4 @@ const mapStateToProps = state => ({
   loading: state.auth.loading
 });
 
-export default connect(mapStateToProps)(SignupPage);
+export default connect(mapStateToProps)(Signup);

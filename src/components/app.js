@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Nav from './nav/nav';
-import HomePage from './home-page/home-page';
-import SignupPage from './account-pages/signup-page';
-import LoginPage from './account-pages/login-page';
-import CreatePage from './create-page/create-page';
-import PreviewPage from './preview-page/preview-page';
-import PostcardPage from './postcard-page/postcard-page';
+import Home from './home/home';
+import Signup from './account/signup';
+import Login from './account/login';
+import Create from './create/create';
+import Preview from './preview/preview';
+import Postcard from './postcard/postcard';
 
 export default class App extends React.Component {
   render() {
@@ -16,12 +16,12 @@ export default class App extends React.Component {
         <div>
           <Nav />
           <div>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/signup" component={SignupPage} />
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/create" component={CreatePage} />
-            <Route exact path="/preview" component={PreviewPage} />
-            <Route path="/postcards/" component={PostcardPage} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/create" component={Create} />
+            <Route exact path="/preview" component={Preview} />
+            <Route path="/postcards/" component={Postcard} />
           </div>
         </div>
       </Router>

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { loginUser } from '../../actions/auth';
 
-import './home-page.css';
+import './home.css';
 
-export class HomePage extends React.Component {
+export class Home extends React.Component {
   demoLogin() {
     const username = 'testuser';
     const password = 'password';
@@ -65,4 +65,4 @@ export class HomePage extends React.Component {
   }
 }
 
-export default connect()(HomePage);
+export default connect()(Home);

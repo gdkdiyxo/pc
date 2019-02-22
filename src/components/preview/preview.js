@@ -6,7 +6,7 @@ import CardFront from '../create-page/card-front';
 import CardBack from '../create-page/card-back';
 import { flipCard } from '../../actions/card';
 
-export class PreviewPage extends React.Component {
+export class Preview extends React.Component {
   flipCard() {
     this.props.dispatch(flipCard());
   }
@@ -25,7 +25,6 @@ export class PreviewPage extends React.Component {
             </button>
           </Link>
         ) : null}
-        {/* <CardContainer card={this.props.card} /> */}
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>
             <CardFront image={this.props.card.image} />
@@ -43,4 +42,4 @@ const mapStateToProps = state => ({
   currentUser: state.auth.currentUser
 });
 
-export default connect(mapStateToProps)(PreviewPage);
+export default connect(mapStateToProps)(Preview);

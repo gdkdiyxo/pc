@@ -6,7 +6,7 @@ import CardFront from '../create-page/card-front';
 import CardBack from '../create-page/card-back';
 import { flipCard } from '../../actions/card';
 
-export class PostcardPage extends React.Component {
+export class Postcard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -82,4 +82,4 @@ const mapStateToProps = state => ({
   sendEmail: state.auth.sendEmail
 });
 
-export default connect(mapStateToProps)(PostcardPage);
+export default connect(mapStateToProps)(Postcard);

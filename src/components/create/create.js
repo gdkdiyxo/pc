@@ -13,10 +13,10 @@ import CardBack from './card-back';
 import { flipCard, saveCard, updateCard, setEditing } from '../../actions/card';
 import { handleRefresh } from '../../actions/auth';
 
-import './create-page.css';
+import './create.css';
 import './card.css';
 
-export class CreatePage extends React.Component {
+export class Create extends React.Component {
   componentDidMount() {
     this.props.dispatch(handleRefresh());
   }
@@ -126,4 +126,4 @@ const mapStateToProps = state => ({
   sendEmail: state.auth.sendEmail
 });
 
-export default connect(mapStateToProps)(CreatePage);
+export default connect(mapStateToProps)(Create);
