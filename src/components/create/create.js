@@ -31,16 +31,9 @@ export class Create extends React.Component {
   }
 
   saveCard() {
-    const { full, thumb, alt, credit, portfolio } = this.props.image;
     const currentCard = {
       username: this.props.currentUser,
-      image: {
-        full,
-        thumb,
-        alt,
-        credit,
-        portfolio
-      },
+      image: this.props.image,
       message: this.props.message,
       recipients: this.props.recipients
     };
@@ -48,20 +41,13 @@ export class Create extends React.Component {
   }
 
   updateCard() {
-    const { full, thumb, alt, credit, portfolio } = this.props.image;
     const currentCard = {
-      image: {
-        full,
-        thumb,
-        alt,
-        credit,
-        portfolio
-      },
+      cardId: this.props.cardId,
+      image: this.props.image,
       message: this.props.message,
       recipients: this.props.recipients
     };
-    const id = this.props.editingId;
-    this.props.dispatch(updateCard(id, currentCard));
+    this.props.dispatch(updateCard(currentCard));
     this.props.dispatch(setEditing(false));
   }
 

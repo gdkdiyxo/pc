@@ -7,11 +7,11 @@ import {
   DELETE_EMAIL,
   DISPLAY_CARDS,
   SET_CARD,
-  SET_EDITING,
-  SET_CARD_ID
+  SET_EDITING
 } from '../actions/card';
 
 const initialState = {
+  cardId: null,
   id: null,
   image: {
     full:
@@ -62,22 +62,11 @@ export default function reducer(state = initialState, action) {
       userCards: action.userCards
     });
   } else if (action.type === SET_CARD) {
-    const cardToUpdate = state.userCards.filter(card => card._id === action.id)[0];
-    console.log(
-      `setCard action fired; action: ${action.id}, ${cardToUpdate.image}, ${
-        cardToUpdate.message
-      }, ${cardToUpdate.recipients}`
-    );
     return Object.assign({}, state, {
-      editingId: action.id,
-      image: cardToUpdate.image,
-      message: cardToUpdate.message,
-      recipients: cardToUpdate.recipients
-    });
-  } else if (action.type === SET_CARD_ID) {
-    console.log(`setCardId action fired; action.id: ${action.id}`);
-    return Object.assign({}, state, {
-      id: action.id
+      cardId: action.card._id,
+      image: action.card.image,
+      message: action.card.message,
+      recipients: action.card.recipients
     });
   } else if (action.type === SET_EDITING) {
     return Object.assign({}, state, {

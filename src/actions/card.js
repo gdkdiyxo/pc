@@ -45,15 +45,9 @@ export const displayCards = userCards => ({
 });
 
 export const SET_CARD = 'SET_CARD';
-export const setCard = id => ({
+export const setCard = card => ({
   type: SET_CARD,
-  id
-});
-
-export const SET_CARD_ID = 'SET_CARD_ID';
-export const setCardId = id => ({
-  type: SET_CARD_ID,
-  id
+  card
 });
 
 export const SET_EDITING = 'SET_EDITING';
@@ -105,7 +99,8 @@ export const saveCard = currentCard => dispatch => {
       return res.json();
     })
     .then(card => {
-      dispatch(setCardId(card._id));
+      dispatch(setCard(card));
+
       dispatch(fetchCards());
     })
     .then(() => {
@@ -114,9 +109,10 @@ export const saveCard = currentCard => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const updateCard = (id, currentCard) => dispatch => {
+export const updateCard = currentCard => dispatch => {
+  console.log('updateCard action fired');
   dispatch(fetchRequest());
-  fetch(`${API_BASE_URL}/api/cards/${id}`, {
+  fetch(`${API_BASE_URL}/api/cards/${currentCard.cardId}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
@@ -128,9 +124,9 @@ export const updateCard = (id, currentCard) => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const deleteCard = id => dispatch => {
+export const deleteCard = cardId => dispatch => {
   dispatch(fetchRequest());
-  fetch(`${API_BASE_URL}/api/cards/${id}`, {
+  fetch(`${API_BASE_URL}/api/cards/${cardId}`, {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json',

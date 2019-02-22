@@ -39,8 +39,10 @@ export class UserCards extends React.Component {
     });
   }
 
-  setCardToUpdate(event, cardId) {
-    this.props.dispatch(setCard(cardId));
+  setCard(event, cardId) {
+    const cardToUpdate = this.props.userCards.filter(card => card._id === cardId)[0];
+    this.props.dispatch(setCard(cardToUpdate));
+    //turn this off
     this.props.dispatch(setEditing(true));
   }
 
@@ -66,7 +68,7 @@ export class UserCards extends React.Component {
         className="saved-card"
         key={card._id}
         ref={cardId => (this.cardId = cardId)}
-        onClick={e => this.setCardToUpdate(e, card._id)}
+        onClick={e => this.setCard(e, card._id)}
       >
         <p className="saved-card-edit-instruction">Click to edit</p>
         <button className="delete-card-btn" onClick={e => this.toggleModal(e, true, card._id)}>
