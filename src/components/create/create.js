@@ -31,7 +31,7 @@ export class Create extends React.Component {
   }
 
   saveCard() {
-    const { full, thumb, alt, credit, portfolio } = this.props.card.image;
+    const { full, thumb, alt, credit, portfolio } = this.props.image;
     const currentCard = {
       username: this.props.currentUser,
       image: {
@@ -41,14 +41,14 @@ export class Create extends React.Component {
         credit,
         portfolio
       },
-      message: this.props.card.message,
-      recipients: this.props.card.recipients
+      message: this.props.message,
+      recipients: this.props.recipients
     };
     this.props.dispatch(saveCard(currentCard));
   }
 
   updateCard() {
-    const { full, thumb, alt, credit, portfolio } = this.props.card.image;
+    const { full, thumb, alt, credit, portfolio } = this.props.image;
     const currentCard = {
       image: {
         full,
@@ -57,30 +57,38 @@ export class Create extends React.Component {
         credit,
         portfolio
       },
-      message: this.props.card.message,
-      recipients: this.props.card.recipients
+      message: this.props.message,
+      recipients: this.props.recipients
     };
-    const id = this.props.card.editingId;
+    const id = this.props.editingId;
     this.props.dispatch(updateCard(id, currentCard));
     this.props.dispatch(setEditing(false));
   }
 
   handleSave() {
-    this.props.card.editing ? this.updateCard() : this.saveCard();
+    this.props.editing ? this.updateCard() : this.saveCard();
   }
 
-  handleSend() {
-    if (this.props.card.recipients.length === 0) {
+  sendCard() {
+    if (!this.props.cardId) {
+      this.setState({
+        errorMessage: 'Please save the card before sending'
+      });
+    } else if (this.props.editing) {
+      this.setState({
+        errorMessage: 'Please save changes before sending'
+      });
+    } else if (this.props.recipients.length === 0) {
       this.setState({
         errorMessage: 'Add at least one email to send'
       });
     } else {
-      this.handleSave();
+      this.setState({ errorMessage: '' });
       window.open(
         `mailto:${this.props.recipients}?subject=${
           this.props.currentUser
         } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/postcards/${
-          this.props.card.editingId
+          this.props.editingId
         }`,
         '_self'
       );
@@ -88,19 +96,19 @@ export class Create extends React.Component {
   }
 
   render() {
-    const cardClass = this.props.card.isCardFlipped ? 'card-back' : 'card-front';
+    const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>
             <Card
-              image={this.props.card.image}
-              message={this.props.card.message}
-              recipients={this.props.card.recipients}
+              image={this.props.image}
+              message={this.props.message}
+              recipients={this.props.recipients}
             />
           </div>
         </section>
-        {this.props.card.recipients.length === 0 && (
+        {(!this.props.cardId || this.props.editing || this.props.recipients.length === 0) && (
           <div className="error-message" aria-live="assertive">
             {this.state.errorMessage}
           </div>
@@ -111,9 +119,9 @@ export class Create extends React.Component {
             <button className="create-page-btn">Preview</button>
           </Link>
           <button className="create-page-btn" onClick={e => this.handleSave(e)}>
-            {!this.props.card.editing ? 'Save' : 'Save changes'}
+            {!this.props.editing ? 'Save' : 'Save changes'}
           </button>
-          <button className="create-page-btn" onClick={e => this.handleSend(e)}>
+          <button className="create-page-btn" onClick={e => this.sendCard(e)}>
             Send
           </button>
         </div>
@@ -137,7 +145,13 @@ Create.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  card: state.card,
+  cardId: state.card.cardId,
+  isCardFlipped: state.card.isCardFlipped,
+  image: state.card.image,
+  message: state.card.message,
+  recipients: state.card.recipients,
+  editing: state.card.editing,
+  editingId: state.card.editingId,
   currentUser: state.auth.currentUser,
   loading: state.auth.loading,
   sendEmail: state.auth.sendEmail

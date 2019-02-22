@@ -12,6 +12,7 @@ import {
 } from '../actions/card';
 
 const initialState = {
+  id: null,
   image: {
     full:
       'https://images.unsplash.com/photo-1503970999490-4404449dc349?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU0MzUwfQ',
@@ -24,7 +25,6 @@ const initialState = {
   message:
     'Eiusmod ut do labore nostrud deserunt consequat ut exercitation aliqua reprehenderit proident officia eiusmod.Ex ullamco incididunt eu in sit consequat nulla excepteur fugiat elit ipsum. Culpa sint sunt est esse est laborum velit anim voluptate magna do id veniam Lorem. Ut irure labore laboris est. Non eu eiusmod eu in. Quis aute labore veniam eu occaecat Lorem eu culpa aliquip elit Lorem magna do.',
   recipients: [],
-  id: null,
   isCardFlipped: false,
   userCards: [],
   editing: false,
@@ -63,6 +63,11 @@ export default function reducer(state = initialState, action) {
     });
   } else if (action.type === SET_CARD) {
     const cardToUpdate = state.userCards.filter(card => card._id === action.id)[0];
+    console.log(
+      `setCard action fired; action: ${action.id}, ${cardToUpdate.image}, ${
+        cardToUpdate.message
+      }, ${cardToUpdate.recipients}`
+    );
     return Object.assign({}, state, {
       editingId: action.id,
       image: cardToUpdate.image,
@@ -70,7 +75,7 @@ export default function reducer(state = initialState, action) {
       recipients: cardToUpdate.recipients
     });
   } else if (action.type === SET_CARD_ID) {
-    console.log('setCardId action fired');
+    console.log(`setCardId action fired; action.id: ${action.id}`);
     return Object.assign({}, state, {
       id: action.id
     });

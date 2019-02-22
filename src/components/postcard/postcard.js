@@ -85,7 +85,6 @@ export class Postcard extends React.Component {
 
 const mapStateToProps = state => ({
   card: state.card,
-  currentUser: state.auth.currentUser,
   isCardFlipped: state.card.isCardFlipped,
   loading: state.auth.loading,
   sendEmail: state.auth.sendEmail

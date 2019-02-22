@@ -12,7 +12,6 @@ export class RecipientForm extends React.Component {
   }
 
   isMaxRecipients() {
-    console.log(this.props.recipients.length);
     const maxRecipients = 2;
     return !(this.props.recipients.length < maxRecipients);
   }
