@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Nav from './nav';
-import HomePage from './home-page';
+import Nav from './nav/nav';
+import HomePage from './home-page/home-page';
 import SignupPage from './account-pages/signup-page';
 import LoginPage from './account-pages/login-page';
 import CreatePage from './create-page/create-page';
-import PreviewPage from './preview-page';
-import PostcardPage from './postcard-page';
+import PreviewPage from './preview-page/preview-page';
+import PostcardPage from './postcard-page/postcard-page';
 
 export default class App extends React.Component {
   render() {

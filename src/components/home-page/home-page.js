@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { loginUser } from '../actions/auth';
+import { loginUser } from '../../actions/auth';
 
 import './home-page.css';
 

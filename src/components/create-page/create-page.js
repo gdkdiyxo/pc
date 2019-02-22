@@ -7,12 +7,11 @@ import ImageForm from './image-form';
 import MessageForm from './message-form';
 import RecipientForm from './recipient-form';
 import SavedCards from './user-cards';
-import { saveCard, updateCard, setEditing } from '../../actions/card';
-import { handleRefresh } from '../../actions/auth';
-
 import CardFront from './card-front';
 import CardBack from './card-back';
-import { flipCard } from '../../actions/card';
+
+import { flipCard, saveCard, updateCard, setEditing } from '../../actions/card';
+import { handleRefresh } from '../../actions/auth';
 
 import './create-page.css';
 import './card.css';
@@ -82,7 +81,6 @@ export class CreatePage extends React.Component {
     return (
       <main role="main">
         <ImageForm />
-        {/* <CardContainer card={this.props.card} /> */}
 
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>

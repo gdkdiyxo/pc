@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { logoutUser } from '../actions/auth';
+import { logoutUser } from '../../actions/auth';
 
 import './nav.css';
 
