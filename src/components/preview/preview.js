@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import CardFront from '../create-page/card-front';
-import CardBack from '../create-page/card-back';
+import CardFront from '../create/card-front';
+import CardBack from '../create/card-back';
 import { flipCard } from '../../actions/card';
 
 export class Preview extends React.Component {
