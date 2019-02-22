@@ -7,7 +7,7 @@
   position: relative;
   background-color: transparent;
   perspective: 2000px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .card-front {
@@ -68,32 +68,9 @@
   width: 100%;
 }
 
-.last-image-btn,
-.next-image-btn {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  z-index: 100;
-}
-
-.last-image-btn {
-  left: 0;
-}
-
-.next-image-btn {
-  right: 0;
-}
-
-.flip-image-btn {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
 .photo-credit {
   padding: 0 4px 0;
-  font-size: 1.2vh;
+  font-size: 1.3vh;
   background-color: white;
   position: absolute;
   margin: 0;
@@ -153,12 +130,11 @@
 
 /*    Preview, Save, Send buttons   */
 .card-btn-wrapper {
-  margin-bottom: 20px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 300px;
+  margin: 0 auto 15px;
 }
 
 .create-page-btn {
@@ -177,9 +153,9 @@
 .create-page-form-wrapper {
   width: 98%;
   border: 2px lightgrey solid;
-  border-radius: 3px;
+  border-radius: 7px;
   padding: 10px;
-  margin: 0 auto 15px;
+  margin: 0 auto 5px;
 }
 
 .create-page-form-row {
@@ -281,8 +257,10 @@
 }
 
 .error-message {
+  text-align: center;
   color: red;
   font-size: 0.8em;
+  transform: translate(0, -50%);
 }
 
 /* Delete card modal   */

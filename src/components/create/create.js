@@ -15,6 +15,13 @@ import { handleRefresh } from '../../actions/auth';
 import './create.css';
 
 export class Create extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      errorMessage: ''
+    };
+  }
+
   componentDidMount() {
     this.props.dispatch(handleRefresh());
   }
@@ -63,23 +70,27 @@ export class Create extends React.Component {
   }
 
   handleSend() {
-    this.handleSave();
-    window.open(
-      `mailto:${this.props.recipients}?subject=${
-        this.props.currentUser ? this.props.currentUser : 'Deltio Demo User'
-      } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/postcards/${
-        this.props.card.editingId
-      }`,
-      '_self'
-    );
+    if (this.props.card.recipients.length === 0) {
+      this.setState({
+        errorMessage: 'Add at least one email to send'
+      });
+    } else {
+      this.handleSave();
+      window.open(
+        `mailto:${this.props.recipients}?subject=${
+          this.props.currentUser
+        } sent you a postcard!&body=Click on this link to view the postcard: ${CLIENT_BASE_URL}/postcards/${
+          this.props.card.editingId
+        }`,
+        '_self'
+      );
+    }
   }
 
   render() {
     const cardClass = this.props.card.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
-        <ImageForm />
-
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>
             <Card
@@ -89,27 +100,29 @@ export class Create extends React.Component {
             />
           </div>
         </section>
-
-        <MessageForm />
-        <RecipientForm />
-        {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
+        {this.props.card.recipients.length === 0 && (
+          <div className="error-message" aria-live="assertive">
+            {this.state.errorMessage}
+          </div>
+        )}
 
         <div className="card-btn-wrapper">
           <Link to="/preview">
             <button className="create-page-btn">Preview</button>
           </Link>
-
-          {this.props.currentUser ? (
-            <button className="create-page-btn" onClick={e => this.handleSave(e)}>
-              {!this.props.card.editing ? 'Save' : 'Save changes'}
-            </button>
-          ) : null}
-
+          <button className="create-page-btn" onClick={e => this.handleSave(e)}>
+            {!this.props.card.editing ? 'Save' : 'Save changes'}
+          </button>
           <button className="create-page-btn" onClick={e => this.handleSend(e)}>
             Send
           </button>
         </div>
-        <hr />
+
+        <ImageForm />
+        <MessageForm />
+        <RecipientForm />
+
+        {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
         <section className="card-collection-container">
           <p className="card-collection-container-label">My collection</p>
           <SavedCards />

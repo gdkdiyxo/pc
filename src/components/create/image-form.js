@@ -65,7 +65,9 @@ export class ImageForm extends React.Component {
             />
             <button type="submit">Search</button>
           </div>
-          <div className="error-message">{this.state.errorMessage}</div>
+          <div className="error-message" aria-live="assertive">
+            {this.state.errorMessage}
+          </div>
         </form>
       </div>
     );

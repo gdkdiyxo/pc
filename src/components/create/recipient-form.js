@@ -11,9 +11,10 @@ export class RecipientForm extends React.Component {
     };
   }
 
-  validateForm() {
-    const maxRecipients = 8;
-    return this.props.recipients.length < maxRecipients;
+  isMaxRecipients() {
+    console.log(this.props.recipients.length);
+    const maxRecipients = 2;
+    return !(this.props.recipients.length < maxRecipients);
   }
 
   addRecipient(e) {
@@ -22,11 +23,14 @@ export class RecipientForm extends React.Component {
     if (!this.props.isCardFlipped) {
       this.props.dispatch(flipCard());
     }
-    if (this.validateForm()) {
+    if (this.isMaxRecipients()) {
+      this.setState({
+        errorMessage: 'Reached maximum recipients'
+      });
+    } else {
+      this.setState({ errorMessage: '' });
       this.props.dispatch(addRecipient(email));
       this.emailInput.value = '';
-    } else {
-      this.setState({ errorMessage: 'Reached maximum recipients' });
     }
   }
 
@@ -55,7 +59,9 @@ export class RecipientForm extends React.Component {
               Delete all
             </button>
           </div>
-          <div className="error-message">{this.state.errorMessage}</div>
+          <div className="error-message" aria-live="assertive">
+            {this.state.errorMessage}
+          </div>
         </form>
       </div>
     );
