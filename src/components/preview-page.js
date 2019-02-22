@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CardContainer from './card/card-container';
+import CardContainer from './create-page/card-container';
 import { connect } from 'react-redux';
 
 export class PreviewPage extends React.Component {

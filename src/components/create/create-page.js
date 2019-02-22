@@ -5,18 +5,25 @@ import { CLIENT_BASE_URL } from '../../config';
 
 import ImageForm from './image-form';
 import MessageForm from './message-form';
-import CardContainer from '../card/card-container';
 import RecipientForm from './recipient-form';
-import SavedCards from './saved-cards';
+import SavedCards from './user-cards';
 import { saveCard, updateCard, setEditing } from '../../actions/card';
 import { handleRefresh } from '../../actions/auth';
 
+import CardFront from './card-front';
+import CardBack from './card-back';
+import { flipCard } from '../../actions/card';
+
 import './create-page.css';
-import '../card/card.css';
+import './card.css';
 
 export class CreatePage extends React.Component {
   componentDidMount() {
     this.props.dispatch(handleRefresh());
+  }
+
+  flipCard() {
+    this.props.dispatch(flipCard());
   }
 
   saveCard() {
@@ -71,10 +78,19 @@ export class CreatePage extends React.Component {
   }
 
   render() {
+    const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
         <ImageForm />
-        <CardContainer card={this.props.card} />
+        {/* <CardContainer card={this.props.card} /> */}
+
+        <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
+          <div className={cardClass}>
+            <CardFront image={this.props.card.image} />
+            <CardBack message={this.props.card.message} recipients={this.props.card.recipients} />
+          </div>
+        </section>
+
         <MessageForm />
         <RecipientForm />
         {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
@@ -107,6 +123,7 @@ export class CreatePage extends React.Component {
 const mapStateToProps = state => ({
   card: state.card,
   currentUser: state.auth.currentUser,
+  isCardFlipped: state.card.isCardFlipped,
   loading: state.auth.loading,
   sendEmail: state.auth.sendEmail
 });

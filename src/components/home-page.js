@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { loginUser } from '../actions/auth';
 
-import './landing-page.css';
+import './home-page.css';
 
-export class LandingPage extends React.Component {
+export class HomePage extends React.Component {
   demoLogin() {
     const username = 'testuser';
     const password = 'password';
@@ -25,11 +25,11 @@ export class LandingPage extends React.Component {
             />
           </div>
 
-          {/* <header> */}
-          <h1>Welcome to Deltio</h1>
-          <h3>Deltiology is the study and collection of postcards.</h3>
-          <h3>With Deltio, you can create, collect, and share beautiful digital postcards.</h3>
-          {/* </header> */}
+          <header className="homepage-header">
+            <h1>Welcome to Deltio</h1>
+            <h3>Deltiology is the study and collection of postcards.</h3>
+            <h3>With Deltio, you can create, collect, and share beautiful digital postcards.</h3>
+          </header>
 
           <section className="instruction-wrapper">
             <div className="instruction">
@@ -46,14 +46,14 @@ export class LandingPage extends React.Component {
             </div>
           </section>
           <h3>Try out the demo, or sign up to start your collection.</h3>
-          <div className="landing-page-btns">
+          <div className="homepage-btn-wrapper">
             <Link to="/create">
-              <button className="landing-page-btn" onClick={e => this.demoLogin(e)}>
+              <button className="homepage-btn" onClick={e => this.demoLogin(e)}>
                 Try the demo
               </button>
             </Link>
             <Link to="/signup">
-              <button className="landing-page-btn">Sign up</button>
+              <button className="homepage-btn">Sign up</button>
             </Link>
           </div>
         </main>
@@ -65,4 +65,4 @@ export class LandingPage extends React.Component {
   }
 }
 
-export default connect()(LandingPage);
+export default connect()(HomePage);

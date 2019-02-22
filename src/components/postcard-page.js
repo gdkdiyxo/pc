@@ -1,7 +1,7 @@
 import React from 'react';
 import { API_BASE_URL } from '../config';
 
-import CardContainer from './card/card-container';
+import CardContainer from './create-page/card-container';
 
 export default class PostcardPage extends React.Component {
   constructor(props) {

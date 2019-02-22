@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { logoutUser } from '../actions/auth';
 
-import './nav-bar.css';
+import './nav.css';
 
 function LoggedOutLinks() {
   return (
@@ -29,7 +29,7 @@ function LoggedInLinks(props) {
   );
 }
 
-export class NavBar extends React.Component {
+export class Nav extends React.Component {
   onClick() {
     this.props.dispatch(logoutUser());
   }
@@ -59,4 +59,4 @@ const mapStateToProps = state => ({
   currentUser: state.auth.currentUser
 });
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps)(Nav);

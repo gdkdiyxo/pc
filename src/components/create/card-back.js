@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { deleteEmail } from '../../actions/card';
 
+import './card.css';
+
 function Recipient(props) {
   return (
     <div className="card-email">

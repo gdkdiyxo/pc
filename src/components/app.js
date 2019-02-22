@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import NavBar from './nav-bar';
-import LandingPage from './landing-page';
+import Nav from './nav';
+import HomePage from './home-page';
 import SignupPage from './account-pages/signup-page';
 import LoginPage from './account-pages/login-page';
 import CreatePage from './create-page/create-page';
@@ -14,9 +14,9 @@ export default class App extends React.Component {
     return (
       <Router>
         <div>
-          <NavBar />
+          <Nav />
           <div>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/" component={HomePage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/create" component={CreatePage} />
