@@ -64,6 +64,12 @@ export const clearCard = () => ({
   type: CLEAR_CARD
 });
 
+export const SET_ERROR = 'SET_ERROR';
+export const setError = error => ({
+  type: SET_ERROR,
+  error
+});
+
 //    www.unsplash.com API    //
 //default page is 1 (this could maybe be randomized to get more images)
 //max per page is 30
@@ -82,27 +88,23 @@ export const searchImage = query => dispatch => {
   })
     .then(response => response.json())
     .then(data => {
-      // console.log(data);
-      // console.log(data.total);
-      console.log(data.results[5]);
-      // const isResults = data.total === 0;
-      // console.log(data['results']);
-      dispatch(setResults(data.results));
-      //     if (data.total === 0) {
-      //       this.setState({ errorMessage: 'There were no results. Try a different search' });
-      //     } else {
-      //       this.setState({ errorMessage: '' });
-      const randomResult = Math.floor(Math.random() * (page * per_page));
-      const image = data.results[randomResult];
-      const card = {
-        full: image.urls.regular,
-        thumb: image.urls.thumb,
-        alt: image.description,
-        credit: image.user.name,
-        portfolio: image.user.links.html
-      };
-      console.log(card);
-      dispatch(setImage(card));
+      console.log(data.total);
+      if (data.total === 0) {
+        dispatch(setError('There were no results. Try a different search'));
+      } else {
+        dispatch(setError(''));
+        dispatch(setResults(data.results));
+        const randomResult = Math.floor(Math.random() * Math.min(data.total, page * per_page));
+        const randomImage = data.results[randomResult];
+        const image = {
+          full: randomImage.urls.regular,
+          thumb: randomImage.urls.thumb,
+          alt: randomImage.description,
+          credit: randomImage.user.name,
+          portfolio: randomImage.user.links.html
+        };
+        dispatch(setImage(image));
+      }
     });
 };
 

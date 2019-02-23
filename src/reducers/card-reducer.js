@@ -9,7 +9,8 @@ import {
   DISPLAY_CARDS,
   SET_CARD,
   SET_EDITING,
-  CLEAR_CARD
+  CLEAR_CARD,
+  SET_ERROR
 } from '../actions/card';
 
 const initialState = {
@@ -31,7 +32,8 @@ const initialState = {
   isCardFlipped: false,
   userCards: [],
   editing: false,
-  editingId: ''
+  editingId: '',
+  error: ''
 };
 
 export default function reducer(state = initialState, action) {
@@ -71,6 +73,7 @@ export default function reducer(state = initialState, action) {
       userCards: action.userCards
     });
   } else if (action.type === SET_CARD) {
+    console.log('set card action fired');
     return Object.assign({}, state, {
       cardId: action.card._id,
       image: action.card.image,
@@ -81,8 +84,11 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       editing: action.boolean
     });
+  } else if (action.type === SET_ERROR) {
+    return Object.assign({}, state, {
+      error: action.error
+    });
   } else if (action.type === CLEAR_CARD) {
-    console.log('clearcard action fired');
     return Object.assign({}, state, {
       cardId: null,
       image: {

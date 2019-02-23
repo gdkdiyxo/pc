@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CLIENT_BASE_URL } from '../../config';
 
-import ImageForm from './image-form';
-import MessageForm from './message-form';
-import RecipientForm from './recipient-form';
+import CardForms from './card-forms';
 import SavedCards from './user-cards';
 import Card from './card';
 
@@ -35,7 +33,14 @@ export class Create extends React.Component {
   }
 
   handleSave() {
-    this.props.editing ? this.updateCard() : this.saveCard();
+    if (!this.props.image.full) {
+      this.setState({
+        errorMessage: 'Please add an image before saving'
+      });
+    } else {
+      this.props.editing ? this.updateCard() : this.saveCard();
+      this.setState({ errorMessage: '' });
+    }
   }
 
   saveCard() {
@@ -62,19 +67,16 @@ export class Create extends React.Component {
   sendCard() {
     console.log(this.props.card);
     console.log(this.props.cardId);
-    if (this.props.recipients.length === 0) {
+    if (!this.props.cardId) {
+      this.setState({
+        errorMessage: 'Please save card to send'
+      });
+    } else if (this.props.recipients.length === 0) {
       this.setState({
         errorMessage: 'Add at least one email to send'
       });
-    } else if (this.props.editing) {
-      this.setState({
-        errorMessage: 'Please save changes before sending'
-      });
-    } else if (!this.props.cardId) {
-      this.setState({
-        errorMessage: 'Please select a card to send'
-      });
     } else {
+      this.updateCard();
       this.setState({ errorMessage: '' });
       window.open(
         `mailto:${this.props.recipients}?subject=${
@@ -93,7 +95,6 @@ export class Create extends React.Component {
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
-        <ImageForm />
         <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
           <div className={cardClass}>
             <Card
@@ -104,7 +105,7 @@ export class Create extends React.Component {
           </div>
         </section>
         {(!this.props.cardId || this.props.editing || this.props.recipients.length === 0) && (
-          <div className="error-message" aria-live="assertive">
+          <div className="error-message" aria-live="polite">
             {this.state.errorMessage}
           </div>
         )}
@@ -124,8 +125,7 @@ export class Create extends React.Component {
           </button>
         </div>
 
-        <MessageForm />
-        <RecipientForm />
+        <CardForms />
 
         {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
         <section className="card-collection-container">
