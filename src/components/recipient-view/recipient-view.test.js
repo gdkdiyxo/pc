@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Postcard from './postcard';
+import RecipientView from './recipient-view';
 
-describe('Postcard', () => {
+describe('RecipientView', () => {
   it('renders without crashing', () => {
-    shallow(<Postcard />);
+    shallow(<RecipientView />);
   });
 });
