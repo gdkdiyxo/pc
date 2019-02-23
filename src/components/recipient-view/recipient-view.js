@@ -5,7 +5,7 @@ import { API_BASE_URL } from '../../config';
 import Card from '../create/card';
 import { flipCard } from '../../actions/card';
 
-export class Postcard extends React.Component {
+export class RecipientView extends React.Component {
   constructor(props) {
     super(props);
 
@@ -85,4 +85,4 @@ const mapStateToProps = state => ({
   isCardFlipped: state.card.isCardFlipped
 });
 
-export default connect(mapStateToProps)(Postcard);
+export default connect(mapStateToProps)(RecipientView);

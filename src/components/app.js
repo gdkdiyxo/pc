@@ -7,7 +7,7 @@ import Signup from './account/signup';
 import Login from './account/login';
 import Create from './create/create';
 import Preview from './preview/preview';
-import Postcard from './postcard/postcard';
+import RecipientView from './recipient-view/recipient-view';
 
 export default class App extends React.Component {
   render() {
@@ -21,7 +21,7 @@ export default class App extends React.Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/create" component={Create} />
             <Route exact path="/preview" component={Preview} />
-            <Route path="/postcards/" component={Postcard} />
+            <Route path="/postcards/" component={RecipientView} />
           </div>
         </div>
       </Router>
