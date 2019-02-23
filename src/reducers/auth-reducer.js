@@ -20,7 +20,6 @@ export default function reducer(state = initialState, action) {
       loading: false
     });
   } else if (action.type === SET_AUTH_ERROR) {
-    console.log(action.error);
     return Object.assign({}, state, {
       error: action.error
     });

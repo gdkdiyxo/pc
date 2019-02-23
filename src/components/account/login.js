@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import LoginForm from './login-form';
-import { handleRefresh } from '../../actions/auth';
+import { handleRefresh, setAuthError } from '../../actions/auth';
 
 import './account.css';
 
 export class Login extends React.Component {
   componentDidMount() {
     this.props.dispatch(handleRefresh());
+  }
+
+  clearErrors() {
+    this.props.dispatch(setAuthError(null));
   }
 
   render() {
@@ -44,7 +48,7 @@ export class Login extends React.Component {
           </p>
           <br />
           <p>Need an account?</p>
-          <button type="submit">
+          <button type="submit" onClick={e => this.clearErrors(e)}>
             <Link to="/signup">Sign up here</Link>
           </button>
         </div>

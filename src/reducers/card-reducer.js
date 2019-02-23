@@ -32,8 +32,8 @@ const initialState = {
   isCardFlipped: false,
   userCards: [],
   editing: false,
-  editingId: '',
-  error: ''
+  editingId: null,
+  error: null
 };
 
 export default function reducer(state = initialState, action) {

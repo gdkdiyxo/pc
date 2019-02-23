@@ -36,6 +36,7 @@ export const handleRefresh = () => dispatch => {
   }
   const decodedToken = jwtDecode(authToken);
   dispatch(setUser(decodedToken.user.username));
+  dispatch(setAuthError(null));
 };
 
 export const logoutUser = () => dispatch => {
