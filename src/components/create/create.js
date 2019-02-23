@@ -62,17 +62,17 @@ export class Create extends React.Component {
   sendCard() {
     console.log(this.props.card);
     console.log(this.props.cardId);
-    if (!this.props.cardId) {
+    if (this.props.recipients.length === 0) {
       this.setState({
-        errorMessage: 'Please select a card to send'
+        errorMessage: 'Add at least one email to send'
       });
     } else if (this.props.editing) {
       this.setState({
         errorMessage: 'Please save changes before sending'
       });
-    } else if (this.props.recipients.length === 0) {
+    } else if (!this.props.cardId) {
       this.setState({
-        errorMessage: 'Add at least one email to send'
+        errorMessage: 'Please select a card to send'
       });
     } else {
       this.setState({ errorMessage: '' });
