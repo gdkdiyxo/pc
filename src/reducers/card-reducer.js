@@ -38,8 +38,6 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   if (action.type === SET_RESULTS) {
-    console.log('SET_RESULTS fired');
-    console.log(action.results);
     return Object.assign({}, state, {
       results: action.results
     });
@@ -73,7 +71,6 @@ export default function reducer(state = initialState, action) {
       userCards: action.userCards
     });
   } else if (action.type === SET_CARD) {
-    console.log('set card action fired');
     return Object.assign({}, state, {
       cardId: action.card._id,
       image: action.card.image,

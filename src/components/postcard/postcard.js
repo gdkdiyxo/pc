@@ -17,7 +17,6 @@ export class Postcard extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component mounted');
     const cardId = window.location.pathname.split('postcards/')[1];
     this.getCard(cardId);
   }
@@ -26,7 +25,6 @@ export class Postcard extends React.Component {
     // this.setState({
     //   loading: true
     // });
-    console.log(cardId);
     fetch(`${API_BASE_URL}/api/cards/${cardId}`, {
       method: 'GET',
       headers: {
@@ -84,9 +82,7 @@ export class Postcard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  // card: state.card,
   isCardFlipped: state.card.isCardFlipped
-  // loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(Postcard);

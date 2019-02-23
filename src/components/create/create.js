@@ -65,8 +65,6 @@ export class Create extends React.Component {
   }
 
   sendCard() {
-    console.log(this.props.card);
-    console.log(this.props.cardId);
     if (!this.props.cardId) {
       this.setState({
         errorMessage: 'Please save card to send'
@@ -90,8 +88,6 @@ export class Create extends React.Component {
   }
 
   render() {
-    console.log(this.props.card);
-
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">

@@ -88,7 +88,6 @@ export const searchImage = query => dispatch => {
   })
     .then(response => response.json())
     .then(data => {
-      console.log(data.total);
       if (data.total === 0) {
         dispatch(setError('There were no results. Try a different search'));
       } else {
@@ -136,7 +135,6 @@ export const saveCard = currentCard => dispatch => {
     localStorage.getItem('authToken') !== null
       ? localStorage.getItem('authToken')
       : DEMO_AUTH_TOKEN;
-  console.log(currentCard);
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards`, {
     method: 'POST',
@@ -163,7 +161,6 @@ export const saveCard = currentCard => dispatch => {
 };
 
 export const updateCard = currentCard => dispatch => {
-  console.log('updateCard action fired');
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards/${currentCard.cardId}`, {
     method: 'PUT',

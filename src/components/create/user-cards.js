@@ -52,13 +52,8 @@ export class UserCards extends React.Component {
 
   render() {
     if (this.props.loading) {
-      return (
-        <div>
-          <p>Loading cards</p>
-        </div>
-      );
-    }
-    if (this.props.userCards.length === 0) {
+      return <i className="fas fa-3x fa-spinner fa-pulse" />;
+    } else if (this.props.userCards.length === 0) {
       return <p className="collection-message">You don't have any saved cards yet</p>;
     }
     const userCards = this.props.userCards.map(card => (
@@ -68,7 +63,7 @@ export class UserCards extends React.Component {
         ref={cardId => (this.cardId = cardId)}
         onClick={e => this.setCard(e, card._id)}
       >
-        <p className="saved-card-edit-instruction">Click to edit or send</p>
+        <p className="saved-card-edit-instruction">Click to edit</p>
         <button className="delete-card-btn" onClick={e => this.toggleModal(e, true, card._id)}>
           <i className="fa fa-trash" />
         </button>

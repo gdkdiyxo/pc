@@ -64,7 +64,6 @@ export class CardForms extends React.Component {
   }
 
   render() {
-    console.log(this.props.error);
     return (
       <div>
         <div className="create-page-form-wrapper">
