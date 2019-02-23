@@ -4,7 +4,7 @@ cache:
   directories:
     - node_modules
 env:
-  - CI=true REACT_APP_API_BASE_URL='https://afternoon-springs-38653.herokuapp.com' REACT_APP_CLIENT_BASE_URL='https://powerful-brook-49143.herokuapp.com/'
+  - CI=true REACT_APP_API_BASE_URL=https://afternoon-springs-38653.herokuapp.com REACT_APP_CLIENT_BASE_URL=https://powerful-brook-49143.herokuapp.com/
 
 deploy:
   provider: heroku
