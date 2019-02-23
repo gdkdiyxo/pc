@@ -127,11 +127,11 @@ export class Create extends React.Component {
 
         <CardForms />
 
-        {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
         <section className="card-collection-container">
           <p className="card-collection-container-label">My collection</p>
           <SavedCards />
         </section>
+        {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
       </main>
     );
   }
