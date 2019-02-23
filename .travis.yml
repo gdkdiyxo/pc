@@ -2,9 +2,10 @@ language: node_js
 node_js: node
 cache:
   directories:
-  - node_modules
+    - node_modules
 env:
-- CI=true
+  - CI=true REACT_APP_API_BASE_URL='https://afternoon-springs-38653.herokuapp.com' REACT_APP_CLIENT_BASE_URL='https://powerful-brook-49143.herokuapp.com/'
+
 deploy:
   provider: heroku
   api_key:
