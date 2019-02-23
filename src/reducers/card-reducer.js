@@ -1,9 +1,10 @@
 import {
+  SET_RESULTS,
+  SET_IMAGE,
   FLIP_CARD,
   ADD_MESSAGE,
   ADD_RECIPIENT,
   CLEAR_RECIPIENTS,
-  SET_IMAGE,
   DELETE_EMAIL,
   DISPLAY_CARDS,
   SET_CARD,
@@ -12,6 +13,7 @@ import {
 } from '../actions/card';
 
 const initialState = {
+  results: [],
   cardId: null,
   id: null,
   image: {
@@ -33,12 +35,18 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
+  if (action.type === SET_RESULTS) {
+    console.log('SET_RESULTS fired');
+    console.log(action.results);
+    return Object.assign({}, state, {
+      results: action.results
+    });
+  }
   if (action.type === SET_IMAGE) {
     return Object.assign({}, state, {
       image: action.image
     });
-  }
-  if (action.type === FLIP_CARD) {
+  } else if (action.type === FLIP_CARD) {
     return Object.assign({}, state, {
       isCardFlipped: !state.isCardFlipped
     });

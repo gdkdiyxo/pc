@@ -1,8 +1,11 @@
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL, UNSPLASH_AUTH, DEMO_AUTH_TOKEN } from '../config';
 import { fetchRequest, fetchSuccess } from './auth';
 
-const demoAuthToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjNmUzMmJhN2M3ZTI5NjhmNzFmNzhhOCIsInVzZXJuYW1lIjoiZGVtb3VzZXIiLCJwYXNzd29yZCI6IiQyYSQxMCRuN1U0V3pMUHhZdnhFQWlpRk9QWUxPOGNjVkdxQW9FejIuUkpOTnBLY2kxZ0phbUExakJhaSIsIm5hbWUiOiJEZW1vVXNlciIsIl9fdiI6MH0sImlhdCI6MTU1MDcyNjAwMCwiZXhwIjoxNTUxMzMwODAwLCJzdWIiOiJkZW1vdXNlciJ9.rZhZBd4jXgs-6GfAQKqaHuSM3fkEjXCzG4c80H9j7yU';
+export const SET_RESULTS = 'SET_RESULTS';
+export const setResults = results => ({
+  type: SET_RESULTS,
+  results
+});
 
 export const SET_IMAGE = 'SET_IMAGE';
 export const setImage = image => ({
@@ -61,6 +64,48 @@ export const clearCard = () => ({
   type: CLEAR_CARD
 });
 
+//    www.unsplash.com API    //
+//default page is 1 (this could maybe be randomized to get more images)
+//max per page is 30
+export const searchImage = query => dispatch => {
+  const page = 1;
+  const per_page = 30;
+  const orientation = 'landscape';
+  let url = `https://api.unsplash.com/search/photos?page=${page}&per_page=${per_page}&orientation=${orientation}&query=${query}`;
+  fetch(`${url}`, {
+    headers: {
+      method: 'GET',
+      'Content-Type': 'application/JSON',
+      'Accept-Version': 'v1',
+      Authorization: `${UNSPLASH_AUTH}`
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      // console.log(data);
+      // console.log(data.total);
+      console.log(data.results[5]);
+      // const isResults = data.total === 0;
+      // console.log(data['results']);
+      dispatch(setResults(data.results));
+      //     if (data.total === 0) {
+      //       this.setState({ errorMessage: 'There were no results. Try a different search' });
+      //     } else {
+      //       this.setState({ errorMessage: '' });
+      const randomResult = Math.floor(Math.random() * (page * per_page));
+      const image = data.results[randomResult];
+      const card = {
+        full: image.urls.regular,
+        thumb: image.urls.thumb,
+        alt: image.description,
+        credit: image.user.name,
+        portfolio: image.user.links.html
+      };
+      console.log(card);
+      dispatch(setImage(card));
+    });
+};
+
 //    User CRUD operations    //
 export const fetchCards = () => dispatch => {
   dispatch(fetchRequest());
@@ -86,7 +131,9 @@ export const fetchCards = () => dispatch => {
 
 export const saveCard = currentCard => dispatch => {
   const authToken =
-    localStorage.getItem('authToken') !== null ? localStorage.getItem('authToken') : demoAuthToken;
+    localStorage.getItem('authToken') !== null
+      ? localStorage.getItem('authToken')
+      : DEMO_AUTH_TOKEN;
   console.log(currentCard);
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards`, {

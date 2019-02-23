@@ -88,6 +88,8 @@ export class Create extends React.Component {
   }
 
   render() {
+    console.log(this.props.card);
+
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
