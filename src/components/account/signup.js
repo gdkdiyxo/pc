@@ -13,6 +13,7 @@ export class Signup extends React.Component {
   }
 
   render() {
+    console.log(this.props.error);
     if (this.props.currentUser !== null) {
       return <Redirect to={`/create`} />;
     }
@@ -29,13 +30,21 @@ export class Signup extends React.Component {
         <div className="account-form-box">
           <h2>Sign up</h2>
           <SignupForm />
-          {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
-          <br />
+          <div className="account-form-error">
+            {this.props.error ? (
+              <p className="error-message" aria-live="polite">
+                {this.props.error}
+              </p>
+            ) : (
+              <br />
+            )}
+          </div>
           <p>Already a user?</p>
           <button>
             <Link to="/login">Log in here</Link>
           </button>
         </div>
+        {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
       </main>
     );
   }
@@ -43,7 +52,8 @@ export class Signup extends React.Component {
 
 const mapStateToProps = state => ({
   currentUser: state.auth.currentUser,
-  loading: state.auth.loading
+  loading: state.auth.loading,
+  error: state.auth.error
 });
 
 export default connect(mapStateToProps)(Signup);

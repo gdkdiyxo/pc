@@ -1,9 +1,9 @@
-import { SET_USER, FETCH_SUCCESS, FETCH_REQUEST } from '../actions/auth';
+import { SET_USER, FETCH_SUCCESS, FETCH_REQUEST, SET_AUTH_ERROR } from '../actions/auth';
 
 const initialState = {
   currentUser: null,
   loading: false,
-  sendEmail: 'no'
+  error: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -17,8 +17,11 @@ export default function reducer(state = initialState, action) {
     });
   } else if (action.type === FETCH_SUCCESS) {
     return Object.assign({}, state, {
-      loading: false,
-      sendEmail: 'yes'
+      loading: false
+    });
+  } else if (action.type === SET_AUTH_ERROR) {
+    return Object.assign({}, state, {
+      error: action.error
     });
   }
   return state;

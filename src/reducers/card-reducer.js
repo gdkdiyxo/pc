@@ -82,6 +82,7 @@ export default function reducer(state = initialState, action) {
       editing: action.boolean
     });
   } else if (action.type === SET_ERROR) {
+    console.log('set error fired');
     return Object.assign({}, state, {
       error: action.error
     });

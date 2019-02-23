@@ -17,6 +17,12 @@ export const fetchSuccess = () => ({
   type: FETCH_SUCCESS
 });
 
+export const SET_AUTH_ERROR = 'SET_AUTH_ERROR';
+export const setAuthError = error => ({
+  type: SET_AUTH_ERROR,
+  error
+});
+
 export const handleAuthToken = (authToken, dispatch) => {
   localStorage.setItem('authToken', authToken);
   const decodedToken = jwtDecode(authToken);
@@ -45,7 +51,7 @@ export const loginUser = (username, password) => dispatch => {
       'content-type': 'application/json'
     },
     body: JSON.stringify({
-      username,
+      username: username.toLowerCase(),
       password
     })
   })
@@ -61,21 +67,34 @@ export const loginUser = (username, password) => dispatch => {
 };
 
 export const signupUser = values => dispatch => {
+  // let username
+  let { name, username, password } = values;
+  username = username.toLowerCase();
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/signup`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(values)
+    body: JSON.stringify({
+      name,
+      username,
+      password
+    })
   })
     .then(res => {
+      if (res.status !== 200) {
+        res.json().then(body => {
+          console.log(body.message);
+          dispatch(setAuthError(body.message));
+        });
+      }
       if (!res.ok) {
-        return Promise.reject(res.statusText);
+        return Promise.reject(res);
       }
       return Promise.resolve(res.json());
     })
-    .then(() => dispatch(loginUser(values.username, values.password)))
+    .then(() => dispatch(loginUser(username, password)))
     .then(() => dispatch(fetchSuccess()))
     .catch(err => console.log(err));
 };

@@ -67,7 +67,7 @@ export class Create extends React.Component {
   sendCard() {
     if (!this.props.cardId) {
       this.setState({
-        errorMessage: 'Please save card to send'
+        errorMessage: 'Please save card before sending'
       });
     } else if (this.props.recipients.length === 0) {
       this.setState({
@@ -88,6 +88,7 @@ export class Create extends React.Component {
   }
 
   render() {
+    console.log(this.props.editing);
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
@@ -146,8 +147,7 @@ const mapStateToProps = state => ({
   recipients: state.card.recipients,
   editing: state.card.editing,
   currentUser: state.auth.currentUser,
-  loading: state.auth.loading,
-  sendEmail: state.auth.sendEmail
+  loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(Create);

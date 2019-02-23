@@ -34,7 +34,7 @@ export class CardForms extends React.Component {
 
   onChange(text) {
     !this.props.isCardFlipped && this.props.dispatch(flipCard());
-    setEditing();
+    this.setEditing();
     this.props.dispatch(addMessage(text));
   }
 
@@ -54,7 +54,7 @@ export class CardForms extends React.Component {
     } else {
       this.setState({ errorMessage: '' });
       this.props.dispatch(addRecipient(email));
-      setEditing();
+      this.setEditing();
       this.emailInput.value = '';
     }
   }

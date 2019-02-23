@@ -171,7 +171,9 @@ export const updateCard = currentCard => dispatch => {
     body: JSON.stringify(currentCard)
   })
     .then(() => dispatch(fetchCards()))
-
+    .then(() => {
+      dispatch(fetchSuccess());
+    })
     .catch(err => console.log(err));
 };
 
@@ -190,5 +192,8 @@ export const deleteCard = cardId => dispatch => {
       }
     })
     .then(() => dispatch(fetchCards()))
+    .then(() => {
+      dispatch(fetchSuccess());
+    })
     .catch(err => console.log(err));
 };
