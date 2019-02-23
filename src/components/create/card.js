@@ -65,6 +65,7 @@ export class Card extends React.Component {
 
         <div className="card-back-container">
           <div className="card-message">{formattedMessage}</div>
+          <img className="stamp-icon" src="../images/stamp-icon.png" alt="A stamp icon" />
           <div className="card-emails-container">{emailList}</div>
         </div>
       </div>
