@@ -29,10 +29,18 @@ export class Login extends React.Component {
         <div className="account-form-box">
           <h2>Log in</h2>
           <LoginForm />
-          {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
+          <div className="account-form-error">
+            {this.props.error ? (
+              <p className="error-message" aria-live="polite">
+                {this.props.error}
+              </p>
+            ) : (
+              <br />
+            )}
+          </div>
           <p className="demo-login-info">
             Demo login:
-            <br /> username: <b>testuser</b> | password: <b>password</b>
+            <br /> username: <b>demouser</b> | password: <b>demopassword</b>
           </p>
           <br />
           <p>Need an account?</p>
@@ -40,6 +48,7 @@ export class Login extends React.Component {
             <Link to="/signup">Sign up here</Link>
           </button>
         </div>
+        {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
       </main>
     );
   }
@@ -47,7 +56,8 @@ export class Login extends React.Component {
 
 const mapStateToProps = state => ({
   currentUser: state.auth.currentUser,
-  loading: state.auth.loading
+  loading: state.auth.loading,
+  error: state.auth.error
 });
 
 export default connect(mapStateToProps)(Login);

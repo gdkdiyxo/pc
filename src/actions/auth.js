@@ -57,13 +57,21 @@ export const loginUser = (username, password) => dispatch => {
   })
     .then(res => {
       if (!res.ok) {
-        return Promise.reject(res.statusText);
+        if (res.status === 401) {
+          dispatch(setAuthError('Invalid username or password'));
+        }
+        dispatch(fetchSuccess());
+        return Promise.reject(res);
       }
       return res.json();
     })
-    .then(({ authToken }) => handleAuthToken(authToken, dispatch))
-    .then(() => dispatch(fetchSuccess()))
-    .catch(err => console.log(err));
+    .then(({ authToken }) => {
+      handleAuthToken(authToken, dispatch);
+      dispatch(fetchSuccess());
+    })
+    .catch(err => {
+      Promise.resolve(err);
+    });
 };
 
 export const signupUser = values => dispatch => {
@@ -83,18 +91,22 @@ export const signupUser = values => dispatch => {
     })
   })
     .then(res => {
-      if (res.status !== 200) {
-        res.json().then(body => {
-          console.log(body.message);
-          dispatch(setAuthError(body.message));
-        });
-      }
       if (!res.ok) {
+        if (res.status === 422) {
+          res.json().then(body => {
+            dispatch(setAuthError(body.message));
+          });
+        }
+        dispatch(fetchSuccess());
         return Promise.reject(res);
       }
       return Promise.resolve(res.json());
     })
-    .then(() => dispatch(loginUser(username, password)))
-    .then(() => dispatch(fetchSuccess()))
-    .catch(err => console.log(err));
+    .then(() => {
+      dispatch(loginUser(username, password));
+      dispatch(fetchSuccess());
+    })
+    .catch(err => {
+      Promise.resolve(err);
+    });
 };

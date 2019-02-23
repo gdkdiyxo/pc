@@ -13,7 +13,6 @@ export class Signup extends React.Component {
   }
 
   render() {
-    console.log(this.props.error);
     if (this.props.currentUser !== null) {
       return <Redirect to={`/create`} />;
     }
