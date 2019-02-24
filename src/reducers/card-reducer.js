@@ -88,13 +88,13 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       cardId: null,
       image: {
-        full: '',
-        thumb: '',
-        alt: '',
-        credit: '',
-        portfolio: ''
+        full: null,
+        thumb: null,
+        alt: null,
+        credit: null,
+        portfolio: null
       },
-      message: '',
+      message: null,
       recipients: []
     });
   }

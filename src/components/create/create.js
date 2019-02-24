@@ -88,6 +88,7 @@ export class Create extends React.Component {
   }
 
   render() {
+    console.log(this.props.currentUser);
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
@@ -111,7 +112,7 @@ export class Create extends React.Component {
             <button className="create-page-btn">Preview</button>
           </Link>
           <button
-            disabled={!this.state.currentUser}
+            disabled={!this.props.currentUser}
             className="create-page-btn"
             onClick={e => this.handleSave(e)}
           >
