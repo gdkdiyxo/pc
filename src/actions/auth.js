@@ -33,7 +33,6 @@ export const handleAuthToken = (authToken, dispatch) => {
 
 export const handleRefresh = () => dispatch => {
   const authToken = localStorage.getItem('authToken');
-  console.log(authToken);
   if (!authToken) {
     return;
   }

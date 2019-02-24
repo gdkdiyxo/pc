@@ -24,9 +24,6 @@ export class RecipientView extends React.Component {
   }
 
   getCard(cardId) {
-    // this.setState({
-    //   loading: true
-    // });
     fetch(`${API_BASE_URL}/api/cards/${cardId}`, {
       method: 'GET',
       headers: {
@@ -70,7 +67,6 @@ export class RecipientView extends React.Component {
       <main role="main">
         <section
           card={this.props.card}
-          // id="recipient-card"
           className="card-outer recipient-view"
           onClick={e => this.flipCard(e)}
         >
