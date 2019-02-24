@@ -39,7 +39,7 @@ export class CardForms extends React.Component {
   }
 
   isMaxRecipients() {
-    const maxRecipients = 2;
+    const maxRecipients = 8;
     return !(this.props.recipients.length < maxRecipients);
   }
 
@@ -64,6 +64,7 @@ export class CardForms extends React.Component {
   }
 
   render() {
+    const value = this.props.cardId ? this.props.message : undefined;
     return (
       <div>
         <div className="create-page-form-wrapper">
@@ -97,6 +98,7 @@ export class CardForms extends React.Component {
               placeholder="e.g. Guess where I am right now?!"
               maxLength="300"
               onChange={e => this.onChange(e.target.value)}
+              value={value}
             />
           </div>
         </form>

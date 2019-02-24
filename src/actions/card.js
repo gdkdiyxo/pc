@@ -1,4 +1,4 @@
-import { API_BASE_URL, UNSPLASH_AUTH, DEMO_AUTH_TOKEN } from '../config';
+import { API_BASE_URL, UNSPLASH_AUTH } from '../config';
 import { fetchRequest, fetchSuccess } from './auth';
 
 export const SET_RESULTS = 'SET_RESULTS';
@@ -131,16 +131,12 @@ export const fetchCards = () => dispatch => {
 };
 
 export const saveCard = currentCard => dispatch => {
-  const authToken =
-    localStorage.getItem('authToken') !== null
-      ? localStorage.getItem('authToken')
-      : DEMO_AUTH_TOKEN;
   dispatch(fetchRequest());
   fetch(`${API_BASE_URL}/api/cards`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      Authorization: `Bearer ${authToken}`
+      Authorization: `Bearer ${localStorage.getItem('authToken')}`
     },
     body: JSON.stringify(currentCard)
   })
