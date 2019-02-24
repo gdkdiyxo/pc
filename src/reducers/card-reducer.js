@@ -32,7 +32,6 @@ const initialState = {
   isCardFlipped: false,
   userCards: [],
   editing: false,
-  editingId: null,
   error: null
 };
 
