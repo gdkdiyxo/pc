@@ -55,7 +55,9 @@ export class RecipientView extends React.Component {
   }
 
   render() {
-    const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
+    const cardClass = this.props.isCardFlipped
+      ? 'card-back recipient-card'
+      : 'card-front recipient-card';
 
     if (this.state.error) {
       return <p>{this.state.error}</p>;
@@ -68,6 +70,7 @@ export class RecipientView extends React.Component {
       <main role="main">
         <section
           card={this.props.card}
+          // id="recipient-card"
           className="card-outer recipient-view"
           onClick={e => this.flipCard(e)}
         >
