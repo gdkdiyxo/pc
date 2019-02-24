@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchCards, setCard, deleteCard } from '../../actions/card';
+import { setCard, deleteCard } from '../../actions/card';
 
 function ConfirmDeleteModal(props) {
   const hidden = { display: 'none' };
@@ -25,10 +25,6 @@ export class UserCards extends React.Component {
       showing: false,
       cardId: ''
     };
-  }
-
-  componentDidMount() {
-    this.props.dispatch(fetchCards());
   }
 
   toggleModal(event, showing, cardId) {

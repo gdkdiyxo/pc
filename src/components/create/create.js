@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { CLIENT_BASE_URL } from '../../config';
 
 import CardForms from './card-forms';
-import SavedCards from './user-cards';
+import UserCards from './user-cards';
 import Card from './card';
 
 import { flipCard, clearCard, saveCard, updateCard, setEditing } from '../../actions/card';
@@ -110,7 +110,11 @@ export class Create extends React.Component {
           <Link to="/preview">
             <button className="create-page-btn">Preview</button>
           </Link>
-          <button className="create-page-btn" onClick={e => this.handleSave(e)}>
+          <button
+            disabled={!this.state.currentUser}
+            className="create-page-btn"
+            onClick={e => this.handleSave(e)}
+          >
             {!this.props.editing ? 'Save' : 'Save changes'}
           </button>
           <button className="create-page-btn" onClick={e => this.sendCard(e)}>
@@ -125,17 +129,12 @@ export class Create extends React.Component {
 
         <section className="card-collection-container">
           <p className="card-collection-container-label">My collection</p>
-          <SavedCards />
+          <UserCards />
         </section>
-        {this.props.loading && <i className="fas fa-3x fa-spinner fa-pulse" />}
       </main>
     );
   }
 }
-
-Create.defaultProps = {
-  recipients: ['example1@gmail.com', 'example2@yahoo.com', 'example3@aol.com']
-};
 
 const mapStateToProps = state => ({
   card: state.card,

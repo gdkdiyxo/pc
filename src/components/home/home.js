@@ -8,8 +8,8 @@ import './home.css';
 
 export class Home extends React.Component {
   demoLogin() {
-    const username = 'testuser';
-    const password = 'password';
+    const username = 'demouser';
+    const password = 'demopassword';
     this.props.dispatch(loginUser(username, password));
   }
 

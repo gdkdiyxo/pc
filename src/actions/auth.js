@@ -1,6 +1,8 @@
 import { API_BASE_URL } from '../config';
 import jwtDecode from 'jwt-decode';
 
+import { fetchCards } from './card';
+
 export const SET_USER = 'SET_USER';
 export const setUser = username => ({
   type: SET_USER,
@@ -31,11 +33,13 @@ export const handleAuthToken = (authToken, dispatch) => {
 
 export const handleRefresh = () => dispatch => {
   const authToken = localStorage.getItem('authToken');
+  console.log(authToken);
   if (!authToken) {
     return;
   }
   const decodedToken = jwtDecode(authToken);
   dispatch(setUser(decodedToken.user.username));
+  dispatch(fetchCards());
   dispatch(setAuthError(null));
 };
 
@@ -68,7 +72,8 @@ export const loginUser = (username, password) => dispatch => {
     })
     .then(({ authToken }) => {
       handleAuthToken(authToken, dispatch);
-      dispatch(fetchSuccess());
+      dispatch(fetchCards());
+      return dispatch(fetchSuccess());
     })
     .catch(err => {
       Promise.resolve(err);
