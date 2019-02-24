@@ -5,6 +5,8 @@ import { API_BASE_URL } from '../../config';
 import Card from '../create/card';
 import { flipCard } from '../../actions/card';
 
+import './recipient-view.css';
+
 export class RecipientView extends React.Component {
   constructor(props) {
     super(props);
@@ -63,19 +65,20 @@ export class RecipientView extends React.Component {
     }
 
     return (
-      <main
-        role="main"
-        card={this.props.card}
-        className="card-outer"
-        onClick={e => this.flipCard(e)}
-      >
-        <div className={cardClass}>
-          <Card
-            image={this.state.card.image}
-            message={this.state.card.message}
-            recipients={this.state.card.recipients}
-          />
-        </div>
+      <main role="main">
+        <section
+          card={this.props.card}
+          className="card-outer recipient-view"
+          onClick={e => this.flipCard(e)}
+        >
+          <div className={cardClass}>
+            <Card
+              image={this.state.card.image}
+              message={this.state.card.message}
+              recipients={this.state.card.recipients}
+            />
+          </div>
+        </section>
       </main>
     );
   }
