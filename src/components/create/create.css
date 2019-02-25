@@ -322,6 +322,10 @@
     cursor: pointer;
   }
 
+  .card-back-container:hover {
+    cursor: pointer;
+  }
+
   .card-flip-instruction {
     display: none;
   }
