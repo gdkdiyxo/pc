@@ -22,7 +22,7 @@ export class Card extends React.Component {
   }
 
   render() {
-    //Allow carriage return on message display
+    //Render carriage return when displaying message
     const formattedMessage = this.props.message.split('\n').map((item, key) => {
       return (
         <span key={key}>

@@ -70,14 +70,13 @@ export const setError = error => ({
   error
 });
 
-//    www.unsplash.com API    //
-//default page is 1 (this could maybe be randomized to get more images)
-//max per page is 30
+//    Unsplash API    //
+//default page count is 1, max per page is 30
 export const searchImage = query => dispatch => {
   const page = 1;
   const per_page = 30;
   const orientation = 'landscape';
-  let url = `https://api.unsplash.com/search/photos?page=${page}&per_page=${per_page}&orientation=${orientation}&query=${query}`;
+  const url = `https://api.unsplash.com/search/photos?page=${page}&per_page=${per_page}&orientation=${orientation}&query=${query}`;
   fetch(`${url}`, {
     headers: {
       method: 'GET',

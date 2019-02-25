@@ -59,7 +59,7 @@ export class RecipientView extends React.Component {
     if (this.state.error) {
       return <p>{this.state.error}</p>;
     } else if (this.state.loading) {
-      return <p>Loading</p>;
+      return <i className="fas fa-3x fa-spinner fa-pulse" />;
     } else if (!this.state.loading) {
     }
 

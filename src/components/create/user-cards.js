@@ -23,7 +23,7 @@ export class UserCards extends React.Component {
     super(props);
     this.state = {
       showing: false,
-      cardId: ''
+      cardId: null
     };
   }
 

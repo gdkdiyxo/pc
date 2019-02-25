@@ -11,7 +11,9 @@ export class Preview extends React.Component {
   }
 
   render() {
-    const cardClass = this.props.card.isCardFlipped ? 'card-back' : 'card-front';
+    const cardClass = this.props.card.isCardFlipped
+      ? 'card-back recipient-card'
+      : 'card-front recipient-card';
 
     return (
       <main role="main">

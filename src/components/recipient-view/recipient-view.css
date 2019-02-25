@@ -1,5 +1,5 @@
+/*Hide email delete buttons on Recipient View and Preview*/
 .recipient-card button {
-  /* display: flex; */
   display: none;
 }
 

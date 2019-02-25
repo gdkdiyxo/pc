@@ -20,6 +20,7 @@ export class Create extends React.Component {
     };
   }
 
+  //Keep user logged in on page refresh
   componentDidMount() {
     this.props.dispatch(handleRefresh());
   }
@@ -32,6 +33,7 @@ export class Create extends React.Component {
     this.props.dispatch(clearCard());
   }
 
+  //Direct button action to either save or update card
   handleSave() {
     if (!this.props.image.full) {
       this.setState({
@@ -64,6 +66,7 @@ export class Create extends React.Component {
     this.props.dispatch(setEditing(false));
   }
 
+  //Sending requires a card id (so recipients have a unique link to visit to view card) and at least 1 email address
   sendCard() {
     if (!this.props.cardId) {
       this.setState({
@@ -88,6 +91,7 @@ export class Create extends React.Component {
   }
 
   render() {
+    //cardClass determines which side of card is showing
     const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">

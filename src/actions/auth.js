@@ -80,7 +80,6 @@ export const loginUser = (username, password) => dispatch => {
 };
 
 export const signupUser = values => dispatch => {
-  // let username
   let { name, username, password } = values;
   username = username.toLowerCase();
   dispatch(fetchRequest());

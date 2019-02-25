@@ -22,9 +22,7 @@ import {
   CLEAR_CARD,
   clearCard,
   SET_ERROR,
-  setError,
-  searchImage,
-  fetchCards
+  setError
 } from './card';
 
 describe('setResults', () => {

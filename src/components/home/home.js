@@ -7,6 +7,7 @@ import { loginUser } from '../../actions/auth';
 import './home.css';
 
 export class Home extends React.Component {
+  //Hard code demo account credentials so users can use the demo with a single click (in addition to visiting the Login page)
   demoLogin() {
     const username = 'demouser';
     const password = 'demopassword';
