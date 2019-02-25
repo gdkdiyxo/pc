@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { CLIENT_BASE_URL } from '../../config';
 
 import {
   searchImage,
@@ -64,7 +65,8 @@ export class CardForms extends React.Component {
   }
 
   render() {
-    const value = this.props.cardId ? this.props.message : undefined;
+    const cardMessageValue = this.props.cardId ? this.props.message : undefined;
+    const recipientLink = `${CLIENT_BASE_URL}/postcards/${this.props.cardId}`;
     return (
       <div>
         <div className="create-page-form-wrapper">
@@ -98,7 +100,7 @@ export class CardForms extends React.Component {
               placeholder="e.g. Guess where I am right now?!"
               maxLength="300"
               onChange={e => this.onChange(e.target.value)}
-              value={value}
+              value={cardMessageValue}
             />
           </div>
         </form>
@@ -122,6 +124,17 @@ export class CardForms extends React.Component {
                 Delete all
               </button>
             </div>
+            {this.props.cardId && (
+              <div className="recipient-link">
+                <p>Or paste this link into your favorite messaging app:</p>
+                <textarea
+                  value={recipientLink}
+                  className="recipient-link-textarea"
+                  wrap="off"
+                  readOnly
+                />
+              </div>
+            )}
             {this.isMaxRecipients() && (
               <p className="error-message" aria-live="polite">
                 Maximum recipients is 8
