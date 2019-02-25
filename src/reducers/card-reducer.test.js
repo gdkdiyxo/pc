@@ -171,7 +171,7 @@ describe('authReducer', () => {
           credit: null,
           portfolio: null
         },
-        message: null,
+        message: '',
         recipients: [],
         isCardFlipped: false,
         userCards: [],

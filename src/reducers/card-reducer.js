@@ -94,7 +94,7 @@ export default function reducer(state = initialState, action) {
         credit: null,
         portfolio: null
       },
-      message: null,
+      message: '',
       recipients: []
     });
   }
