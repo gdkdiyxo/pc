@@ -38,13 +38,7 @@
   z-index: 2;
 }
 
-/* .card-image-container:hover {
-  opacity: 0.8;
-  cursor: pointer;
-} */
-
 .card-flip-instruction {
-  display: none;
   opacity: 0.7;
   font-size: 3vh;
   color: white;
@@ -56,10 +50,6 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
-/* .card-image-container:hover > .card-flip-instruction {
-  display: block;
-} */
 
 .card-image-container img {
   height: 100%;
@@ -240,13 +230,7 @@
   box-shadow: 5px 10px 18px #888888;
 }
 
-.saved-card:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-
 .saved-card-edit-instruction {
-  display: none;
   margin: 0;
   opacity: 0.8;
   font-size: 1.5vh;
@@ -257,10 +241,6 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-
-.saved-card:hover > .saved-card-edit-instruction {
-  display: block;
 }
 
 .delete-card-btn {
@@ -334,6 +314,33 @@
   .card-outer {
     width: 750px;
     height: 495px;
+  }
+
+  /*  Hover to show flip instructions */
+  .card-image-container:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .card-flip-instruction {
+    display: none;
+  }
+
+  .card-image-container:hover > .card-flip-instruction {
+    display: block;
+  }
+
+  .saved-card:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .saved-card-edit-instruction {
+    display: none;
+  }
+
+  .saved-card:hover > .saved-card-edit-instruction {
+    display: block;
   }
 
   .delete-card-modal {
