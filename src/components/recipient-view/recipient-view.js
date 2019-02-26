@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { API_BASE_URL } from '../../config';
 
 import Card from '../create/card';
-import { flipCard } from '../../actions/card';
 
 import './recipient-view.css';
 
@@ -47,15 +46,7 @@ export class RecipientView extends React.Component {
       );
   }
 
-  flipCard() {
-    this.props.dispatch(flipCard());
-  }
-
   render() {
-    const cardClass = this.props.isCardFlipped
-      ? 'card-back recipient-card'
-      : 'card-front recipient-card';
-
     if (this.state.error) {
       return <p>{this.state.error}</p>;
     } else if (this.state.loading) {
@@ -65,26 +56,21 @@ export class RecipientView extends React.Component {
 
     return (
       <main role="main">
-        <section
-          card={this.props.card}
-          className="card-outer recipient-view"
-          onClick={e => this.flipCard(e)}
-        >
-          <div className={cardClass}>
-            <Card
-              image={this.state.card.image}
-              message={this.state.card.message}
-              recipients={this.state.card.recipients}
-            />
-          </div>
-        </section>
+        <Card
+          image={this.props.image}
+          message={this.props.message}
+          recipients={this.props.recipients}
+        />
       </main>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  isCardFlipped: state.card.isCardFlipped
+  image: state.card.image,
+  message: state.card.message,
+  recipients: state.card.recipients
 });
 
 export default connect(mapStateToProps)(RecipientView);
+// recipient-view"

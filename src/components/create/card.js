@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { deleteEmail } from '../../actions/card';
+import { flipCard, deleteEmail } from '../../actions/card';
 
 function Recipient(props) {
   return (
@@ -15,6 +15,11 @@ function Recipient(props) {
 }
 
 export class Card extends React.Component {
+  flipCard() {
+    console.log('flipCard fired');
+    this.props.dispatch(flipCard());
+  }
+
   deleteEmail(e, index) {
     e.preventDefault();
     e.stopPropagation();
@@ -41,9 +46,12 @@ export class Card extends React.Component {
       />
     ));
 
+    console.log(this.props.isCardFlipped);
+    //cardClass determines which side of card is showing
+    const cardClass = this.props.isCardFlipped ? 'card-outer card-flip' : 'card-outer ';
     return (
-      <div>
-        <div className="card-image-container">
+      <section card={this.props.card} className={cardClass} onClick={e => this.flipCard(e)}>
+        <div className="card-front">
           <p className="card-flip-instruction">Click to flip</p>
 
           <img src={this.props.image.full} alt={this.props.image.alt} />
@@ -63,14 +71,18 @@ export class Card extends React.Component {
           </p>
         </div>
 
-        <div className="card-back-container">
+        <div className="card-back">
           <div className="card-message">{formattedMessage}</div>
           <img className="stamp-icon" src="../images/stamp-icon.png" alt="A stamp icon" />
           <div className="card-emails-container">{emailList}</div>
         </div>
-      </div>
+      </section>
     );
   }
 }
 
-export default connect()(Card);
+const mapStateToProps = state => ({
+  isCardFlipped: state.card.isCardFlipped
+});
+
+export default connect(mapStateToProps)(Card);

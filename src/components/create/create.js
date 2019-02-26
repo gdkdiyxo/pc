@@ -7,7 +7,7 @@ import CardForms from './card-forms';
 import UserCards from './user-cards';
 import Card from './card';
 
-import { flipCard, clearCard, saveCard, updateCard, setEditing } from '../../actions/card';
+import { clearCard, saveCard, updateCard, setEditing } from '../../actions/card';
 import { handleRefresh } from '../../actions/auth';
 
 import './create.css';
@@ -23,10 +23,6 @@ export class Create extends React.Component {
   //Keep user logged in on page refresh
   componentDidMount() {
     this.props.dispatch(handleRefresh());
-  }
-
-  flipCard() {
-    this.props.dispatch(flipCard());
   }
 
   clearCard() {
@@ -91,19 +87,13 @@ export class Create extends React.Component {
   }
 
   render() {
-    //cardClass determines which side of card is showing
-    const cardClass = this.props.isCardFlipped ? 'card-back' : 'card-front';
     return (
       <main role="main">
-        <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
-          <div className={cardClass}>
-            <Card
-              image={this.props.image}
-              message={this.props.message}
-              recipients={this.props.recipients}
-            />
-          </div>
-        </section>
+        <Card
+          image={this.props.image}
+          message={this.props.message}
+          recipients={this.props.recipients}
+        />
         {(!this.props.cardId || this.props.editing || this.props.recipients.length === 0) && (
           <div className="error-message" aria-live="polite">
             {this.state.errorMessage}
@@ -141,9 +131,7 @@ export class Create extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  card: state.card,
   cardId: state.card.cardId,
-  isCardFlipped: state.card.isCardFlipped,
   image: state.card.image,
   message: state.card.message,
   recipients: state.card.recipients,

@@ -3,29 +3,21 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Card from '../create/card';
-import { flipCard } from '../../actions/card';
+
+import '../recipient-view/recipient-view.css';
 
 export class Preview extends React.Component {
-  flipCard() {
-    this.props.dispatch(flipCard());
-  }
-
   render() {
-    const cardClass = this.props.card.isCardFlipped
-      ? 'card-back recipient-card'
-      : 'card-front recipient-card';
-
     return (
       <main role="main">
-        <section card={this.props.card} className="card-outer" onClick={e => this.flipCard(e)}>
-          <div className={cardClass}>
-            <Card
-              image={this.props.card.image}
-              message={this.props.card.message}
-              recipients={this.props.card.recipients}
-            />
-          </div>
-        </section>
+        <p>This is how the card will appear to recipients</p>
+
+        <Card
+          image={this.props.image}
+          message={this.props.message}
+          recipients={this.props.recipients}
+        />
+
         <div className="card-btn-wrapper">
           <Link to="/create">
             <button className="create-page-btn">Back</button>
@@ -37,7 +29,9 @@ export class Preview extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  card: state.card
+  image: state.card.image,
+  message: state.card.message,
+  recipients: state.card.recipients
 });
 
 export default connect(mapStateToProps)(Preview);
