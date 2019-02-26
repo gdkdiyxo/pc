@@ -51,8 +51,11 @@ export class Card extends React.Component {
       <section card={this.props.card} className={cardClass} onClick={e => this.flipCard(e)}>
         <div className="card-front">
           <p className="flip-instruction">Click to flip</p>
-
-          <img src={this.props.image.full} alt={this.props.image.alt} />
+          {this.props.image.full ? (
+            <img src={this.props.image.full} alt={this.props.image.alt} />
+          ) : (
+            <p>Start by searching for an image below</p>
+          )}
           <p className="photo-credit">
             Photo credit:{' '}
             <a

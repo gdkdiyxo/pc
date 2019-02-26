@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setCard, deleteCard } from '../../actions/card';
+import { setCard, deleteCard, clearCard } from '../../actions/card';
 
 function ConfirmDeleteModal(props) {
   const hidden = { display: 'none' };
@@ -43,6 +43,7 @@ export class UserCards extends React.Component {
   deleteCard(event, cardId) {
     event.preventDefault();
     this.props.dispatch(deleteCard(cardId));
+    this.props.dispatch(clearCard());
     this.toggleModal(event, false);
   }
 
