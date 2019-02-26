@@ -1,12 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { API_BASE_URL } from '../../config';
 
 import Card from '../create/card';
 
-import './recipient-view.css';
-
-export class RecipientView extends React.Component {
+export default class RecipientView extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,6 +20,7 @@ export class RecipientView extends React.Component {
   }
 
   getCard(cardId) {
+    console.log('getCard called');
     fetch(`${API_BASE_URL}/api/cards/${cardId}`, {
       method: 'GET',
       headers: {
@@ -36,6 +34,7 @@ export class RecipientView extends React.Component {
         return res.json();
       })
       .then(card => {
+        console.log(card);
         this.setState({ card, loading: false });
       })
       .catch(err =>
@@ -55,22 +54,15 @@ export class RecipientView extends React.Component {
     }
 
     return (
-      <main role="main">
+      <main role="main" className="preview">
+        <p>Click or tap on the postcard to flip!</p>
+
         <Card
-          image={this.props.image}
-          message={this.props.message}
-          recipients={this.props.recipients}
+          image={this.state.card.image}
+          message={this.state.card.message}
+          recipients={this.state.card.recipients}
         />
       </main>
     );
   }
 }
-
-const mapStateToProps = state => ({
-  image: state.card.image,
-  message: state.card.message,
-  recipients: state.card.recipients
-});
-
-export default connect(mapStateToProps)(RecipientView);
-// recipient-view"

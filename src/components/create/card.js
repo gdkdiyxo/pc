@@ -16,7 +16,6 @@ function Recipient(props) {
 
 export class Card extends React.Component {
   flipCard() {
-    console.log('flipCard fired');
     this.props.dispatch(flipCard());
   }
 
@@ -46,13 +45,12 @@ export class Card extends React.Component {
       />
     ));
 
-    console.log(this.props.isCardFlipped);
     //cardClass determines which side of card is showing
     const cardClass = this.props.isCardFlipped ? 'card-outer card-flip' : 'card-outer ';
     return (
       <section card={this.props.card} className={cardClass} onClick={e => this.flipCard(e)}>
         <div className="card-front">
-          <p className="card-flip-instruction">Click to flip</p>
+          <p className="flip-instruction">Click to flip</p>
 
           <img src={this.props.image.full} alt={this.props.image.alt} />
           <p className="photo-credit">

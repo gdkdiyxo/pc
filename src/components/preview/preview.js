@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 import Card from '../create/card';
 
-import '../recipient-view/recipient-view.css';
+import './preview.css';
 
 export class Preview extends React.Component {
   render() {
     return (
-      <main role="main">
+      <main role="main" className="preview">
         <p>This is how the card will appear to recipients</p>
 
         <Card

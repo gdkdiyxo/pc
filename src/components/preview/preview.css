@@ -1,0 +1,21 @@
+.preview > p {
+  text-align: center;
+  font-size: 2vh;
+  font-family: 'Monda', sans-serif;
+  font-weight: 300;
+}
+
+/*Hide email delete buttons and flip instructions*/
+.preview div > button,
+.preview section > div > p {
+  display: none;
+}
+
+@media only screen and (min-width: 750px) {
+  .preview {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

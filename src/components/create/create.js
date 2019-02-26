@@ -90,6 +90,7 @@ export class Create extends React.Component {
     return (
       <main role="main">
         <Card
+          class={'create-page'}
           image={this.props.image}
           message={this.props.message}
           recipients={this.props.recipients}

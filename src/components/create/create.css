@@ -43,7 +43,7 @@
   width: 100%;
 }
 
-.card-flip-instruction {
+.flip-instruction {
   opacity: 0.7;
   font-size: 3vh;
   color: white;
@@ -309,11 +309,11 @@
     opacity: 0.8;
   }
 
-  .card-flip-instruction {
+  .flip-instruction {
     display: none;
   }
 
-  .card-front:hover > .card-flip-instruction {
+  .card-front:hover > .flip-instruction {
     display: block;
   }
 
