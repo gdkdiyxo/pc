@@ -20,7 +20,6 @@ export default class RecipientView extends React.Component {
   }
 
   getCard(cardId) {
-    console.log('getCard called');
     fetch(`${API_BASE_URL}/api/cards/${cardId}`, {
       method: 'GET',
       headers: {
@@ -34,7 +33,6 @@ export default class RecipientView extends React.Component {
         return res.json();
       })
       .then(card => {
-        console.log(card);
         this.setState({ card, loading: false });
       })
       .catch(err =>
