@@ -15,7 +15,8 @@ export class CardForms extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorMessage: ''
+      emailAddedMessage: null,
+      errorMessage: null
     };
   }
 
@@ -53,11 +54,17 @@ export class CardForms extends React.Component {
         errorMessage: 'Maximum recipients is 8'
       });
     } else {
-      this.setState({ errorMessage: '' });
+      this.setState({ errorMessage: null });
       this.props.dispatch(addRecipient(email));
+      this.showEmailAdded(email);
       this.setEditing();
       this.emailInput.value = '';
     }
+  }
+
+  showEmailAdded(email) {
+    this.setState({ emailAddedMessage: `${email} was added as a recipient` });
+    setTimeout(() => this.setState({ emailAddedMessage: null }), 60000);
   }
 
   clearRecipients() {
@@ -111,6 +118,9 @@ export class CardForms extends React.Component {
               3) Add recipients — when you send a card they'll receive an email with a link to view
               it.
             </label>
+            {this.state.emailAddedMessage && (
+              <p className="email-added-message">{this.state.emailAddedMessage}</p>
+            )}
             <div className="create-page-form-row">
               <input
                 id="recipient-list"
