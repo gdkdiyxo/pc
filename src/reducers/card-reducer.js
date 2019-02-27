@@ -16,7 +16,6 @@ import {
 const initialState = {
   results: [],
   cardId: null,
-  id: null,
   image: {
     full:
       'https://images.unsplash.com/photo-1503970999490-4404449dc349?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU0MzUwfQ',

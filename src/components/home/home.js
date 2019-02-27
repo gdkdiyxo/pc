@@ -1,10 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { loginUser } from '../../actions/auth';
 
 import './home.css';
+
+export function Loading() {
+  return (
+    <div>
+      <i className="fas fa-3x fa-spinner fa-pulse" />
+      <p className="loading-text">Loading</p>
+    </div>
+  );
+}
 
 export class Home extends React.Component {
   //Hard code demo account credentials so users can use the demo with a single click (in addition to visiting the Login page)
@@ -15,6 +24,10 @@ export class Home extends React.Component {
   }
 
   render() {
+    if (this.props.currentUser !== null) {
+      return <Redirect to={`/create`} />;
+    }
+
     return (
       <div>
         <main role="main" className="homepage-main">
@@ -25,6 +38,8 @@ export class Home extends React.Component {
               className="icon-main"
             />
           </div>
+
+          {this.props.loading && <Loading />}
 
           <header className="homepage-header">
             <h1>Welcome to Deltio</h1>
@@ -50,11 +65,9 @@ export class Home extends React.Component {
             Try out the demo, or sign up to start your collection.
           </h3>
           <div className="homepage-btn-wrapper">
-            <Link to="/create">
-              <button className="homepage-btn" onClick={e => this.demoLogin(e)}>
-                Try the demo
-              </button>
-            </Link>
+            <button className="homepage-btn" onClick={e => this.demoLogin(e)}>
+              Try the demo
+            </button>
             <Link to="/signup">
               <button className="homepage-btn">Sign up</button>
             </Link>
@@ -68,4 +81,9 @@ export class Home extends React.Component {
   }
 }
 
-export default connect()(Home);
+const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser,
+  loading: state.auth.loading
+});
+
+export default connect(mapStateToProps)(Home);
