@@ -6,50 +6,37 @@ import { logoutUser } from '../../actions/auth';
 
 import './nav.css';
 
-function LoggedOutLinks() {
-  return (
-    <div>
-      <Link to="/signup">
-        <button className="nav-btn">Sign up</button>
-      </Link>
-      <Link to="/login">
-        <button className="nav-btn">Log in</button>
-      </Link>
-    </div>
-  );
-}
-
-function LoggedInLinks(props) {
-  return (
-    <Link to="/">
-      <button className="nav-btn" onClick={e => props.onClick(e)}>
-        Log out
-      </button>
-    </Link>
-  );
-}
-
 export class Nav extends React.Component {
-  onClick() {
+  logoutUser() {
     this.props.dispatch(logoutUser());
   }
 
   render() {
     return (
       <header role="banner" className="nav-header">
-        <nav role="navigation">
-          <div className="nav-icon">
-            <Link to="/">
-              <img src="../images/deltio-nav-icon.png" alt="the yappr logo, a postcard" />
+        {!this.props.currentUser ? (
+          <nav role="navigation">
+            <div className="nav-icon">
+              <Link to="/">
+                <img src="../images/deltio-nav-icon.png" alt="the yappr logo, a postcard" />
+              </Link>
+            </div>
+            <Link to="/signup">
+              <button className="nav-btn">Sign up</button>
             </Link>
-          </div>
-
-          {!this.props.currentUser ? (
-            <LoggedOutLinks />
-          ) : (
-            <LoggedInLinks onClick={e => this.onClick(e)} />
-          )}
-        </nav>
+            <Link to="/login">
+              <button className="nav-btn">Log in</button>
+            </Link>
+          </nav>
+        ) : (
+          <nav role="navigation">
+            <Link to="/">
+              <button className="nav-btn" onClick={e => this.logoutUser(e)}>
+                Log out
+              </button>
+            </Link>{' '}
+          </nav>
+        )}
       </header>
     );
   }

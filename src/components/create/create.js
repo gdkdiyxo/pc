@@ -87,7 +87,6 @@ export class Create extends React.Component {
   }
 
   render() {
-    console.log(this.props.loading);
     return (
       <main role="main">
         <Card

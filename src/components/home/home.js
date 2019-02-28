@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
-import { loginUser } from '../../actions/auth';
+import { handleRefresh, loginUser } from '../../actions/auth';
 
 import './home.css';
 
@@ -16,6 +16,10 @@ export function Loading() {
 }
 
 export class Home extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(handleRefresh());
+  }
+
   //Hard code demo account credentials so users can use the demo with a single click (in addition to visiting the Login page)
   demoLogin() {
     const username = 'demouser';
