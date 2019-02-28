@@ -54,7 +54,7 @@ export class Card extends React.Component {
           {this.props.image.full ? (
             <img src={this.props.image.full} alt={this.props.image.alt} />
           ) : (
-            <p>Start by searching for an image below</p>
+            <p className="no-image-message">Search for an image below</p>
           )}
           <p className="photo-credit">
             Photo credit:{' '}
