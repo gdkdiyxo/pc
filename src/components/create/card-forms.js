@@ -64,7 +64,7 @@ export class CardForms extends React.Component {
 
   showEmailAdded(email) {
     this.setState({ emailAddedMessage: `${email} was added as a recipient` });
-    setTimeout(() => this.setState({ emailAddedMessage: null }), 60000);
+    setTimeout(() => this.setState({ emailAddedMessage: null }), 3000);
   }
 
   clearRecipients() {
