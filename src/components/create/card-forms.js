@@ -34,7 +34,7 @@ export class CardForms extends React.Component {
     this.props.dispatch(searchImage(query));
   }
 
-  onChange(text) {
+  addMessage(text) {
     !this.props.isCardFlipped && this.props.dispatch(flipCard());
     this.setEditing();
     this.props.dispatch(addMessage(text));
@@ -84,7 +84,7 @@ export class CardForms extends React.Component {
             <div className="create-page-form-row">
               <input
                 id="search"
-                placeholder="e.g. London, Paris, cat, nature"
+                placeholder="places, activities, animals, nature, etc."
                 required={true}
                 ref={input => (this.searchInput = input)}
               />
@@ -106,7 +106,7 @@ export class CardForms extends React.Component {
               className="message-textarea"
               placeholder="e.g. Guess where I am right now?!"
               maxLength="300"
-              onChange={e => this.onChange(e.target.value)}
+              onChange={e => this.addMessage(e.target.value)}
               value={cardMessageValue}
             />
           </div>
@@ -166,4 +166,5 @@ const mapStateToProps = state => ({
   editing: state.card.editing,
   error: state.card.error
 });
+
 export default connect(mapStateToProps)(CardForms);
